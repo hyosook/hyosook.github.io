@@ -7,20 +7,15 @@
 * [vue](docs/vue/index.md)
 
   * [Component&plugin](docs/vue/Component&plugin.md)
-
   * [mixin](docs/vue/mixin.md)
-
   * [v-clock](docs/vue/v-clock.md)
-
   * [v-model file](docs/vue/v-model file.md)
-
   * [vue base](docs/vue/vue base.md)
-
   * [vue-router](docs/vue/vue-router.md)
-
   * [vuex](docs/vue/vux.md)
 
 * [Vue Boilerplate's Framework](docs/Boilerplate/index.md)
+
   * [vue-cli3](docs/Boilerplate/vue-cli3.md)
   * [nuxt](docs/Boilerplate/nuxt.md)
 
@@ -28,14 +23,13 @@
 
 * [nuxt](docs/nuxt/index.md)
 
+
+
 * [SpringBoot](docs/SpringBoot/index.md)
 
   * [Spring Security](docs/SpringBoot/Spring Security.md)
-
   * [web 서버](docs/SpringBoot/web 서버.md)
-
   * [ security configure](docs/SpringBoot/ security configure.md)
-
   * [전송 어노테이션](docs/SpringBoot/전송 어노테이션.md)
 
 * [Java](docs/Java/index.md)
@@ -54,7 +48,6 @@
   * [jpa2](docs/DDD/jpa2.md)
   * [querymehtod](docs/DDD/querymehtod.md)
   * [transactional](docs/DDD/transactional.md)
-  * [기본키설정](docs/DDD/기본키설정.md)
   * [기본키설정](docs/DDD/기본키설정.md)
   * [연관관계](docs/DDD/연관관계.md)
   * [영속성 컨텍스트 트랜잭션](docs/DDD/영속성 컨텍스트 트랜잭션.md)
