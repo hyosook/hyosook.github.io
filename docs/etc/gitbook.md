@@ -84,8 +84,6 @@
 - 최상위 부분에  `publish_gitbook.sh` 파일을 만든다
 
 ```sh
-git checkout master
-git merge docs
 
 gitbook build
 
@@ -96,22 +94,10 @@ git add .
 git commit -m "Update"
 git push origin master
 
-git checkout docs
+
 ```
 
 - _book 디렉토리 내의 파일들이 호스팅 하는데 필요한 파일들이기 때문에, 밖으로 꺼내야한다
-
-
-### - 커밋 & master에 merge
-
-```git
-(docs) $ git add .
-(docs) $ git commit -m "add script"
-(docs) $ git checkout master
-
-(master) $ git merge docs
-(master) $ git checkout docs
-```
 
 
 
@@ -127,13 +113,9 @@ git checkout docs
 
 ## 사용하기
 
-### 기본 ) docs 브런치
-
 ### - md 파일 작성
 
 ### - SUMMARY.md 수정
-
-### - 커밋
 
 ### - 쉘 스크립트 실행
 

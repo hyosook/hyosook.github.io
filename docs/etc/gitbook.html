@@ -402,8 +402,6 @@
 - &#xCD5C;&#xC0C1;&#xC704; &#xBD80;&#xBD84;&#xC5D0;  `publish_gitbook.sh` &#xD30C;&#xC77C;&#xC744; &#xB9CC;&#xB4E0;&#xB2E4;
 
 ```sh
-git checkout master
-git merge docs
 
 gitbook build
 
@@ -413,27 +411,15 @@ rm -r _book/
 git add .
 git commit -m &quot;Update&quot;
 git push origin master
-
-git checkout docs
 </code></pre><ul>
 <li>_book &#xB514;&#xB809;&#xD1A0;&#xB9AC; &#xB0B4;&#xC758; &#xD30C;&#xC77C;&#xB4E4;&#xC774; &#xD638;&#xC2A4;&#xD305; &#xD558;&#xB294;&#xB370; &#xD544;&#xC694;&#xD55C; &#xD30C;&#xC77C;&#xB4E4;&#xC774;&#xAE30; &#xB54C;&#xBB38;&#xC5D0;, &#xBC16;&#xC73C;&#xB85C; &#xAEBC;&#xB0B4;&#xC57C;&#xD55C;&#xB2E4;</li>
 </ul>
-<h3 id="-&#xCEE4;&#xBC0B;--master&#xC5D0;-merge">- &#xCEE4;&#xBC0B; &amp; master&#xC5D0; merge</h3>
-<pre><code class="lang-git">(docs) $ git add .
-(docs) $ git commit -m &quot;add script&quot;
-(docs) $ git checkout master
-
-(master) $ git merge docs
-(master) $ git checkout docs
-</code></pre>
 <h3 id="-&#xC258;-&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;-&#xC2E4;&#xD589;">- &#xC258; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xC2E4;&#xD589;</h3>
 <p><code>publish_gitbook.sh</code> &#xB354;&#xBE14; &#xD074;&#xB9AD; </p>
 <hr>
 <h2 id="&#xC0AC;&#xC6A9;&#xD558;&#xAE30;">&#xC0AC;&#xC6A9;&#xD558;&#xAE30;</h2>
-<h3 id="&#xAE30;&#xBCF8;--docs-&#xBE0C;&#xB7F0;&#xCE58;">&#xAE30;&#xBCF8; ) docs &#xBE0C;&#xB7F0;&#xCE58;</h3>
 <h3 id="-md-&#xD30C;&#xC77C;-&#xC791;&#xC131;">- md &#xD30C;&#xC77C; &#xC791;&#xC131;</h3>
 <h3 id="-summarymd-&#xC218;&#xC815;">- SUMMARY.md &#xC218;&#xC815;</h3>
-<h3 id="-&#xCEE4;&#xBC0B;">- &#xCEE4;&#xBC0B;</h3>
 <h3 id="-&#xC258;-&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;-&#xC2E4;&#xD589;">- &#xC258; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xC2E4;&#xD589;</h3>
 
                                 
@@ -474,7 +460,7 @@ git checkout docs
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"gitbook","level":"2.9.1","depth":2,"previous":{"title":"기타","level":"2.9","depth":1,"path":"docs/etc/index.md","ref":"docs/etc/index.md","articles":[{"title":"gitbook","level":"2.9.1","depth":2,"path":"docs/etc/gitbook.md","ref":"docs/etc/gitbook.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/etc/gitbook.md","mtime":"2019-01-18T09:22:20.866Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-18T09:22:39.675Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"gitbook","level":"2.9.1","depth":2,"previous":{"title":"기타","level":"2.9","depth":1,"path":"docs/etc/index.md","ref":"docs/etc/index.md","articles":[{"title":"gitbook","level":"2.9.1","depth":2,"path":"docs/etc/gitbook.md","ref":"docs/etc/gitbook.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/etc/gitbook.md","mtime":"2019-01-21T05:26:41.942Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-21T05:26:50.839Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
