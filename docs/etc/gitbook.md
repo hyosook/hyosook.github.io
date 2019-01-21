@@ -63,7 +63,7 @@
 
   - 폴더구조에 맞추어서 작성한다
 
-  ```md
+  ```powershell
   # Summary
   
   - [Introduction](README.md)
@@ -82,6 +82,7 @@
 ### - 쉘 스크립트 만들기
 
 - 최상위 부분에  `publish_gitbook.sh` 파일을 만든다
+  - `read.me`와 같은 위치
 
 ```sh
 
