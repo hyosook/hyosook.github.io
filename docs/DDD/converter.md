@@ -1,5 +1,5 @@
 ---
-title :  @Converter
+title : Converter
 tag : ["JPA", "DDD"]
 ---
 

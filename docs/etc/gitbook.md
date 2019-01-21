@@ -63,7 +63,7 @@
 
   - 폴더구조에 맞추어서 작성한다
 
-  ```makefile
+  ```javascript
   
   
   - [Introduction](README.md)
@@ -76,6 +76,8 @@
   
   
   ```
+
+
 
 
 
