@@ -1,15 +1,15 @@
 ---
 title : vue.js 기본
 tags : ["vue.js"]
+
 ---
 
 
 
 ## JSBin
 
-* 브라우저에서 JavaScript, CSS, HTML 코드를 작성 하여 실시간으로 결과를 확인 할 수 있는 서비스
-* https://jsbin.com/fivomus/edit?html,output
-
+- 브라우저에서 JavaScript, CSS, HTML 코드를 작성 하여 실시간으로 결과를 확인 할 수 있는 서비스
+- https://jsbin.com/fivomus/edit?html,output
 
 
 
@@ -35,10 +35,9 @@ tags : ["vue.js"]
 - View와는 바인딩이나 커멘드로 연결하고 
 - Model과는 Data를 주고 받는 역할을 담당
 
-
--  뷰모델이 대신 수행해 주는 것이 MVVM 모델이다. 
--  뷰모델에 자바스크립트 객체와 돔을 연결해 주면 뷰모델은 이 둘간의 동기화를 자동으로 처리한다. 이것이 뷰js가 하는 역할이다.
--  MVC 패턴에서 컨트롤러 역할처럼 데이터를 관리하고 액션을 처리한다.
+- 뷰모델이 대신 수행해 주는 것이 MVVM 모델이다. 
+- 뷰모델에 자바스크립트 객체와 돔을 연결해 주면 뷰모델은 이 둘간의 동기화를 자동으로 처리한다. 이것이 뷰js가 하는 역할이다.
+- MVC 패턴에서 컨트롤러 역할처럼 데이터를 관리하고 액션을 처리한다.
 
 
 
@@ -60,13 +59,11 @@ tags : ["vue.js"]
 - 컴포넌트 관련 옵션 : `components`
 - 생명 주기 훅 : `created`, `mounted`, `updated`, `destroyed`
 
-
 ### 데이터 관련 옵션
 
 ### computed( 선언적 의존 관계)
 
 - computed 라는 의미는 진짜 말그대로 "계산된" 으로 해석이 됩니다. 
-
 
 - 선언적으로 의존 관계를 만들었다는 것입니다. 
 
@@ -120,7 +117,7 @@ tags : ["vue.js"]
   <div id="product-list-bottom">
                   <div v-if="noMoreItems">No more items</div>
               </div>
-
+  
   computed: {
           noMoreItems: function() {
               return this.items.length == this.results.length && this.results.length > 0
@@ -141,12 +138,11 @@ tags : ["vue.js"]
 
 - 우리나라말로 해석하면 감시자와 같습니다. 값의 변화를 주시하는 역할
 
-  >  우리가 알고있는 input text 에 이벤트로 onkeyup 을 넣으면 값이 들어오는걸 주시하고 있죠. 
+  > 우리가 알고있는 input text 에 이벤트로 onkeyup 을 넣으면 값이 들어오는걸 주시하고 있죠. 
   >
-  >  onfocus 도 포커싱이 들어오면 바로 반응을 합니다. 이렇든 개발자들에게 감시자라는 단어는 매우 친숙하게 다가옵니다.
+  > onfocus 도 포커싱이 들어오면 바로 반응을 합니다. 이렇든 개발자들에게 감시자라는 단어는 매우 친숙하게 다가옵니다.
 
   ​
-
 
 - 우선 이 기능은 미리 data 안에 선언해주어야 합니다. 우리가 전역변수를 만들듯이 data , state , props 개념으로 사용되죠.
 - n또한 v-model 과 함께 사용됩니다. 우리가 배운 **v-model** 은 양방향 바인딩이라고해서 클라이언트 측에서 데이터를 보내면 Script 단에 바로 받아 데이터를 수정해버립니다
@@ -192,7 +188,6 @@ var demo = new Vue({
 
   ​
 
-
 - 둘의 차이점은 데이터가 변동되지 않는다고 가정했을때에 드러난다.
 
 > - computed 
@@ -201,7 +196,7 @@ var demo = new Vue({
 >
 > 종속성 중 일부가 변경된 경우에만 다시 계산 
 >
-> 
+>
 >
 > - methods
 >
@@ -218,9 +213,9 @@ var demo = new Vue({
 
 - 그래서인지 html 상에서 computed는 마치 변수처럼 쓰이고, methods는 함수처럼 쓰인다.
 
->  예를들어 똑같은 parse라는 함수가 있다면 computed는 parse를 그대로 쓰고 
+> 예를들어 똑같은 parse라는 함수가 있다면 computed는 parse를 그대로 쓰고 
 >
->  methods는 parse()라고 쓰게 된다.
+> methods는 parse()라고 쓰게 된다.
 
 
 
@@ -309,7 +304,7 @@ text 나 값은 props 나 data로 바꾸면 되니까요.
   })
   ```
 
--  컴포넌트는 인스턴스의 템플릿에서 커스텀 엘리먼트,`<my-component></my-component>`로 사용할 수 있습니다. 루트 Vue 인스턴스를 인스턴스화하기 **전에** 컴포넌트가 등록되어 있는지 확인하십시오. 
+- 컴포넌트는 인스턴스의 템플릿에서 커스텀 엘리먼트,`<my-component></my-component>`로 사용할 수 있습니다. 루트 Vue 인스턴스를 인스턴스화하기 **전에** 컴포넌트가 등록되어 있는지 확인하십시오. 
 
   ```html html
   <div id="example">
@@ -369,34 +364,33 @@ Vue.js에서 부모-자식 컴포넌트 관계는 **props는 아래로, events �
 
 위와같이 코드를 작성하면 입력창에 입력하면 아랫줄에 같은 내용이 실시간으로 바인딩된다.
 
-
 ## 디렉티브 (Directive)
 
-* 엘리먼트에게 **이러이러하게 작동해라!** 하고 지시를 해주는 지시문
+- 엘리먼트에게 **이러이러하게 작동해라!** 하고 지시를 해주는 지시문
 
-* vue 엘리먼트에서 사용디는 특별한 속성
+- vue 엘리먼트에서 사용디는 특별한 속성
 
-* 디렉티브는 Vue 의 기능들을 사용하기 위해서 사용하는, HTML 태그 안에 들어가는 하나의 속성
+- 디렉티브는 Vue 의 기능들을 사용하기 위해서 사용하는, HTML 태그 안에 들어가는 하나의 속성
 
-* `v-text` 이런 식으로 `v-` prefix 를 지니고 있습니다.
+- `v-text` 이런 식으로 `v-` prefix 를 지니고 있습니다.
 
   ​
 
-* HTML 태그 안의 내용을 Vue 인스턴스 안의 데이터값으로 설정 할수 있음
+- HTML 태그 안의 내용을 Vue 인스턴스 안의 데이터값으로 설정 할수 있음
 
-* 머스태쉬 태그나, 디렉티브를 사용 할 때, 그 내부의 값을 꼭 데이터 명으로 해야 하는건 아니다.
+- 머스태쉬 태그나, 디렉티브를 사용 할 때, 그 내부의 값을 꼭 데이터 명으로 해야 하는건 아니다.
 
-  >  **자바스크립트 표현식**을 사용 할 수도 있습니다.
+  > **자바스크립트 표현식**을 사용 할 수도 있습니다.
   >
-  >  ```html html
-  >  <h1>{{ Date() }}</h1>
-  >  ```
+  > ```html html
+  > <h1>{{ Date() }}</h1>
+  > ```
 
   ​
 
   ### 머스태쉬 태그    
 
-  *  내부의 값으로  **데이터 명** ,  **자바스크립트 표현식** 을 사용 할수 있다.
+  - 내부의 값으로  **데이터 명** ,  **자바스크립트 표현식** 을 사용 할수 있다.
 
     ```html html
     /* Date 함수 사용 */
@@ -412,9 +406,9 @@ Vue.js에서 부모-자식 컴포넌트 관계는 **props는 아래로, events �
         <img v-bind:src="smile ? feelsgood : feelsbad"></img>
         
       </div>
-
+    
     var app = new Vue({
-
+    
       data: {
         smile: true,
         feelsgood: 'https://imgh.us/feelsgood_1.jpg',
@@ -464,7 +458,7 @@ Vue.js에서 부모-자식 컴포넌트 관계는 **props는 아래로, events �
    <h1  v-text="number"> </h1>
   ```
 
-  * vue 엘리먼트의 name 변수로 설정 되게 한다
+  - vue 엘리먼트의 name 변수로 설정 되게 한다
 
   ​
 
@@ -495,7 +489,6 @@ Vue.js에서 부모-자식 컴포넌트 관계는 **props는 아래로, events �
   해당 엘리먼트가 보여질지, 보여지지 않을지 `true` / `false` 값으로 지정 할 수 있습니다. 
 
   ```html html/vue.js
-
    <h1 v-show="show" v-html="nameItaly"></h1>
       
   var app = new Vue({
@@ -541,130 +534,113 @@ Vue.js에서 부모-자식 컴포넌트 관계는 **props는 아래로, events �
 
   특정 엘리먼트를 **무시**하는데에 사용 됩니다. 
 
-  이걸 사용하므로서, Vue 시스템에서 해당 엘리먼트는 **지시문이 없다는걸 인**식하게 되어 그 엘리먼트 내부의 자식엘리먼트들을 신경쓰지 않고 그냥 **건너뜁니다**. 
+  이걸 사용하므로서, Vue 시스템에서 해당 엘리먼트는 지시문이 없다는걸 인식하게 되어 그 엘리먼트 내부의 자식엘리먼트들을 신경쓰지 않고 그냥 **건너뜁니다**
 
   ```html html
    <h1 v-pre> {{ 이건 그대로 렌더링해줘요 }} </h1>
   ```
 
-  ​
-
-  ### 9. v-once 디렉티브
+### 9. v-once 디렉티브
 
   컴포넌트를 초기에 **딱 한번만** 렌더링합니다. 
 
   초기 값은 그대로 **고정**이 되어있고 현재 값은 그때 그떄 업데이트 되죠?
 
-  ​
-
-  ```html html
-  <h2 v-once> value초기 값 보여준다 : {{ value }}</h2>
-
-  <h2>value 현재 값 보여준다: {{ value }}</h2>
-  ```
+```html html
+     <h2 v-once> value초기 값 보여준다 : {{ value }}</h2>
+     <h2>value 현재 값 보여준다: {{ value }}</h2>
+```
 
   ​
 
-  ### v-for 디렉티브   
+### v-for 디렉티브   
 
-  * HTML 에서 **for-loop** 을 구현하기 위하여 사용됩니다. 즉, **비슷한 내용을 반복적으로 보여줄 때 **사용
+- HTML 에서 **for-loop** 을 구현하기 위하여 사용됩니다. 즉, **비슷한 내용을 반복적으로 보여줄 때 **사용
 
-  * ```html html
-     v-for "(arr , index ) in arrs"  {{ arr.value}}
-     ```
-
-  * `item in items` 의 형식으로 작성합니다.
-
-     >`items` 는 Vue 엘리먼트의 데이터 안에 들어있는 배열 이름 
-     >
-     >​
-     >
-     > `item` 은 렌더링 하게 될 때, 각 원소를 가르키는 별침(alias)
-
-     ​
-
-  ```
-      <div id="app">
-        <ul>
-          <li v-for="item  in todos ">
-          {{ item .text }}
-          </li>
-        </ul>
-      </div>
-      
-      var app = new Vue({
-      el: '#app', 
-      data: {
-        todos: [
-          { text: 'Vue.js 튜토리얼 작성하기' },
-          { text: 'Webpack2 알아보기' },
-          { text: '사이드 프로젝트 진행하기' }
-        ]
-      }   
-    });
-      
+- ```html html
+  v-for "(arr , index ) in arrs"  {{ arr.value}}
   ```
 
-  * #### index 값 받아오기
+- `item in items` 의 형식으로 작성합니다.
 
-    렌더링을 할 때, 각 원소들을 순서번호(index) 를 가져오려면, 디렉티브 값에 `(todo, index) in todos` 형식으로 작성을 하면 됩니다.
+  > `items` 는 Vue 엘리먼트의 데이터 안에 들어있는 배열 이름 
+  >
+  > `item` 은 렌더링 하게 될 때, 각 원소를 가르키는 별침(alias)
 
-        
+```html html/vue.js
+<div id="app">
+    <ul>
+      <li v-for="item  in todos ">
+      {{ item .text }}
+      </li>
+    </ul>
+  </div>
+  
+  var app = new Vue({
+  el: '#app', 
+  data: {
+    todos: [
+      { text: 'Vue.js 튜토리얼 작성하기' },
+      { text: 'Webpack2 알아보기' },
+      { text: '사이드 프로젝트 진행하기' }
+    ]
+  }   
+});
+```
 
-    ```html
+
+
+- #### index 값 받아오기
+
+  렌더링을 할 때, 각 원소들을 순서번호(index) 를 가져오려면, 디렉티브 값에 `(todo, index) in todos` 형식으로 작성을 하면 됩니다.
+
+```html html/vue.js
     <div class="product" v-for="(item, index) in items">
-
+  
       <img v-bind:src="item.productImage">
         
      <span v-on:click="onDetail(index)">  {{ item.productName }} </span>
         
-          </div>
-    ```
-
-    ```html html/vue.js
-      <div id='test'>
-        
-        <div v-for="(item,index) in arr">
-          index :{{index}}/  
-          value : 
-          <button @click="fncClick1(index)">{{item}}</button>
         </div>
-        
-      new Vue({
-      el : '#test',
-      data :{
-        arr:['a','b']
-      },
-      methods:{
-        fncClick1 : function(index){
-         
-          return alert (this.arr[index])
-        }
-      }
-    })  
-        
-        
-    ```
+```
 
-    ​
+```html html/vue.js
+  <div id='test'>
+    
+    <div v-for="(item,index) in arr">
+      index :{{index}}/  
+      value : 
+      <button @click="fncClick1(index)">{{item}}</button>
+    </div>
+    
+  new Vue({
+  el : '#test',
+  data :{
+    arr:['a','b']
+  },
+  methods:{
+    fncClick1 : function(index){
+     
+      return alert (this.arr[index])
+    }
+  }
+})  
 
-    ​
+```
 
-  ## v-bind 디렉티브 , : 
+## v-bind 디렉티브 
 
-  * **HTML 태그의 속성 값**을 데이터값을 사용해야 한다면 어떻게 해야할까요?
+- **HTML 태그의 속성 값**을 데이터값을 사용해야 한다면 어떻게 해야할까요?
 
-    ​
+- HTML 엘리먼트에서 `src` 값을 Vue 엘리먼트의 데이터 중 image 로 설정하고 싶다
 
-  * HTML 엘리먼트에서 `src` 값을 Vue 엘리먼트의 데이터 중 image 로 설정하고 싶다
+- `<img v-bind:src="image"/>` 와 같은 형식으로 하면 됩니다.
 
-  * `<img v-bind:src="image"/>` 와 같은 형식으로 하면 됩니다.
+- `v-bind:` 뒤에 속성의 이름 / 편의를 위해서, `v-bind` 를 생략 할 수 있습니다. 그냥 **콜론 뒤에 속성의 이름**만 넣어주면 돼요. 
 
-  * `v-bind:` 뒤에 속성의 이름 / 편의를 위해서, `v-bind` 를 생략 할 수 있습니다. 그냥 **콜론 뒤에 속성의 이름**만 넣어주면 돼요. 
+  ​
 
-     ​
-
-  ```html html/vue.js
+```html html/vue.js
     <div id="app">
       
         <img v-bind:src="addr"/>
@@ -680,27 +656,25 @@ Vue.js에서 부모-자식 컴포넌트 관계는 **props는 아래로, events �
       }   
     });
       
-  ```
+```
 
   ​
 
 ## v-model , 양 방향 데이터 바인딩(폼 관련 태크만 사용가능 )
 
-* 뷰 ⇄  데이터 **형태로 바인딩하여 데이터가 **양 방향 으로 흐르게 해주는 것 입니다. 
+- 뷰 ⇄  데이터 **형태로 바인딩하여 데이터가 **양 방향 으로 흐르게 해주는 것 입니다. 
 
-* 데이터에 있는 값이 뷰에 나타나고, 이 뷰의 값이 바뀌면 데이터의 값도 바뀌는것이죠.
+- 데이터에 있는 값이 뷰에 나타나고, 이 뷰의 값이 바뀌면 데이터의 값도 바뀌는것이죠.
 
-* v-model 을 설정 함으로서 , 이 input 엘리먼트의 값이 업데이트 되면  자동으로 바뀐다
+- v-model 을 설정 함으로서 , 이 input 엘리먼트의 값이 업데이트 되면  자동으로 바뀐다
 
-  >이렇게 폼에 관련된 태그에만 사용 될 수 있습니다: `<input>` `<select>` `<textarea>`
+  > 이렇게 폼에 관련된 태그에만 사용 될 수 있습니다: `<input>` `<select>` `<textarea>`
 
   ​
 
 
 
-
 ```html html/vue.js
-
    <div id="app">
     <h1>{{ feels }}</h1>
     <h3><input type="text" v-model="feels"/>개구리</h3>
@@ -726,7 +700,7 @@ https://kr.vuejs.org/v2/guide/forms.html
 
 ### v- on 디렉티브 ,이벤트 핸들링 @
 
-* `v-on` 디렉티브를 사용하여 DOM 이벤트를 듣고 트리거 될 때 JavaScript를 실행할 수 있습니다.
+- `v-on` 디렉티브를 사용하여 DOM 이벤트를 듣고 트리거 될 때 JavaScript를 실행할 수 있습니다.
 
   > 메소드(함수)
   >
@@ -734,17 +708,17 @@ https://kr.vuejs.org/v2/guide/forms.html
 
   ​
 
-* 많은 이벤트 핸들러의 로직은 더 복잡할 것이므로, JavaScript를 `v-on` 속성 값으로 보관하는 것은 간단하지 않습니다. 이 때문에 `v-on`이 호출하고자 하는 메소드의 이름을 받는 이유입니다.
+- 많은 이벤트 핸들러의 로직은 더 복잡할 것이므로, JavaScript를 `v-on` 속성 값으로 보관하는 것은 간단하지 않습니다. 이 때문에 `v-on`이 호출하고자 하는 메소드의 이름을 받는 이유입니다.
 
   ​
 
-* 메소드를 준비할때는, 우리가 뷰 인스턴스에서 사용 할 데이터들을 `data` 안에 넣은 것 처럼, 함수들을 만들어서 뷰 인스턴스의 `methods` 안에 넣으면 됩니다.
+- 메소드를 준비할때는, 우리가 뷰 인스턴스에서 사용 할 데이터들을 `data` 안에 넣은 것 처럼, 함수들을 만들어서 뷰 인스턴스의 `methods` 안에 넣으면 됩니다.
 
   ​
 
-* **v-on: 이벤트이름  =  "메소드이름" **
+- **v-on: 이벤트이름  =  "메소드이름" **
 
-* `v-on:` 을 `@` 로 대체 가능 
+- `v-on:` 을 `@` 로 대체 가능 
 
   ​
 
@@ -788,15 +762,9 @@ var example1 = new Vue({
 })
 ```
 
-* 메소드 이름을 직접 바인딩 하는 대신 인라인 JavaScript 구문에 메소드를 사용할 수도 있습니다.
+- 메소드 이름을 직접 바인딩 하는 대신 인라인 JavaScript 구문에 메소드를 사용할 수도 있습니다.
 
-#### validation 
 
-- http://fronteer.kr/bbs/view/338
-- https://m.dotdev.co/form-validation-using-vue-js-2-35abd6b18c5d
-- https://monterail.github.io/vuelidate/#sub-basic-form
-- https://www.npmjs.com/package/vue-form-validator
-- https://blog.midkemia.fr/form-validation-with-vue-js/
 
 
 
