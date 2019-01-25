@@ -15,7 +15,6 @@
   * [vuex](docs/vue/vux.md)
 
 * [Vue Boilerplate's Framework](docs/Boilerplate/index.md)
-
   * [vue-cli3](docs/Boilerplate/vue-cli3.md)
     * [우분투 설치](docs/Boilerplate/cli3/01.md)
     * [개발환경 도커](docs/Boilerplate/cli3/02.md)
@@ -35,17 +34,15 @@
   * [ security configure](docs/SpringBoot/ security configure.md)
   * [중복로그인 처리](docs/SpringBoot/중복로그인.md)
   * [전송 어노테이션](docs/SpringBoot/전송 어노테이션.md)
-
 * [Java](docs/Java/index.md)
 
   * [lombok](docs/Java/lombok.md)
-
 * [git](docs/git/index.md)
 
   * [issues](docs/git/issues.md)
-
 * [DDD](docs/DDD/index.md)
-
+  * [DDD설계 개념과 구현](docs/DDD/DDD설계 개념과 구현.md)
+  * [스터티](docs/DDD/스터디/01.md)
   * [converter](docs/DDD/converter.md)
   * [transactional](docs/DDD/transactional.md)
   * [jpa](docs/DDD/jpa.md)
@@ -55,7 +52,6 @@
   * [기본키설정](docs/DDD/기본키설정.md)
   * [연관관계](docs/DDD/연관관계.md)
   * [영속성 컨텍스트 트랜잭션](docs/DDD/영속성 컨텍스트 트랜잭션.md)
-
 * [기타](docs/etc/index.md)
 
   * [gitbook](docs/etc/gitbook.md)
