@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>개발환경 도커 · GitBook</title>
+        <title>apollo vuetify · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="03.html" />
+    <link rel="next" href="vueClean.html" />
     
     
-    <link rel="prev" href="01.html" />
+    <link rel="prev" href="03.html" />
     
 
     </head>
@@ -260,7 +260,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.2.1.2" data-path="02.html">
+        <li class="chapter " data-level="2.2.1.2" data-path="02.html">
             
                 <a href="02.html">
             
@@ -286,7 +286,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2.1.4" data-path="apollo vuetify.html">
+        <li class="chapter active" data-level="2.2.1.4" data-path="apollo vuetify.html">
             
                 <a href="apollo vuetify.html">
             
@@ -779,7 +779,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../.." >개발환경 도커</a>
+        <a href="../../.." >apollo vuetify</a>
     </h1>
 </div>
 
@@ -794,197 +794,138 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="&#xACF5;&#xD1B5;-&#xAD8C;&#xC7A5;-&#xAC1C;&#xBC1C;&#xD658;&#xACBD;">&#xACF5;&#xD1B5; &#xAD8C;&#xC7A5; &#xAC1C;&#xBC1C;&#xD658;&#xACBD;</h2>
-<blockquote>
-<p>&#xAC1C;&#xBC1C;&#xC5D0; &#xD544;&#xC694;&#xD55C; , &#xC5D0;&#xB514;&#xD130;&#xC640; &#xD06C;&#xB86C;&#xBE0C;&#xB77C;&#xC6B0;&#xC800;&#xB294;  &#xD638;&#xC2A4;&#xD2B8;OS&#xC5D0; &#xC124;&#xCE58;&#xD558;&#xB3C4;&#xB85D; &#xD55C;&#xB2E4;. </p>
-</blockquote>
-<h4 id="&#xC5D0;&#xB514;&#xD130;-&#xC124;&#xCE58;">&#xC5D0;&#xB514;&#xD130; &#xC124;&#xCE58;</h4>
-<h4 id="&#xD06C;&#xB86C;&#xBE0C;&#xB77C;&#xC6B0;&#xC800;-&#xC124;&#xCE58;">&#xD06C;&#xB86C;&#xBE0C;&#xB77C;&#xC6B0;&#xC800; &#xC124;&#xCE58;</h4>
+                                <h2 id="apollo-&#xD328;&#xD0A4;&#xC9C0;-&#xCD94;&#xAC00;">apollo &#xD328;&#xD0A4;&#xC9C0; &#xCD94;&#xAC00;</h2>
 <ul>
-<li><p>&#xCD5C;&#xC2E0; stable &#xBC84;&#xC804; &#xB2E4;&#xC6B4;&#xB85C;&#xB4DC;</p>
-<pre><code class="lang-shell">wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-</code></pre>
-</li>
-<li><p>&#xC124;&#xCE58;</p>
-<pre><code class="lang-shell">sudo dpkg -i google-chrome-stable_current_amd64.deb
-</code></pre>
-</li>
+<li>&#xAC1C;&#xBC1C; &#xD658;&#xACBD; &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xB85C; &#xB4E4;&#xC5B4; &#xAC11;&#xB2C8;&#xB2E4;.</li>
 </ul>
-<h2 id="&#xAC1C;&#xBC1C;-&#xD658;&#xACBD;-&#xAD6C;&#xCD95;">&#xAC1C;&#xBC1C; &#xD658;&#xACBD; &#xAD6C;&#xCD95;</h2>
-<blockquote>
-<p>A&#xD504;&#xB85C;&#xC81D;&#xD2B8; &#xAC1C;&#xBC1C;&#xC5D0; &#xD544;&#xC694;&#xD55C; &#xAC1C;&#xBC1C; &#xD658;&#xACBD;&#xC744; &#xAD6C;&#xCD95; &#xD558;&#xC790; !! </p>
-</blockquote>
-<h3 id="a-project-&#xD3F4;&#xB354;-&#xC0DD;&#xC131;">A project &#xD3F4;&#xB354; &#xC0DD;&#xC131;</h3>
-<p> &#xD56D;&#xC0C1; project &#xD3F4;&#xB354;&#xB97C; &#xD648;&#xB514;&#xB809;&#xD1A0;&#xB9AC; &#xBC11;&#xC5D0; &#xB9CC;&#xB4ED;&#xB2C8;&#xB2E4;. </p>
-<pre><code class="lang-bash">$ <span class="hljs-built_in">cd</span> ~
-$ mkdir start-study
-$ <span class="hljs-built_in">cd</span> start-study
-</code></pre>
-<h3 id="project-&#xD3F4;&#xB354;-&#xAD6C;&#xC131;">project &#xD3F4;&#xB354; &#xAD6C;&#xC131;</h3>
+<pre><code>$ ./run-bash.sh
+</code></pre><ul>
+<li>apollo &#xB97C; &#xCD94;&#xAC00; </li>
+</ul>
+<pre><code>$ cd home-main
+$ vue add apollo
+</code></pre><p>&#xD328;&#xD0A4;&#xC9C0; &#xC778;&#xC2A4;&#xD1A8;&#xC774; &#xB05D;&#xB098;&#xBA74; apolo &#xAD00;&#xB828;&#xB41C; &#xC120;&#xD0DD; &#xC0AC;&#xD56D;&#xC5D0; &#xB300;&#xD55C; &#xC9C8;&#xBB38;&#xC774; &#xB098;&#xC635;&#xB2C8;&#xB2E4;. </p>
+<pre><code>  ? Add example code (y/N) Y
+</code></pre><p>&#xC5D0;&#xC81C; &#xCF54;&#xB4DC;&#xB97C; &#xCD94;&#xAC00; &#xD560; &#xAC83;&#xC778;&#xAC00;&#xB97C; &#xBB3B;&#xC2B5;&#xB2C8;&#xB2E4;. 
+&#xC55E;&#xC73C;&#xB85C;&#xC758; &#xD559;&#xC2B5;&#xC744; &#xC704;&#xD574;&#xC11C; Y &#xB97C; &#xC120;&#xD0DD;&#xD569;&#xB2C8;&#xB2E4;. </p>
+<pre><code>  ? Add a GraphQL API Server? (y/N) Y
+</code></pre><p>&#xD14C;&#xC2A4;&#xD2B8;&#xC6A9; GraphQL API &#xC11C;&#xBC84;&#xB97C; &#xCD94;&#xAC00;&#xD560; &#xAC83;&#xC778;&#xAC00;&#xB97C; &#xBB3B;&#xC2B5;&#xB2C8;&#xB2E4;. 
+&#xAC1C;&#xBC1C;&#xC744; &#xD3B8;&#xD558;&#xAC8C; &#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C; Y &#xB97C; &#xC120;&#xD0DD;&#xD569;&#xB2C8;&#xB2E4;. </p>
+<pre><code>  ? Enable automatic mocking? (y/N) Y
+</code></pre><p>&#xC790;&#xB3D9; &#xBAA9;&#xD0B9;&#xC744; &#xD65C;&#xC131;&#xD654; &#xD560; &#xAC83;&#xC778;&#xAC00;&#xB97C; &#xBB3B;&#xC2B5;&#xB2C8;&#xB2E4;. Y &#xB97C; &#xC120;&#xD0DD;&#xD569;&#xB2C8;&#xB2E4;. </p>
+<pre><code>  ? Add Apollo Engine? (y/N) N
+</code></pre><p>&#xC544;&#xD3F4;&#xB85C; &#xC5D4;&#xC9C4;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xAC83;&#xC778;&#xAC00;&#xB97C; &#xBB3B;&#xC2B5;&#xB2C8;&#xB2E4;. 
+&#xC774;&#xAC83;&#xC740; apollo &#xAC1C;&#xBC1C; &#xD68C;&#xC0AC;&#xAC00; &#xC81C;&#xACF5;&#xD558;&#xB294; &#xD50C;&#xB7AB;&#xD3FC;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xAC83;&#xC778;&#xAC00;&#xB97C; &#xBB3B;&#xB294;&#xB370; &#xC544;&#xB2C8;&#xC624;&#xC778; N &#xB97C; &#xC120;&#xD0DD;&#xD569;&#xB2C8;&#xB2E4;. </p>
 <ul>
-<li><p>apps - &#xD504;&#xB7F0;&#xD2B8; &#xC564;&#xB4DC; &#xAC1C;&#xBC1C; &#xC18C;&#xC2A4;&#xB4E4; &#xB123;&#xC744; &#xACF3;</p>
-</li>
-<li><p>doc - &#xD504;&#xB85C;&#xC81D;&#xD2B8; &#xAD00;&#xB828; &#xBB38;&#xC11C;&#xB4E4; &#xB123;&#xC744; &#xACF3;</p>
-</li>
-<li>docker - &#xB3C4;&#xCEE4; &#xBC0F; &#xBA85;&#xB839;&#xB4E4; &#xB123;&#xC744; &#xACF3;</li>
-<li>kube - &#xCFE0;&#xBC84;&#xB124;&#xD2F0;&#xC2A4; &#xAD00;&#xB9AC;&#xC5D0; &#xD544;&#xC694;&#xD55C; &#xD658;&#xACBD; &#xD30C;&#xC77C; &#xBC0F; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB4E4; &#xB123;&#xC744; &#xACF3;</li>
+<li>&#xC124;&#xCE58; &#xACFC;&#xC815;&#xC774; &#xC9C4;&#xD589;&#xC774; &#xB05D;&#xB098;&#xBA74; exit &#xBA85;&#xB839;&#xC744; &#xC218;&#xD589;&#xD558;&#xC5EC; &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xB97C; &#xC885;&#xB8CC; &#xD569;&#xB2C8;&#xB2E4;. </li>
 </ul>
-<pre><code class="lang-bash">$ <span class="hljs-built_in">cd</span> ~/start-study
-$ mkdir apps
-$ mkdir doc
-$ mkdir docker
-$ mkdir kube
-</code></pre>
-<h3 id="docker-composeyml-&#xC791;&#xC131;">docker-compose.yml &#xC791;&#xC131;</h3>
-<h4 id="docker-compose">docker-compose</h4>
-<ul>
-<li>&#xD55C;&#xBC88;&#xC5D0; &#xC5EC;&#xB7EC;&#xAC1C;&#xC758; container &#xC744; &#xD1B5;&#xD569; &#xAD00;&#xB9AC; &#xD560; &#xC218; &#xC788;&#xAC8C; &#xD558;&#xB294; &#xD234;&#xC785;&#xB2C8;&#xB2E4;.</li>
-<li>docker-compose.yml &#xD30C;&#xC77C;&#xC5D0; &#xB0B4;&#xAC00; &#xC0AC;&#xC6A9;&#xD560; &#xC571;&#xB4E4;&#xC744; &#xBB36;&#xC740; &#xC11C;&#xBE44;&#xC2A4;&#xB97C; &#xC815;&#xC758;&#xD55C;&#xB2E4;.</li>
-<li>&#xC704;&#xC640; &#xAC19;&#xC740; &#xC11C;&#xBE44;&#xC2A4;&#xB97C; &#xD3B8;&#xD558;&#xAC8C; &#xD1B5;&#xD569; &#xAD00;&#xB9AC;&#xD558;&#xAE30; &#xC704;&#xD574; docker-compose &#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</li>
-<li><p>Docker-Compose &#xB294; &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xB97C; Stack-Service-Task &#xB77C;&#xB294; &#xC138;&#xAC00;&#xC9C0; &#xAC00;&#xC0C1; &#xACC4;&#xCE35;&#xC73C;&#xB85C; &#xAD6C;&#xBD84;&#xD574; &#xAD00;&#xB9AC;&#xD55C;&#xB2E4;.</p>
-<ul>
-<li>Stack : &#xD558;&#xB098;&#xC758; &#xC571;. (Facebook, Youtube &#xCC98;&#xB7FC; &#xD070; &#xB2E8;&#xC704;)</li>
-<li>Service : &#xC571;&#xC744; &#xAD6C;&#xC131;&#xD558;&#xB294; &#xD558;&#xB098;&#xC758; &#xC5ED;&#xD560;. (Django&#xC11C;&#xBC84;, mySQL&#xC11C;&#xBC84;, Nginx&#xC11C;&#xBC84; &#xB4F1; &#xC571;&#xC744; &#xC791;&#xB3D9;&#xD558;&#xAE30; &#xC704;&#xD55C; &#xAD6C;&#xC131;&#xC694;&#xC18C;&#xB4E4;)</li>
-<li>Task : Service &#xB97C; &#xC774;&#xB8E8;&#xB294; &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xB4E4;</li>
+<pre><code>$ exit
+</code></pre><ul>
+<li>run-dev-apollo.sh &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xC791;&#xC131;</li>
 </ul>
-</li>
-<li><p>&#xACB0;&#xAD6D; &#xC6B0;&#xB9AC;&#xAC00; &#xB9CC;&#xB4E4;&#xACE0;&#xC790; &#xD558;&#xB294; &#xAC83;&#xC740; &#xD558;&#xB098;&#xC758; Stack &#xC774;&#xACE0;, <code>docker-compose.yml</code>&#xC740; Stack &#xC744; &#xC815;&#xC758;&#xD560; &#xC218; &#xC788;&#xB294; &#xD30C;&#xC77C;&#xC774;&#xB2E4;.</p>
-</li>
-</ul>
-<p>docker &#xD3F4;&#xB354; &#xBC11;&#xC5D0; <code>docker-compose.yml</code> &#xB123;&#xAE30; </p>
-<pre><code class="lang-shell">vi docker-compose.yml
-
-#
-# &#xC774; &#xD30C;&#xC77C;&#xC740; &#xB3C4;&#xCEE4;&#xB97C; &#xAD00;&#xB9AC;&#xD558;&#xB294; &#xD30C;&#xC77C;&#xC785;&#xB2C8;&#xB2E4;. 
-#
-version: &apos;2&apos;
-services:
-  start-home-main-ds:
-    image: start/home-main-ds:0.1
-    container_name: start-home-main-ds
-    volumes:
-      - ../apps/:/apps
-    network_mode: &quot;host&quot;
-    privileged: true
-    environment:
-      CYPRESS_CACHE_FOLDER: /apps/.cypress-cache
-    command: bash
-
-  start-vue-cli-3-ds:
-    build:
-      context: ./development
-      dockerfile: Dockerfile
-    image: start/home-main-ds:0.1
-
-# end of file
-</code></pre>
-<ul>
-<li>development/Dockerfile &#xC744; &#xC774;&#xC6A9;&#xD558;&#xC5EC; start/home-main-ds:0.1 &#xB77C;&#xB294; &#xC774;&#xB984;&#xC73C;&#xB85C; &#xC544;&#xBBF8;&#xC9C0;&#xAC00; &#xB9CC;&#xB4E4;&#xC5B4;&#xC9D1;&#xB2C8;&#xB2E4;.</li>
-<li><p>&#xAC1C;&#xBC1C; &#xD658;&#xACBD; &#xCEE8;&#xB124;&#xC774;&#xB108;&#xB294; start-home-main-ds &#xC139;&#xC158;&#xC5D0;&#xC11C; &#xC815;&#xC758; &#xD569;&#xB2C8;&#xB2E4;.</p>
-</li>
-<li><p>&#xAC1C;&#xBC1C; &#xD658;&#xACBD; &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xB294; &#xD638;&#xC2A4;&#xD2B8; PC&#xC640; &#xD3EC;&#xD2B8;&#xB97C; &#xACF5;&#xC720;&#xD558;&#xACE0; root &#xAD8C;&#xD55C;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.</p>
-</li>
-<li>&quot;apps&quot; &#xD3F4;&#xB354;&#xB97C; &#xCEE8;&#xD14C;&#xC774;&#xB108; &#xB0B4;&#xBD80;&#xC5D0; &quot;/apps&quot; &#xB85C; &#xC5F0;&#xACB0;&#xD569;&#xB2C8;&#xB2E4;.</li>
-<li>&#xAC1C;&#xBC1C; &#xD658;&#xACBD;&#xC784;&#xC744; &#xC54C;&#xB9AC;&#xAE30; &#xC704;&#xD574;&#xC11C; &#xD658;&#xACBD; &#xBCC0;&#xC218; NODE_ENV &#xB97C; development &#xB85C; &#xC124;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</li>
-<li>E2E &#xD14C;&#xC2A4;&#xD2B8;&#xB97C; &#xC704;&#xD55C; &#xCE90;&#xC26C; &#xD3F4;&#xB354;&#xB97C; /apps/.cypress-cache &#xB85C; &#xC0AC;&#xC6A9;&#xD558;&#xAE30; &#xC704;&#xD574; CYPRESS_CACHE_FOLDER &#xD658;&#xACBD; &#xBCC0;&#xC218;&#xB97C; &#xC124;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</li>
-</ul>
-<h3 id="dockerfile-&#xC791;&#xC131;">Dockerfile &#xC791;&#xC131;</h3>
-<ul>
-<li>Docker file &#xC5D0; &#xB0B4;&#xAC00; &#xC0AC;&#xC6A9;&#xD560; &#xC571; &#xD658;&#xACBD;&#xC744; &#xC815;&#xC758;&#xD55C;&#xB2E4;. &#xC5EC;&#xAE30;&#xC11C; &#xC571; &#xD658;&#xACBD;&#xC774;&#xB77C; &#xD568;&#xC740; &#xB0B4;&#xAC00; &#xD558;&#xB098;&#xC758; &#xC11C;&#xBE44;&#xC2A4;&#xB97C; &#xB3CC;&#xB9AC;&#xB294;&#xB370; &#xD544;&#xC694;&#xD55C; &#xC5B4;&#xD50C;&#xB9AC; &#xCF00;&#xC774;&#xC158;&#xB4E4;&#xC744; &#xC758;&#xBBF8;&#xD55C;&#xB2E4; ( &#xC989;, &#xC704;&#xC5D0;&#xC11C;&#xB294; MySQL, Tomcat, Angular &#xB3CC;&#xB9AC;&#xB294;&#xB370; &#xD544;&#xC694;&#xD55C; grunt, npm &#xB4F1;&#xC774; &#xB418;&#xACA0;&#xB2E4;. )</li>
-<li>Container image&#xB97C; Build &#xD560; &#xC218; &#xC788;&#xAC8C; &#xD574;&#xC8FC;&#xB294; Docker image &#xD30C;&#xC77C;</li>
-</ul>
-<p>docker/development &#xD3F4;&#xB354;&#xB97C; &#xB9CC;&#xB4E4;&#xACE0; <code>Dockerfile</code> &#xB123;&#xAE30; </p>
-<blockquote>
-<p><a href="https://github.com/kcert2018/start-vue-build-up-guide/blob/master/docker/development/Dockerfile" target="_blank">docker/development/Dockerfile</a></p>
-<p>MAINTAINER &#xC218;&#xC815;&#xD55C;&#xB2E4;</p>
-</blockquote>
-<p>&#xC774; &#xD30C;&#xC77C;&#xC5D0; &#xC758;&#xD574;&#xC11C; &#xC791;&#xC131;&#xB41C; &#xC774;&#xBBF8;&#xC9C0;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xB0B4;&#xC6A9;&#xC744; &#xD3EC;&#xD568;&#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;. </p>
-<ul>
-<li>&#xD55C;&#xAE00;&#xACFC; &#xAD00;&#xB828;&#xB41C; &#xD328;&#xD0A4;&#xC9C0;</li>
-<li>node 8.12.0</li>
-<li>npm </li>
-<li>yarn</li>
-<li>vue cli 3.0</li>
-<li>cypesss E2E &#xD14C;&#xC2A4;&#xD2B8;&#xB97C; &#xC704;&#xD55C; &#xD06C;&#xB86C; &#xBE0C;&#xB77C;&#xC6B0;&#xC800;</li>
-</ul>
-<h3 id="&#xBE4C;&#xB4DC;-&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;---build-devsh">&#xBE4C;&#xB4DC; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; - build-dev.sh</h3>
-<p>docker &#xB610;&#xB294; docker-compose &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD574;&#xC11C; &#xC9C1;&#xC811; &#xC774;&#xBBF8;&#xC9C0;&#xB97C; &#xC0DD;&#xC131;&#xD560; &#xC218; &#xC788;&#xC9C0;&#xB9CC; ,</p>
-<p>&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xC774;&#xC6A9;&#xD574;&#xC11C; &#xB300;&#xC2E0; &#xD558;&#xAC8C; &#xD574;&#xC900;&#xB2E4;</p>
-<p>docker &#xD3F4;&#xB354;&#xC5D0; <code>build-dev.sh</code>&#xB123;&#xAE30; </p>
-<blockquote>
-<p><a href="https://github.com/kcert2018/start-vue-build-up-guide/blob/master/docker/build-dev.sh" target="_blank">docker/build-dev.sh</a></p>
-</blockquote>
-<p>&#xC774; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB294; &#xAE30;&#xC874;&#xC5D0; &#xC791;&#xC131;&#xB41C; &#xC774;&#xBBF8;&#xC9C0;&#xB97C; &#xC9C0;&#xC6B0;&#xACE0; docker-compose build &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xC5EC; &#xC0C8;&#xB85C;&#xC6B4; &#xC774;&#xBBF8;&#xC9C0;&#xB97C; &#xB9CC;&#xB4ED;&#xB2C8;&#xB2E4;. </p>
-<h3 id="&#xC774;&#xBBF8;&#xC9C0;-&#xC0DD;&#xC131;">&#xC774;&#xBBF8;&#xC9C0; &#xC0DD;&#xC131;</h3>
-<p><code>build-dev.sh</code>  &#xC2E4;&#xD589; </p>
-<blockquote>
-<p>start/home-main-ds:0.1 &#xB780; &#xC774;&#xB984;&#xC758; &#xB3C4;&#xCEE4; &#xC774;&#xBBF8;&#xC9C0;&#xB97C; &#xC0DD;&#xC131; &#xD55C;&#xB2E4;</p>
-</blockquote>
-<pre><code class="lang-bash">$ <span class="hljs-built_in">cd</span> ~/start-study/docker
-$ ./build-dev.sh
-</code></pre>
-<p>&#xC0DD;&#xC131;&#xC774; &#xB05D;&#xB09C; &#xD6C4; docker images &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xC5EC; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC0DD;&#xC131;&#xB41C; &#xAC83;&#xC744; &#xD655;&#xC778; &#xD569;&#xB2C8;&#xB2E4;. </p>
-<pre><code class="lang-bash">$ docker images
-REPOSITORY           TAG   IMAGE ID            CREATED             SIZE
-  :
-start/home-main-ds   0.1   eea14f3fade5        6 hours ago         1.35GB
-</code></pre>
-<h3 id="&#xAC1C;&#xBC1C;-&#xD658;&#xACBD;-&#xCEE8;&#xD14C;&#xC774;&#xB108;-&#xC2E4;&#xD589;-&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;---run-bashsh">&#xAC1C;&#xBC1C; &#xD658;&#xACBD; &#xCEE8;&#xD14C;&#xC774;&#xB108; &#xC2E4;&#xD589; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; - run-bash.sh</h3>
-<h4 id="&#xCEE8;&#xD14C;&#xC774;&#xB108;-&#xC2E4;&#xD589;-&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;-&#xB9CC;&#xB4E4;&#xAE30;">&#xCEE8;&#xD14C;&#xC774;&#xB108; &#xC2E4;&#xD589; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xB9CC;&#xB4E4;&#xAE30;</h4>
-<ul>
-<li>&#xC0C8;&#xB85C;&#xC6B4; vue &#xAC1C;&#xBC1C;&#xC744; &#xC704;&#xD55C; &#xD50C;&#xB7EC;&#xADF8;&#xC778;&#xC774;&#xB098; &#xD328;&#xD0A4;&#xC9C0; &#xAE30;&#xD0C0; &#xC258;&#xC5D0;&#xC11C; &#xC218;&#xD589;&#xD574;&#xC57C; &#xD558;&#xB294; &#xC791;&#xC5C5;&#xC744; &#xC704;&#xD55C; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xC785;&#xB2C8;&#xB2E4;. <ul>
-<li>&#xCD08;&#xAE30; &#xAD6C;&#xCD95; &#xB54C; &#xC790;&#xC8FC; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;. </li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p><a href="https://github.com/kcert2018/start-vue-build-up-guide/blob/master/docker/run-bash.sh" target="_blank">docker/run-bash.sh</a></p>
-</blockquote>
-<pre><code class="lang-sh"><span class="hljs-meta">#!/bin/bash</span>
-<span class="hljs-built_in">echo</span> <span class="hljs-_">-e</span> <span class="hljs-string">&quot;\\033]2;start home main bash\\007&quot;</span>
-docker-compose run --name start-home-main-ds-bash \
+<pre><code>#!/bin/bash
+echo -e &quot;\\033]2;start home main develop apollo sever\\007&quot;
+docker-compose run --name start-home-main-dev-apollo-server \
   --rm \
-  -u $(id -u <span class="hljs-variable">${USER}</span>):$(id -g <span class="hljs-variable">${USER}</span>) \
-  --workdir /apps/ \
+  -u $(id -u ${USER}):$(id -g ${USER}) \
+  --workdir /apps/home-main/ \
   start-home-main-ds \
-  bash
-</code></pre>
-<ul>
-<li>echo -e &quot;\033]2;start home main bash\007&quot;   :&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xC2E4;&#xD589;&#xD558;&#xB294; &#xD0C0;&#xC774;&#xD2C0;&#xC5D0; &#xC2E4;&#xD589;&#xB41C; &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xC758; &#xC6A9;&#xB3C4;&#xB97C; &#xD45C;&#xC2DC;</li>
-<li>docker-compose run : &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xB97C; &#xC2E4;&#xD589;&#xD558;&#xAE30; &#xC704;&#xD55C; &#xBA85;&#xB839;&#xC785;&#xB2C8;&#xB2E4;. </li>
-<li>--name start-home-main-ds-bash : &quot;start-home-main-ds-bash&quot; &#xB780; &#xC774;&#xB984;&#xC73C;&#xB85C; &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xAC00; &#xC2E4;&#xD589;&#xB418;&#xB3C4;&#xB85D; &#xD569;&#xB2C8;&#xB2E4;. </li>
-<li>--rm : &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xAC00; &#xC885;&#xB8CC;&#xB418;&#xBA74; &#xC0AD;&#xC81C; &#xB418;&#xB3C4;&#xB85D; &#xD569;&#xB2C8;&#xB2E4;. </li>
-<li>-u $(id -u ${USER}):$(id -g ${USER}) : &#xD604;&#xC7AC; &#xC218;&#xD589;&#xC911;&#xC778; &#xC0AC;&#xC6A9;&#xC790;&#xC758; id &#xAC00; &#xB0B4;&#xBD80;&#xC5D0; &#xC0AC;&#xC6A9;&#xB418;&#xB3C4;&#xB85D; &#xB9CC;&#xB4ED;&#xB2C8;&#xB2E4;. </li>
-<li>--workdir /apps/ : &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xAC00; &#xC2DC;&#xC791;&#xB41C; &#xD6C4; &#xCEE8;&#xD14C;&#xC774;&#xB108; &#xB0B4;&#xBD80;&#xC758; &#xD604;&#xC7AC; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB97C; /apps &#xB85C; &#xC774;&#xB3D9;&#xD569;&#xB2C8;&#xB2E4;. </li>
-<li>start-home-main-ds : docker-compose.yml &#xC5D0; &#xC120;&#xC5B8;&#xB41C; &#xC2E4;&#xD589;&#xB420; &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xC758; &#xC11C;&#xBE44;&#xC2A4; &#xC774;&#xB984;&#xC785;&#xB2C8;&#xB2E4;. </li>
-<li>bash : &#xC2E4;&#xD589;&#xB420; &#xBA85;&#xB839;&#xC73C;&#xB85C; bash &#xB97C; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;. </li>
-</ul>
-<h4 id="&#xAC1C;&#xBC1C;-&#xD658;&#xACBD;-&#xCEE8;&#xD14C;&#xC774;&#xB108;-&#xC2E4;&#xD589;">&#xAC1C;&#xBC1C; &#xD658;&#xACBD; &#xCEE8;&#xD14C;&#xC774;&#xB108; &#xC2E4;&#xD589;</h4>
-<ul>
-<li>&#xAC1C;&#xBC1C; &#xD658;&#xACBD; &#xCEE8;&#xD14C;&#xC774;&#xB108; &#xC548;&#xC73C;&#xB85C; &#xC9C4;&#xC785;&#xD569;&#xB2C8;&#xB2E4;. </li>
-<li>&#xCEE8;&#xD14C;&#xC774;&#xB108;&#xC5D0;&#xC11C; &#xB098;&#xAC00;&#xB824;&#xBA74; exit &#xBA85;&#xB839;&#xC744; &#xC785;&#xB825;&#xD558;&#xACE0; &#xC5D4;&#xD130;&#xB97C; &#xCE58;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</li>
-</ul>
-<pre><code class="lang-bash">$ <span class="hljs-built_in">cd</span> ~/start-study/docker
-$ ./run-bash.sh 
-node@main-desk:/apps$
-</code></pre>
-<h3 id="&#xC774;&#xC288;">&#xC774;&#xC288;</h3>
-<h4 id="&#xD30C;&#xC77C;-&#xC2E4;&#xD589;&#xC2DC;-&#xD5C8;&#xAC00;-&#xAC70;&#xBD80;">&#xD30C;&#xC77C; &#xC2E4;&#xD589;&#xC2DC; &#xD5C8;&#xAC00; &#xAC70;&#xBD80;</h4>
-<pre><code class="lang-shell">chmod a+x &#xD30C;&#xC77C;&#xBA85;
-</code></pre>
-<h3 id="cannot-create-container">Cannot create container.....</h3>
-<ul>
-<li>container id &#xD655;&#xC778; </li>
-</ul>
-<pre><code>docker ps -a
+  yarn run apollo
 </code></pre><ul>
-<li>&#xC815;&#xC9C0;</li>
+<li>&#xAC1C;&#xBC1C;&#xC6A9; apollo &#xC11C;&#xBC84; &#xB3D9;&#xC791;</li>
 </ul>
-<pre><code>docker stop &#xC544;&#xC774;&#xB514;
+<pre><code class="lang-bash">$ ./run-dev-apollo.sh
+
+yarn run v1.9.4
+$ vue-cli-service apollo:watch
+$ vue-cli-service apollo:run --delay
+Using default PubSub implementation <span class="hljs-keyword">for</span> subscriptions.
+You should provide a different implementation <span class="hljs-keyword">in</span> production (<span class="hljs-keyword">for</span> example with Redis) by exporting it <span class="hljs-keyword">in</span> <span class="hljs-string">&apos;apollo-server/pubsub.js&apos;</span>.
+&#x2714;&#xFE0F;  Automatic mocking is enabled
+&#x2714;&#xFE0F;  GraphQL Server is running on http://localhost:4000/graphql
+&#x2714;&#xFE0F;  Type rs to restart the server
+</code></pre>
+<h2 id="vuetify-&#xD328;&#xD0A4;&#xC9C0;-&#xCD94;&#xAC00;">vuetify &#xD328;&#xD0A4;&#xC9C0; &#xCD94;&#xAC00;</h2>
+<p>vuetify &#xB294; &#xAD6C;&#xAE00; &#xB9E4;&#xD130;&#xB9AC;&#xC5BC; &#xB514;&#xC790;&#xC778;&#xC744; &#xAD6C;&#xD604;&#xD574; &#xB193;&#xC740; &#xC2A4;&#xD0C0;&#xC77C; &#xD504;&#xB808;&#xC784;&#xC6CC;&#xD06C; &#xD328;&#xD0A4;&#xC9C0; &#xC785;&#xB2C8;&#xB2E4;. 
+&#xC720;&#xBA85;&#xD55C; &#xBD80;&#xD2B8;&#xC2A4;&#xD2B8;&#xB7A9; &#xAC19;&#xC740; &#xAC81;&#xB2C8;&#xB2E4;. </p>
+<p>&#xC774; &#xD328;&#xD0A4;&#xC9C0;&#xB294; vue &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC124;&#xCE58;&#xD558;&#xC9C0; &#xC54A;&#xACE0; yarn &#xC73C;&#xB85C; &#xC124;&#xCE58; &#xD569;&#xB2C8;&#xB2E4;. 
+&#xADF8;&#xB798;&#xC11C; &#xB9CC;&#xB4E4;&#xC5B4;&#xC9C4; &#xC18C;&#xC2A4;&#xB97C; &#xC0B4;&#xC9DD; &#xACE0;&#xCCD0;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. </p>
+<ul>
+<li>&#xAC1C;&#xBC1C; &#xD658;&#xACBD; &#xC2E4;&#xD589;</li>
+</ul>
+<pre><code>$ ./run-bash.sh
 </code></pre><ul>
-<li>&#xC0AD;&#xC81C;</li>
+<li>vuetify &#xBAA8;&#xB4C8;&#xC744; &#xCD94;&#xAC00; &#xD569;&#xB2C8;&#xB2E4;. </li>
 </ul>
-<pre><code>docker rm &#xC544;&#xC774;&#xB514;
+<pre><code>$ cd home-main
+$ yarn add -D vuetify
+   :
+[4/4] Building fresh packages...
+success Saved lockfile.
+success Saved 1 new dependency.
+info Direct dependencies
+&#x2514;&#x2500; vuetify@1.4.1
+info All dependencies
+&#x2514;&#x2500; vuetify@1.4.1
+Done in 20.60s.
+</code></pre><ul>
+<li>&#xB9E4;&#xD130;&#xB9AC;&#xC5BC; &#xB514;&#xC790;&#xC778; &#xC544;&#xC774;&#xCF58; &#xCD94;&#xAC00;</li>
+</ul>
+<pre><code class="lang-shell">$ yarn add -D material-design-icons-iconfont
+   :
+[4/4] Building fresh packages...
+success Saved lockfile.
+warning Your current version of Yarn is out of date. The latest version is &quot;1.13.0&quot;, while you&apos;re on &quot;1.9.4&quot;.
+info To upgrade, run the following command:
+$ curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
+success Saved 1 new dependency.
+info Direct dependencies
+&#x2514;&#x2500; material-design-icons-iconfont@4.0.3
+info All depend
+</code></pre>
+<pre><code class="lang-shell">$ exit
+</code></pre>
+<ul>
+<li><p>&#xC18C;&#xC2A4; &#xC218;&#xC815; </p>
+</li>
+<li><p>main.js &#xC758; import &#xC120;&#xC5B8;&#xB41C; &#xB05D; &#xBD80;&#xBD84;&#xC5D0; &#xB2E4;&#xC74C;&#xC744; &#xCD94;&#xAC00; &#xD569;&#xB2C8;&#xB2E4;. </p>
+</li>
+</ul>
+<blockquote>
+<p>apps/home-main/src/main.js</p>
+</blockquote>
+<pre><code>import Vuetify from &apos;vuetify&apos;
+import &apos;vuetify/dist/vuetify.min.css&apos;
+import &apos;material-design-icons-iconfont/dist/material-design-icons.css&apos;
+
+Vue.use(Vuetify)
+</code></pre><ul>
+<li>vuetify &#xB294; &#xD3F0;&#xD2B8;&#xB85C; &#xAD6C;&#xAE00;&#xC758; Roboto &#xD3F0;&#xD2B8;&#xB97C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.
+Roboto &#xB294; &#xAD6C;&#xAE00; &#xC0AC;&#xC774;&#xD2B8;&#xC5D0;&#xC11C; &#xC81C;&#xACF5;&#xD558;&#xACE0; &#xC774; &#xD3F0;&#xD2B8; &#xB9C1;&#xD06C;&#xB97C; &#xD3EC;&#xD568; &#xC2DC;&#xCF1C;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.
+index.html &#xD30C;&#xC77C;&#xC758; <head> &#xD0DC;&#xADF8; &#xC0AC;&#xC774;&#xC5D0; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xCD94;&#xAC00; &#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</head></li>
+</ul>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&apos;https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons&apos;</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span>&gt;</span>
+</code></pre>
+<blockquote>
+<p>apps/home-main/public/index.html</p>
+</blockquote>
+<pre><code class="lang-HTML">    :
+  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;IE=edge&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width,initial-scale=1.0&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;icon&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;&lt;%= BASE_URL %&gt;favicon.ico&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&apos;https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons&apos;</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>home-main<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+   :
+</code></pre>
+<ul>
+<li>&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xC2E4;&#xD589;&#xD558;&#xC5EC; &#xC774;&#xC0C1;&#xC774; &#xC5C6;&#xB294;&#xAC00;&#xB97C; &#xAC80;&#xC99D;</li>
+</ul>
+<pre><code>$ ./run-lint.sh
+$ ./run-unit.sh
+$ ./run-e2e.sh
 </code></pre>
                                 
                                 </section>
@@ -1012,12 +953,12 @@ node@main-desk:/apps$
 
             
                 
-                <a href="01.html" class="navigation navigation-prev " aria-label="Previous page: 우분투 설치">
+                <a href="03.html" class="navigation navigation-prev " aria-label="Previous page: vue 기본 프로젝트">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="03.html" class="navigation navigation-next " aria-label="Next page: vue 기본 프로젝트">
+                <a href="vueClean.html" class="navigation navigation-next " aria-label="Next page: codeClean">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1028,7 +969,7 @@ node@main-desk:/apps$
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"개발환경 도커","level":"2.2.1.2","depth":3,"next":{"title":"vue 기본 프로젝트","level":"2.2.1.3","depth":3,"path":"docs/Boilerplate/cli3/03.md","ref":"docs/Boilerplate/cli3/03.md","articles":[]},"previous":{"title":"우분투 설치","level":"2.2.1.1","depth":3,"path":"docs/Boilerplate/cli3/01.md","ref":"docs/Boilerplate/cli3/01.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/Boilerplate/cli3/02.md","mtime":"2019-01-25T06:19:52.951Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-25T08:12:07.406Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"apollo vuetify","level":"2.2.1.4","depth":3,"next":{"title":"codeClean","level":"2.2.1.5","depth":3,"path":"docs/Boilerplate/cli3/vueClean.md","ref":"docs/Boilerplate/cli3/vueClean.md","articles":[]},"previous":{"title":"vue 기본 프로젝트","level":"2.2.1.3","depth":3,"path":"docs/Boilerplate/cli3/03.md","ref":"docs/Boilerplate/cli3/03.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/Boilerplate/cli3/apollo vuetify.md","mtime":"2019-01-25T08:04:09.894Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-25T08:12:07.406Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>
