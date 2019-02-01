@@ -908,8 +908,6 @@ import { mapGetters, mapMutations, mapActions } from &apos;vuex&apos;</p>
 
 router.js &#xB294; &#xAC01; &#xC6F9; &#xBDF0; &#xD398;&#xC774;&#xC9C0;&#xB4E4;&#xC744; &#xBD84;&#xB9AC;&#xD558;&#xACE0; &#xAD00;&#xB9AC;&#xD558;&#xB294;&#xB370; &#xC911;&#xC2EC;&#xC774; &#xB418;&#xB294; &#xC18C;&#xC2A4;
 
-
-&gt; [src/router.js](https://github.com/kcert2018/start-vue-build-up-guide/blob/master/apps/z020-home-main-clean/src/router.js)
 ~~~ javascript
 import Vue from &apos;vue&apos;
 import Router from &apos;vue-router&apos;
@@ -920,14 +918,62 @@ export default new Router({
   // mode: &apos;history&apos;,
   base: process.env.BASE_URL,
   routes: [
+    {
+      path: &apos;/&apos;,
+      name: &apos;home-main&apos;,
+      component: () =&gt; import(&apos;./views/home-main.vue&apos;)
+    },
+    {
+      path: &apos;/messages/&apos;,
+      name: &apos;messages-main&apos;,
+      component: () =&gt; import(/* webpackChunkName: &quot;messages-main&quot; */ &apos;./views/messages-main.vue&apos;)
+    },
+    {
+      path: &apos;*&apos;,
+      redirect: &apos;/&apos;
+    }
   ]
 })
-</code></pre><p>&#xC8FC;&#xC11D; &#xCC98;&#xB9AC;&#xD558;&#xACE0; &#xC788;&#xB294; &quot;mode: &apos;history&apos;,&quot; &#xB294; &#xC5EC;&#xB7EC;&#xBD84;&#xC758; &#xCDE8;&#xD5A5;&#xC5D0; &#xB2EC;&#xB838;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<p>&#xB9C8;&#xC774;&#xD06C;&#xB85C; &#xC11C;&#xBE44;&#xC2A4; &#xAC1C;&#xBC1C; &#xBC29;&#xC2DD;&#xC73C;&#xB85C; &#xAC01; &#xAE30;&#xB2A5;&#xBCC4;&#xB85C; &#xBCC4;&#xB3C4;&#xC758; &#xC571;&#xC744; &#xB9CC;&#xB4E4; &#xACBD;&#xC6B0;,
-&#xC704;&#xC640; &#xAC19;&#xC774; &#xC8FC;&#xC11D; &#xCC98;&#xB9AC; &#xD558;&#xC2DC;&#xBA74; &#xAC01; &#xC571;&#xC758; &#xD2B9;&#xC815; &#xBDF0;&#xC5D0; &#xC811;&#xADFC;&#xD558;&#xC2E4; &#xB54C; URL&#xC5D0; &#xD574;&#xC26C;&#xD0DC;&#xADF8;&#xB97C; &#xC774;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<p>&#xCFE0;&#xBC84;&#xB124;&#xD2F0;&#xC2A4;&#xB098; &#xC6F9; &#xD398;&#xC774;&#xC9C0; &#xC81C;&#xACF5; &#xC11C;&#xBC84;&#xB85C; &#xC544;&#xD30C;&#xCE58;&#xB098; NGINX &#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC2E4; &#xACC4;&#xD68D;&#xC774;&#xBA74;,
-&#xC704;&#xC640; &#xAC19;&#xC774; &#xC8FC;&#xC11D; &#xCC98;&#xB9AC; &#xD558;&#xC5EC; &#xD788;&#xC2A4;&#xD2B8;&#xB85C; &#xBAA8;&#xB4DC;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC9C0; &#xC54A;&#xB294; &#xAC83;&#xC774; &#xC88B;&#xC2B5;&#xB2C8;&#xB2E4;. </p>
-<p>&#xC55E;&#xC73C;&#xB85C; &#xC9C4;&#xD589;&#xD558;&#xBA74;&#xC11C; &#xBC30;&#xD3EC; &#xB2E8;&#xACC4;&#xC5D0;&#xC11C; &#xC124;&#xBA85;&#xC774; &#xB420; &#xAC83;&#xC774;&#xBBC0;&#xB85C; &#xC9C0;&#xAE08;&#xC740; &#xBB65;&#xBBF8;? &#xD558;&#xC154;&#xB3C4; &#xAD1C;&#xCC2E;&#xC2B5;&#xB2C8;&#xB2E4;. &#xBB34;&#xC2DC;&#xD558;&#xC138;&#xC694;  ^^;</p>
+</code></pre><ul>
+<li><p>router&#xC5D0; component&#xB97C; import &#xD558;&#xB294; &#xBD80;&#xBD84;&#xC740; loadView &#xBA54;&#xC18C;&#xB4DC;&#xB97C; &#xC0AC;&#xC6A9;&#xD55C;&#xB2E4;.</p>
+</li>
+<li><p><a href="https://medium.com/@jeongwooahn/vue-js-lazy-load-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0-b1925e83d3c6" target="_blank">Lazy load</a> &#xB97C; &#xC801;&#xC6A9;&#xD55C; &#xBAA8;&#xC2B5;</p>
+</li>
+<li><ul>
+<li>&#xC2E4;&#xC81C; &#xB77C;&#xC6B0;&#xD305;&#xC774; &#xBC1C;&#xC0DD;&#xD558;&#xC5EC; &#xD544;&#xC694;&#xD560; &#xB54C; &#xB85C;&#xB4DC;&#xB418;&#xB3C4;&#xB85D; </li>
+</ul>
+</li>
+<li></li>
+</ul>
+<h3 id="srcstore-&#xCCAD;&#xC18C;">src/store &#xCCAD;&#xC18C;</h3>
+<ul>
+<li><p>src/store/modules/index.js</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> files = <span class="hljs-built_in">require</span>.context(<span class="hljs-string">&apos;.&apos;</span>, <span class="hljs-literal">false</span>, <span class="hljs-regexp">/\.js$/</span>)
+<span class="hljs-keyword">const</span> modules = {}
+
+files.keys().forEach(key =&gt; {
+  <span class="hljs-keyword">if</span> (key === <span class="hljs-string">&apos;./index.js&apos;</span>) <span class="hljs-keyword">return</span>
+  modules[key.replace(<span class="hljs-regexp">/(\.\/|\.js)/g</span>, <span class="hljs-string">&apos;&apos;</span>)] = files(key).default
+})
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> modules
+</code></pre>
+</li>
+<li><p>src/store/index.js</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue&apos;</span>
+<span class="hljs-keyword">import</span> Vuex <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vuex&apos;</span>
+<span class="hljs-keyword">import</span> modules <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./modules&apos;</span>
+
+Vue.use(Vuex)
+
+<span class="hljs-keyword">const</span> store = <span class="hljs-keyword">new</span> Vuex.Store({
+  modules
+})
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> store
+</code></pre>
+</li>
+</ul>
 <h3 id="srcview-&#xCCAD;&#xC18C;">src/view/ &#xCCAD;&#xC18C;</h3>
 <p>src/view/ &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB294; &#xC2E4;&#xC81C; UI &#xB97C; &#xB9CC;&#xB4E4;&#xACE0; &#xAD00;&#xB9AC;&#xD558;&#xB294; &#xBDF0; &#xC18C;&#xC2A4;&#xB97C; &#xBAA8;&#xC544; &#xB193;&#xB294; &#xACF3;&#xC785;&#xB2C8;&#xB2E4;. </p>
 <p>&#xD604;&#xC7AC;&#xB294; &#xCCAD;&#xC18C; &#xC911;&#xC774;&#xBBC0;&#xB85C; &#xC774; &#xC548;&#xC5D0; &#xC788;&#xB294; &#xD30C;&#xC77C;&#xB4E4;&#xC744; &#xBAA8;&#xB450; &#xC81C;&#xAC70; &#xD569;&#xB2C8;&#xB2E4;. </p>
@@ -1002,7 +1048,7 @@ $ ./run-e2e.sh
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"codeClean","level":"2.2.1.5","depth":3,"next":{"title":"nuxt","level":"2.2.2","depth":2,"path":"docs/Boilerplate/nuxt.md","ref":"docs/Boilerplate/nuxt.md","articles":[]},"previous":{"title":"apollo vuetify","level":"2.2.1.4","depth":3,"path":"docs/Boilerplate/cli3/apollo vuetify.md","ref":"docs/Boilerplate/cli3/apollo vuetify.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/Boilerplate/cli3/vueClean.md","mtime":"2019-01-28T05:41:08.222Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-28T05:44:49.817Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"codeClean","level":"2.2.1.5","depth":3,"next":{"title":"nuxt","level":"2.2.2","depth":2,"path":"docs/Boilerplate/nuxt.md","ref":"docs/Boilerplate/nuxt.md","articles":[]},"previous":{"title":"apollo vuetify","level":"2.2.1.4","depth":3,"path":"docs/Boilerplate/cli3/apollo vuetify.md","ref":"docs/Boilerplate/cli3/apollo vuetify.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/Boilerplate/cli3/vueClean.md","mtime":"2019-02-01T08:06:02.218Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-01T08:06:19.722Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>

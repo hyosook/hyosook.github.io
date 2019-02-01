@@ -145,8 +145,6 @@ export default {
 
 router.js 는 각 웹 뷰 페이지들을 분리하고 관리하는데 중심이 되는 소스
 
-
-> [src/router.js](https://github.com/kcert2018/start-vue-build-up-guide/blob/master/apps/z020-home-main-clean/src/router.js)
 ~~~ javascript
 import Vue from 'vue'
 import Router from 'vue-router'
@@ -157,25 +155,75 @@ export default new Router({
   // mode: 'history',
   base: process.env.BASE_URL,
   routes: [
+    {
+      path: '/',
+      name: 'home-main',
+      component: () => import('./views/home-main.vue')
+    },
+    {
+      path: '/messages/',
+      name: 'messages-main',
+      component: () => import(/* webpackChunkName: "messages-main" */ './views/messages-main.vue')
+    },
+    {
+      path: '*',
+      redirect: '/'
+    }
   ]
 })
+
 ~~~
 
-주석 처리하고 있는 "mode: 'history'," 는 여러분의 취향에 달렸습니다.
+- router에 component를 import 하는 부분은 loadView 메소드를 사용한다.
 
-마이크로 서비스 개발 방식으로 각 기능별로 별도의 앱을 만들 경우,
-위와 같이 주석 처리 하시면 각 앱의 특정 뷰에 접근하실 때 URL에 해쉬태그를 이용할 수 있습니다.
+- [Lazy load](https://medium.com/@jeongwooahn/vue-js-lazy-load-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0-b1925e83d3c6) 를 적용한 모습
 
-쿠버네티스나 웹 페이지 제공 서버로 아파치나 NGINX 를 사용하실 계획이면,
-위와 같이 주석 처리 하여 히스트로 모드를 사용하지 않는 것이 좋습니다. 
+- - 실제 라우팅이 발생하여 필요할 때 로드되도록 
 
-앞으로 진행하면서 배포 단계에서 설명이 될 것이므로 지금은 뭥미? 하셔도 괜찮습니다. 무시하세요  ^^;
+- 
+
+### src/store 청소
+
+* src/store/modules/index.js
+
+  ```javascript
+  const files = require.context('.', false, /\.js$/)
+  const modules = {}
+  
+  files.keys().forEach(key => {
+    if (key === './index.js') return
+    modules[key.replace(/(\.\/|\.js)/g, '')] = files(key).default
+  })
+  
+  export default modules
+  ```
+
+* src/store/index.js
+
+  ```javascript
+  import Vue from 'vue'
+  import Vuex from 'vuex'
+  import modules from './modules'
+  
+  Vue.use(Vuex)
+  
+  const store = new Vuex.Store({
+    modules
+  })
+  
+  export default store
+  ```
+
+
+
 
 ### src/view/ 청소
 
 src/view/ 디렉토리는 실제 UI 를 만들고 관리하는 뷰 소스를 모아 놓는 곳입니다. 
 
 현재는 청소 중이므로 이 안에 있는 파일들을 모두 제거 합니다. 
+
+
 
 ### src/components/ 청소
 
