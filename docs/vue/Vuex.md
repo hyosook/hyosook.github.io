@@ -455,3 +455,11 @@ const store = new Vuex.Store({
 export default store
 ```
 
+
+
+### 사용
+
+```javascript
+  store.commit('SET_ERROR', err, { root: true }) //  부모 실행
+```
+
