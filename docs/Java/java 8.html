@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>기타 · GitBook</title>
+        <title>java8 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="gitbook.html" />
+    <link rel="next" href="../git/" />
     
     
-    <link rel="prev" href="../DDD/영속성 컨텍스트 트랜잭션.html" />
+    <link rel="prev" href="lombok.html" />
     
 
     </head>
@@ -497,9 +497,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.3" data-path="../Java/">
+        <li class="chapter " data-level="3.3" data-path="./">
             
-                <a href="../Java/">
+                <a href="./">
             
                     
                     Java
@@ -511,9 +511,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="3.3.1" data-path="../Java/lombok.html">
+        <li class="chapter " data-level="3.3.1" data-path="lombok.html">
             
-                <a href="../Java/lombok.html">
+                <a href="lombok.html">
             
                     
                     lombok
@@ -524,9 +524,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.3.2" data-path="../Java/java 8.html">
+        <li class="chapter active" data-level="3.3.2" data-path="java 8.html">
             
-                <a href="../Java/java 8.html">
+                <a href="java 8.html">
             
                     
                     java8
@@ -749,9 +749,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.6" data-path="./">
+        <li class="chapter " data-level="3.6" data-path="../etc/">
             
-                <a href="./">
+                <a href="../etc/">
             
                     
                     기타
@@ -763,9 +763,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="3.6.1" data-path="gitbook.html">
+        <li class="chapter " data-level="3.6.1" data-path="../etc/gitbook.html">
             
-                <a href="gitbook.html">
+                <a href="../etc/gitbook.html">
             
                     
                     gitbook
@@ -776,9 +776,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.6.2" data-path="promise.html">
+        <li class="chapter " data-level="3.6.2" data-path="../etc/promise.html">
             
-                <a href="promise.html">
+                <a href="../etc/promise.html">
             
                     
                     promise
@@ -789,9 +789,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.6.3" data-path="pug.html">
+        <li class="chapter " data-level="3.6.3" data-path="../etc/pug.html">
             
-                <a href="pug.html">
+                <a href="../etc/pug.html">
             
                     
                     pug
@@ -802,9 +802,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.6.4" data-path="ES6.html">
+        <li class="chapter " data-level="3.6.4" data-path="../etc/ES6.html">
             
-                <a href="ES6.html">
+                <a href="../etc/ES6.html">
             
                     
                     ES6
@@ -850,7 +850,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >기타</a>
+        <a href="../.." >java8</a>
     </h1>
 </div>
 
@@ -865,7 +865,164 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="index-&#xBB38;&#xC11C;">index &#xBB38;&#xC11C;</h2>
+                                <h1 id="java8">java8</h1>
+<h2 id="optional">Optional</h2>
+<blockquote>
+<p> null &#xCC98;&#xB9AC;&#xB97C; &#xBCF4;&#xB2E4; &#xAC04;&#xD3B8;&#xD558;&#xAC8C; &#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C; &#xB9CC;&#xB4E4;&#xC5B4;&#xC84C;&#xB2E4;.</p>
+</blockquote>
+<h3 id="&#xAC1D;&#xCCB4;-&#xC0DD;&#xC131;&#xD558;&#xAE30;">&#xAC1D;&#xCCB4; &#xC0DD;&#xC131;&#xD558;&#xAE30;</h3>
+<ul>
+<li><code>Optional.empty()</code><ul>
+<li>null&#xC744; &#xB2F4;&#xACE0; &#xC788;&#xB294;, &#xD55C; &#xB9C8;&#xB514;&#xB85C; &#xBE44;&#xC5B4;&#xC788;&#xB294; Optional &#xAC1D;&#xCCB4;&#xB97C; &#xC5BB;&#xC5B4;&#xC635;&#xB2C8;&#xB2E4;.
+&#xC774; &#xBE44;&#xC5B4;&#xC788;&#xB294; &#xAC1D;&#xCCB4;&#xB294; Optional &#xB0B4;&#xBD80;&#xC801;&#xC73C;&#xB85C; &#xBBF8;&#xB9AC; &#xC0DD;&#xC131;&#xD574;&#xB193;&#xC740; &#xC2F1;&#xAE00;&#xD134; &#xC778;&#xC2A4;&#xD134;&#xC2A4;&#xC785;&#xB2C8;&#xB2E4;.</li>
+</ul>
+</li>
+</ul>
+<pre><code>Optional&lt;Member&gt; maybeMember = Optional.empty();
+</code></pre><ul>
+<li><code>Optional.of(value)</code><ul>
+<li>null&#xC774; &#xC544;&#xB2CC; &#xAC1D;&#xCCB4;&#xB97C; &#xB2F4;&#xACE0; &#xC788;&#xB294; Optional &#xAC1D;&#xCCB4;&#xB97C; &#xC0DD;&#xC131;&#xD569;&#xB2C8;&#xB2E4;.</li>
+<li>null&#xC774; &#xB118;&#xC5B4;&#xC62C; &#xACBD;&#xC6B0;, NPE&#xB97C; &#xB358;&#xC9C0;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; <strong>&#xC8FC;&#xC758;&#xD574;&#xC11C; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;</strong>.</li>
+</ul>
+</li>
+</ul>
+<pre><code>Optional&lt;Member&gt; maybeMember = Optional.of(aMember);
+</code></pre><ul>
+<li><code>Optional.ofNullable(value)</code><ul>
+<li>null&#xC778;&#xC9C0; &#xC544;&#xB2CC;&#xC9C0; &#xD655;&#xC2E0;&#xD560; &#xC218; &#xC5C6;&#xB294; &#xAC1D;&#xCCB4;&#xB97C;  &#xB2F4;&#xACE0; &#xC788;&#xB294; Optional &#xAC1D;&#xCCB4;&#xB97C; &#xC0DD;&#xC131;&#xD569;&#xB2C8;&#xB2E4;.
+<code>Optional.empty()</code>&#xC640; <code>Optional.ofNullable(value)</code>&#xB97C; &#xD569;&#xCCD0;&#xB193;&#xC740; &#xBA54;&#xC18C;&#xB4DC;&#xB77C;&#xACE0; &#xC0DD;&#xAC01;&#xD558;&#xC2DC;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.
+null&#xC774; &#xB118;&#xC5B4;&#xC62C; &#xACBD;&#xC6B0;, NPE&#xB97C; &#xB358;&#xC9C0;&#xC9C0; &#xC54A;&#xACE0; <code>Optional.empty()</code>&#xC640; &#xB3D9;&#xC77C;&#xD558;&#xAC8C; &#xBE44;&#xC5B4; &#xC788;&#xB294; Optional &#xAC1D;&#xCCB4;&#xB97C; &#xC5BB;&#xC5B4;&#xC635;&#xB2C8;&#xB2E4;.
+&#xD574;&#xB2F9; &#xAC1D;&#xCCB4;&#xAC00; null&#xC778;&#xC9C0; &#xC544;&#xB2CC;&#xC9C0; &#xC790;&#xC2E0;&#xC774; &#xC5C6;&#xB294; &#xC0C1;&#xD669;&#xC5D0;&#xC11C;&#xB294; &#xC774; &#xBA54;&#xC18C;&#xB4DC;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC154;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</li>
+</ul>
+</li>
+</ul>
+<p><a href="http://multifrontgarden.tistory.com/131" target="_blank">http://multifrontgarden.tistory.com/131</a></p>
+<h4 id="optional-&#xAC1D;&#xCCB4;&#xC758;-&#xAC12;-&#xAC00;&#xC838;&#xC624;&#xAE30;">Optional &#xAC1D;&#xCCB4;&#xC758; &#xAC12; &#xAC00;&#xC838;&#xC624;&#xAE30;</h4>
+<ul>
+<li>get() : &#xB9CC;&#xC57D; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC5C6;&#xC744; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; null &#xB9AC;&#xD134;</li>
+<li>ofElse() : &#xAC12;&#xC774; &#xC5C6;&#xC744; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; &#xAE30;&#xBCF8;&#xAC12;&#xC744; &#xC9C0;&#xC815;&#xD560; &#xC218; &#xC788;&#xB2E4;.</li>
+<li>Supplier<t> &#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;&#xB97C; &#xD65C;&#xC6A9;&#xD558;&#xC5EC; orElseGet()&#xBA54;&#xC18C;&#xB4DC; &#xC0AC;&#xC6A9;</t></li>
+<li>Supplier<t> &#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;&#xB97C; &#xD65C;&#xC6A9;&#xD558;&#xC5EC; orElseThrow()&#xBA54;&#xC18C;&#xB4DC; &#xC0AC;&#xC6A9; (&#xB370;&#xC774;&#xD130;&#xAC00; &#xC5C6;&#xB294; &#xACBD;&#xC6B0; &#xC9C0;&#xC815;&#xD55C; &#xC608;&#xC678; &#xBC1C;&#xC0DD;)</t></li>
+</ul>
+<pre><code>Optional&lt;String&gt; optVal = Optional.of(&quot;abc&quot;);
+
+String str1 = optVal.get(); 
+// optVal&#xC5D0; &#xC800;&#xC7A5;&#xB41C; &#xAC12;&#xC744; &#xBC18;&#xD658;. null&#xC774;&#xBA74; &#xC608;&#xC678;&#xBC1C;&#xC0DD; 
+
+String str2 = optVal.orElse(&quot;&quot;); 
+// optVal&#xC5D0; &#xC800;&#xC7A5;&#xB41C; &#xAC12;&#xC774; null&#xC77C; &#xB54C;&#xB294;, &quot;&quot;&#xB97C; &#xBC18;&#xD658; 
+
+String str3 = optVal.orElseGet(String::new); 
+// &#xB78C;&#xB2E4;&#xC2DD; &#xC0AC;&#xC6A9;&#xAC00;&#xB2A5; () -&gt; new String()
+
+String str4 = optVal.orElseThrow(NullPointerException::new); 
+// &#xB110;&#xC774;&#xBA74; &#xC608;&#xC678;&#xBC1C;&#xC0DD;
+</code></pre><h4 id="ispresent">isPresent()</h4>
+<pre><code>if(Optional.ofNullable(str).isPresent()) { 
+  System.out.println(str);
+}
+</code></pre><ul>
+<li>Optional &#xAC1D;&#xCCB4;&#xC758; &#xAC12;&#xC774; null&#xC774;&#xBA74; false, &#xC544;&#xB2C8;&#xBA74; true&#xB97C; &#xBC18;&#xD658;&#xD55C;&#xB2E4;.</li>
+</ul>
+<h4 id="ifpresent">ifPresent()</h4>
+<pre><code>Optional.ofNullable(str).ifPresent(System.out::println);
+</code></pre><h4 id="optionalint-optionallong-optionaldouble">OptionalInt, OptionalLong, OptionalDouble</h4>
+<pre><code>public final class OptionalInt {
+  ...
+  private final boolean isPresent; // &#xAC12;&#xC774; &#xC800;&#xC7A5;&#xB418;&#xC5B4; &#xC788;&#xC73C;&#xBA74; true
+  private final int value; // int&#xD0C0;&#xC785;&#xC758; &#xBCC0;&#xC218;
+}
+</code></pre><h2 id="stream">Stream</h2>
+<blockquote>
+<p>&#xC5F0;&#xC18D;&#xB41C; &#xC815;&#xBCF4;&#xB97C; &#xCC98;&#xB9AC;&#xD558;&#xB294;&#xB370; &#xC0AC;&#xC6A9;</p>
+</blockquote>
+<h3 id="&#xC2A4;&#xD2B8;&#xB9BC;&#xC758;-&#xAD6C;&#xC870;">&#xC2A4;&#xD2B8;&#xB9BC;&#xC758; &#xAD6C;&#xC870;</h3>
+<ul>
+<li>&#xC2A4;&#xD2B8;&#xB9BC; &#xC0DD;&#xC131; : &#xCEEC;&#xB809;&#xC158; &#xBAA9;&#xB85D;&#xC744; &#xC2A4;&#xD2B8;&#xB9BC; &#xAC1D;&#xCCB4;&#xB85C; &#xBCC0;&#xD658;</li>
+<li>&#xC911;&#xAC1C; &#xC5F0;&#xC0B0; : &#xC0DD;&#xC131;&#xB41C; &#xC2A4;&#xD2B8;&#xB9BC; &#xAC1D;&#xCCB4;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC5EC; &#xC911;&#xAC1C; &#xC5F0;&#xC0B0; &#xBD80;&#xBD84;&#xC5D0;&#xC11C; &#xCC98;&#xB9AC; (&#xC544;&#xBB34;&#xB7F0; &#xACB0;&#xACFC;&#xB97C; &#xB9AC;&#xD134;&#xD558;&#xC9C0; &#xBABB;&#xD55C;&#xB2E4;), 0&#xAC1C; &#xC774;&#xC0C1; &#xC874;&#xC7AC;</li>
+<li>&#xC885;&#xB2E8; &#xC5F0;&#xC0B0; : &#xC911;&#xAC1C; &#xC5F0;&#xC0B0;&#xC5D0;&#xC11C; &#xC791;&#xC5C5;&#xB41C; &#xB0B4;&#xC6A9;&#xC744; &#xBC14;&#xD0D5;&#xC73C;&#xB85C; &#xACB0;&#xACFC;&#xB97C; &#xB9AC;&#xD134;</li>
+</ul>
+<p>Stream() &#xC740; &#xC21C;&#xCC28;&#xC801;&#xC73C;&#xB85C; &#xB370;&#xC774;&#xD130;&#xB97C; &#xCC98;&#xB9AC;&#xD55C;&#xB2E4;.(index&#xC21C;)</p>
+<h3 id="find">FIND</h3>
+<pre><code class="lang-java">List &lt;DataMap&gt; resultList = <span class="hljs-keyword">this</span>.tutorAbsenceManageService.selectAbsentList (tutorAbsenceManageVo);
+
+List&lt;DataMap&gt; result = resultList.stream().filter( obj -&gt; {
+     String date = dateFormat.format((Date) obj.get(<span class="hljs-string">&quot;absenceDt&quot;</span>));
+     <span class="hljs-keyword">return</span> Objects.equals(date, dayMap.get(<span class="hljs-string">&quot;date&quot;</span>)) &amp;&amp; Objects.equals(dayMap.get (<span class="hljs-string">&quot;periodNo&quot;</span>), obj.get(<span class="hljs-string">&quot;periodNo&quot;</span>));
+}).collect(Collectors.toList());
+</code></pre>
+<h3 id="admin&#xC744;-&#xC81C;&#xC678;&#xD55C;-&#xC804;&#xCCB4;-&#xB2E4;&#xC2DC;-&#xAC00;&#xC838;&#xC624;&#xAE30;">admin&#xC744; &#xC81C;&#xC678;&#xD55C; &#xC804;&#xCCB4; &#xB2E4;&#xC2DC; &#xAC00;&#xC838;&#xC624;&#xAE30;</h3>
+<pre><code class="lang-java"> List&lt;CommonCode&gt; typeList = commonCodeRepository.findByCodeGroup(<span class="hljs-string">&quot;PAY_TYPE&quot;</span>);
+
+        List&lt;CommonCode&gt; typeResult = typeList.stream().filter(obj -&gt; {
+            String type = PayType.ADMIN.codeVal();
+            <span class="hljs-keyword">return</span> !Objects.equals(type, obj.getCode());
+        }).collect(Collectors.toList());
+</code></pre>
+<h3 id="anymatch--contains">anyMatch / contains</h3>
+<pre><code class="lang-java"> <span class="hljs-keyword">if</span> (authentication.getAuthorities().stream().anyMatch(authority -&gt; authority.getAuthority().contains(AuthorityType.ROLE_MASTER.getValue()))) {
+            redirectURL = <span class="hljs-string">&quot;/master/prod/list&quot;</span>;
+        }
+</code></pre>
+<h3 id="filter--count">filter / count</h3>
+<pre><code class="lang-java">count = count + (<span class="hljs-keyword">int</span>) protoAns.getValues().stream().filter(v -&gt; v.equals(protoItem.getItemNo())).count();
+</code></pre>
+<pre><code class="lang-java">  Optional&lt;EvalAns&gt; ansOptional = evalAnsList.stream().filter(eval -&gt; eval.getQst().getQstNo() == (qst.getQstNo())).findFirst();
+</code></pre>
+<h3 id="peek">peek</h3>
+<ul>
+<li>// &#xC2A4;&#xD2B8;&#xB9BC;&#xC744; &#xC21C;&#xD68C;&#xD558;&#xBA70;</li>
+</ul>
+<pre><code class="lang-java"> List&lt;HeaderDto&gt; askList = list.stream().filter(dto -&gt;
+                    dto.getName().equals(<span class="hljs-string">&quot;ask&quot;</span>)
+            ).peek(dto -&gt; dto.setDday(getDday(dto.getReqEndDate()))).collect(Collectors.toList());
+</code></pre>
+<h3 id="maptoint">mapToInt</h3>
+<pre><code class="lang-java">datas.stream().mapToInt(Integer::intValue).toArray()
+</code></pre>
+<pre><code class="lang-java"> Optional&lt;EvalAns&gt; ansOptional = evalAnsList.stream().filter(eval -&gt; eval.getQst().getQstNo() == (qst.getQstNo())).findFirst();
+</code></pre>
+<h2 id="map">map</h2>
+<ul>
+<li>&#xCD94;&#xCD9C;</li>
+<li>&#xC2A4;&#xD2B8;&#xB9BC;&#xC5D0; &#xC788;&#xB294; &#xAC12;&#xB4E4;&#xC744; <strong>&#xD2B9;&#xC815;&#xBC29;&#xC2DD;</strong>&#xC73C;&#xB85C; <strong>&#xBCC0;&#xD658;</strong>&#xD558;&#xC5EC; <strong>&#xC0C8;&#xB85C;&#xC6B4; &#xC2A4;&#xD2B8;&#xB9BC;</strong> &#xBC18;&#xD658; </li>
+<li>&#xD2B9;&#xC815; element&#xB9CC; &#xBAA8;&#xC73C;&#xAE30;</li>
+</ul>
+<pre><code class="lang-java">      List&lt;EvalAns&gt; answers = protoAnsDtos.stream().map(protoAnsDto -&gt; {
+            Qst protoQst = qstRepository.findOne(protoAnsDto.getQstNo());
+            <span class="hljs-keyword">if</span> (protoQst == <span class="hljs-keyword">null</span>) {
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(String.format(<span class="hljs-string">&quot;&apos;qstNo: %s is not exist.&quot;</span>, protoAnsDto.getQstNo()));
+            }
+
+            EvalAns protoAns = evalAnsRepository.findOne(protoAnsDto.getAnsNo());
+            <span class="hljs-keyword">if</span> (protoAns == <span class="hljs-keyword">null</span>) {
+                protoAns = <span class="hljs-keyword">new</span> EvalAns();
+                protoAns.setQst(protoQst);
+                protoAns.setEval(persistEval);
+            }
+
+            <span class="hljs-keyword">if</span> (!protoAns.getValues().equals(protoAnsDto.getItems())) {
+                protoAns.getValues().addAll(protoAnsDto.getItems());
+            }
+
+            <span class="hljs-keyword">return</span> protoAns;
+        }).collect(Collectors.toList());
+</code></pre>
+<pre><code class="lang-java">List&lt;ProtoAnsDto&gt; protoAnswers = eval.getAnsList().stream().map(
+                    evalAns -&gt; <span class="hljs-keyword">new</span> ProtoAnsDto(evalAns.getAnsNo(), evalAns.getQst().getQstNo(),
+                            evalAns.getValues().size() != <span class="hljs-number">0</span> &amp;&amp; evalAns.getQst().getType().codeVal().equals(QstType.FILEUPLOAD.codeVal())?fileService.getDownLoadLink((String) evalAns.getItems()):<span class="hljs-string">&quot;&quot;</span>
+                            ,evalAns.getValues())
+            ).collect(Collectors.toList());
+</code></pre>
+<pre><code class="lang-java"> anslist.add(valueList.stream().collect(Collectors.joining(<span class="hljs-string">&quot; , &quot;</span>)));
+</code></pre>
+<h3 id="&#xBA54;&#xC18C;&#xB4DC;-&#xCC38;&#xC870;-&#xB354;&#xBE14;-&#xCF5C;&#xB860;">&#xBA54;&#xC18C;&#xB4DC; &#xCC38;&#xC870; ::(&#xB354;&#xBE14; &#xCF5C;&#xB860;)</h3>
+<ul>
+<li>static &#xBA54;&#xC18C;&#xB4DC; &#xCC38;&#xC870; : <code>ContaningClass::staticMethodName</code></li>
+<li>&#xD2B9;&#xC815; &#xAC1D;&#xCCB4;&#xC758; &#xC778;&#xC2A4;&#xD134;&#xC2A4; &#xBA54;&#xC18C;&#xB4DC; &#xCC38;&#xC870; : <code>contaningObject::instanceMethodName</code></li>
+<li>&#xD2B9;&#xC815; &#xC720;&#xD615;&#xC758; &#xC784;&#xC758;&#xC758; &#xAC1D;&#xCCB4;&#xC5D0; &#xB300;&#xD55C; &#xC778;&#xC2A4;&#xD134;&#xC2A4; &#xBA54;&#xC18C;&#xB4DC; &#xCC38;&#xC870; : <code>ContaningType::methodName</code></li>
+<li>&#xC0DD;&#xC131;&#xC790; &#xCC38;&#xC870; : ClassName::new</li>
+</ul>
 
                                 
                                 </section>
@@ -893,12 +1050,12 @@
 
             
                 
-                <a href="../DDD/영속성 컨텍스트 트랜잭션.html" class="navigation navigation-prev " aria-label="Previous page: 영속성 컨텍스트 트랜잭션">
+                <a href="lombok.html" class="navigation navigation-prev " aria-label="Previous page: lombok">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="gitbook.html" class="navigation navigation-next " aria-label="Next page: gitbook">
+                <a href="../git/" class="navigation navigation-next " aria-label="Next page: git">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -909,7 +1066,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"기타","level":"3.6","depth":1,"next":{"title":"gitbook","level":"3.6.1","depth":2,"path":"docs/etc/gitbook.md","ref":"docs/etc/gitbook.md","articles":[]},"previous":{"title":"영속성 컨텍스트 트랜잭션","level":"3.5.12","depth":2,"path":"docs/DDD/영속성 컨텍스트 트랜잭션.md","ref":"docs/DDD/영속성 컨텍스트 트랜잭션.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/etc/index.md","mtime":"2019-06-18T09:15:20.880Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-02T03:30:20.347Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"java8","level":"3.3.2","depth":2,"next":{"title":"git","level":"3.4","depth":1,"path":"docs/git/index.md","ref":"docs/git/index.md","articles":[{"title":"issues","level":"3.4.1","depth":2,"path":"docs/git/issues.md","ref":"docs/git/issues.md","articles":[]}]},"previous":{"title":"lombok","level":"3.3.1","depth":2,"path":"docs/Java/lombok.md","ref":"docs/Java/lombok.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/Java/java 8.md","mtime":"2019-07-02T03:29:50.784Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-02T03:30:20.347Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

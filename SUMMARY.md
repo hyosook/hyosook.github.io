@@ -24,6 +24,7 @@
 * [vue-cli3](docs/vue-cli3/index.md)
   * [IE11 지원하기](docs/vue-cli3/support ie.md)
   * [env 환경변수](docs/vue-cli3/env.md)
+  * [킨더가든](docs/vue-cli3/kindergarten.md)
 * [aws](docs/aws/springboot elb.md)
 
 
@@ -37,6 +38,7 @@
 * [Java](docs/Java/index.md)
 
   * [lombok](docs/Java/lombok.md)
+  * [java8](docs/Java/java 8.md)
 * [git](docs/git/index.md)
 
   * [issues](docs/git/issues.md)
