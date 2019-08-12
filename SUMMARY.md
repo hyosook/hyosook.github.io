@@ -13,6 +13,7 @@
   * [vue base](docs/vue/vue base.md)
   * [vue-router](docs/vue/vue-router.md)
   * [vuex](docs/vue/vux.md)
+  * [v-model & slot](docs/vue/v-model.md)
 * [Vue Boilerplate's Framework](docs/Boilerplate/index.md)
   * [vue-cli3](docs/Boilerplate/vue-cli3.md)
     * [우분투 설치](docs/Boilerplate/cli3/01.md)
@@ -26,6 +27,7 @@
   * [env 환경변수](docs/vue-cli3/env.md)
   * [킨더가든](docs/vue-cli3/kindergarten.md)
 * [aws](docs/aws/springboot elb.md)
+  * [s3정적웹사이트 호스팅](docs/aws/s3 정적웹사이트 호스팅.md)
 
 
 
@@ -56,12 +58,11 @@
   * [연관관계](docs/DDD/연관관계.md)
   * [영속성 컨텍스트 트랜잭션](docs/DDD/영속성 컨텍스트 트랜잭션.md)
 * [기타](docs/etc/index.md)
-
-  * [gitbook](docs/etc/gitbook.md)
-
-  * [promise](docs/etc/promise.md)
-
-  * [pug](docs/etc/pug.md)
-
-  * [ES6](docs/etc/ES6.md)
+* [gitbook](docs/etc/gitbook.md)
+  
+* [Asyncawait](docs/etc/Asyncawait.md)
+  
+* [pug](docs/etc/pug.md)
+  
+* [ES6](docs/etc/ES6 기본사용.md)
 
