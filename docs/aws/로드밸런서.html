@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>IE11 지원하기 · GitBook</title>
+        <title>로드밸런서 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="env.html" />
+    <link rel="next" href="springboot elb.html" />
     
     
-    <link rel="prev" href="./" />
+    <link rel="prev" href="s3 정적웹사이트 호스팅.html" />
     
 
     </head>
@@ -348,9 +348,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.3" data-path="./">
+        <li class="chapter " data-level="2.3" data-path="../vue-cli3/">
             
-                <a href="./">
+                <a href="../vue-cli3/">
             
                     
                     vue-cli3
@@ -362,9 +362,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="2.3.1" data-path="support ie.html">
+        <li class="chapter " data-level="2.3.1" data-path="../vue-cli3/support ie.html">
             
-                <a href="support ie.html">
+                <a href="../vue-cli3/support ie.html">
             
                     
                     IE11 지원하기
@@ -375,9 +375,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.3.2" data-path="env.html">
+        <li class="chapter " data-level="2.3.2" data-path="../vue-cli3/env.html">
             
-                <a href="env.html">
+                <a href="../vue-cli3/env.html">
             
                     
                     env 환경변수
@@ -388,9 +388,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.3.3" data-path="kindergarten.html">
+        <li class="chapter " data-level="2.3.3" data-path="../vue-cli3/kindergarten.html">
             
-                <a href="kindergarten.html">
+                <a href="../vue-cli3/kindergarten.html">
             
                     
                     킨더가든
@@ -406,9 +406,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.4" data-path="../aws/springboot elb.html">
+        <li class="chapter " data-level="2.4" data-path="springboot elb.html">
             
-                <a href="../aws/springboot elb.html">
+                <a href="springboot elb.html">
             
                     
                     aws
@@ -420,9 +420,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="2.4.1" data-path="../aws/s3 정적웹사이트 호스팅.html">
+        <li class="chapter " data-level="2.4.1" data-path="s3 정적웹사이트 호스팅.html">
             
-                <a href="../aws/s3 정적웹사이트 호스팅.html">
+                <a href="s3 정적웹사이트 호스팅.html">
             
                     
                     s3정적웹사이트 호스팅
@@ -433,9 +433,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.4.2" data-path="../aws/로드밸런서.html">
+        <li class="chapter active" data-level="2.4.2" data-path="로드밸런서.html">
             
-                <a href="../aws/로드밸런서.html">
+                <a href="로드밸런서.html">
             
                     
                     로드밸런서
@@ -446,9 +446,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.4.3" data-path="../aws/springboot elb.html">
+        <li class="chapter " data-level="2.4.3" data-path="springboot elb.html">
             
-                <a href="../aws/springboot elb.html">
+                <a href="springboot elb.html">
             
                     
                     springboot elb
@@ -902,7 +902,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >IE11 지원하기</a>
+        <a href="../.." >로드밸런서</a>
     </h1>
 </div>
 
@@ -917,37 +917,27 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="vue-cli3&#xC5D0;&#xC11C;-ie11&#xC9C0;&#xC6D0;">vue cli3&#xC5D0;&#xC11C; IE11&#xC9C0;&#xC6D0;</h1>
+                                <h1 id="&#xB85C;&#xB4DC;&#xBC38;&#xB7F0;&#xC11C;">&#xB85C;&#xB4DC;&#xBC38;&#xB7F0;&#xC11C;</h1>
+<blockquote>
+<p>ec2 -&gt; &#xB85C;&#xB4DC; &#xBC38;&#xB7F0;&#xC11C;</p>
+</blockquote>
+<ol>
+<li><p>&#xC0AD;&#xC81C; &#xBC29;&#xC9C0;&#xD558;&#xAE30;</p>
 <ul>
-<li><p>bable/polyfill &#xC124;&#xCE58;</p>
+<li>&#xC124;&#xBA85; -&gt; &#xC18D;&#xC131;</li>
+</ul>
+<p><img src="C:\Users\apexsoft\AppData\Roaming\Typora\typora-user-images\1566270506691.png" alt=""></p>
+</li>
+<li><p>http -&gt; https </p>
 <ul>
-<li>npm install --save @babel/polyfill </li>
-<li>yarn install</li>
+<li>&#xB9AC;&#xC2A4;&#xB108;</li>
 </ul>
 </li>
-<li><p>src/main.js&#xC5D0;  <code>babel/polyfill</code>  import</p>
-</li>
-</ul>
-<pre><code class="lang-js"><span class="hljs-keyword">import</span> <span class="hljs-string">&apos;@babel/polyfill&apos;</span>
-<span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue&quot;</span>
-......
-</code></pre>
-<ul>
-<li>babel.config.js &#xC218;&#xC815;</li>
-</ul>
-<pre><code class="lang-js"><span class="hljs-built_in">module</span>.exports = {
-  presets: [
-    [<span class="hljs-string">&apos;@vue/app&apos;</span>, {
-      <span class="hljs-string">&apos;useBuiltIns&apos;</span>: <span class="hljs-string">&apos;entry&apos;</span>,
-
-      polyfills: [          
-        <span class="hljs-string">&apos;es6.promise&apos;</span>,     <span class="hljs-comment">// IE11&#xC5D0;&#xC11C; promise &#xD328;&#xD134; &#xC0AC;&#xC6A9; &#xACBD;&#xC6B0; &#xCD94;&#xAC00;</span>
-        <span class="hljs-string">&apos;es6.symbol&apos;</span>
-      ]
-    }]
-  ]
-}
-</code></pre>
+</ol>
+<p><img src="https://imgur.com/x6UCKHI.png" alt=""></p>
+<p><img src="https://imgur.com/7411nU3.png" alt=""></p>
+<p><img src="https://imgur.com/Q8mMtUE.png" alt=""></p>
+<p><img src="https://imgur.com/uwoiyjk.png" alt=""></p>
 
                                 
                                 </section>
@@ -975,12 +965,12 @@
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: vue-cli3">
+                <a href="s3 정적웹사이트 호스팅.html" class="navigation navigation-prev " aria-label="Previous page: s3정적웹사이트 호스팅">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="env.html" class="navigation navigation-next " aria-label="Next page: env 환경변수">
+                <a href="springboot elb.html" class="navigation navigation-next " aria-label="Next page: springboot elb">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -991,7 +981,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"IE11 지원하기","level":"2.3.1","depth":2,"next":{"title":"env 환경변수","level":"2.3.2","depth":2,"path":"docs/vue-cli3/env.md","ref":"docs/vue-cli3/env.md","articles":[]},"previous":{"title":"vue-cli3","level":"2.3","depth":1,"path":"docs/vue-cli3/index.md","ref":"docs/vue-cli3/index.md","articles":[{"title":"IE11 지원하기","level":"2.3.1","depth":2,"path":"docs/vue-cli3/support ie.md","ref":"docs/vue-cli3/support ie.md","articles":[]},{"title":"env 환경변수","level":"2.3.2","depth":2,"path":"docs/vue-cli3/env.md","ref":"docs/vue-cli3/env.md","articles":[]},{"title":"킨더가든","level":"2.3.3","depth":2,"path":"docs/vue-cli3/kindergarten.md","ref":"docs/vue-cli3/kindergarten.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/vue-cli3/support ie.md","mtime":"2019-08-12T07:59:07.650Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-20T05:13:26.301Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"로드밸런서","level":"2.4.2","depth":2,"next":{"title":"springboot elb","level":"2.4.3","depth":2,"path":"docs/aws/springboot elb.md","ref":"docs/aws/springboot elb.md","articles":[]},"previous":{"title":"s3정적웹사이트 호스팅","level":"2.4.1","depth":2,"path":"docs/aws/s3 정적웹사이트 호스팅.md","ref":"docs/aws/s3 정적웹사이트 호스팅.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/aws/로드밸런서.md","mtime":"2019-08-20T03:31:45.992Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-20T05:13:26.301Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
