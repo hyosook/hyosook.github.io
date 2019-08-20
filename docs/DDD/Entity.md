@@ -31,27 +31,34 @@ public class Post extends AbstractBaseEntity {
 ```
 * `AbstractBaseEntity`를 상속
 
-#### 기본키 정의
-* 단일 기본키 - `@Id` 
-* 두개 이상의 복합키 - `@EmbeddedId`
-	* Entity 복합키 선언 부분
 
+
+#### 기본키 정의
+
+* **단일 기본키 - `@Id`** 
+
+* @GeneratedValue(strategy = GenerationType.IDENTITY)`로 기본키 자동 생성 (Auto Increment) 설정 방법 (인조식별자에 사용)
+
+* **두개 이상의 복합키 - `@EmbeddedId`**
+	
+* Entity 복합키 선언 부분
+	
 		```java
 		@EmbeddedId  
 		 private CommCodeId commCodeId;
 		```
 	
-	* 복합키 객체
-
+* 복합키 객체
+	
 		```java
 		@Embeddable  
 		public class CommCodeId implements Serializable {
 		 private String codeGrp;
 		 private String code;
 		}
-		```
-
-* `@GeneratedValue(strategy = GenerationType.IDENTITY)`로 기본키 자동 생성 (Auto Increment) 설정 방법 (인조식별자에 사용)
+	```
+	
+	
 
 #### 생성자
 * AccessLevel이 PROTECTED인 기본 생성자 필수 필요

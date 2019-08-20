@@ -70,7 +70,39 @@ SQL의 where 절을 메서드이름을 통해서 전달한다.
 List<User> findFirst10ByNameAndAgeGreaterThanEqualOrderByBirthday(String name, int age);
 ```
 
+
+
+### 페이징
+
+
+
+### Controller 
+
+```java 
+@GetMapping  
+public ResponseEntity<Page<Post>> findPostAll( @PageableDefault Pageable pageable) { 
+
+}
+```
+
+* 매개변수 `Pageable`
+	
+	* 요청 쪽에서 size, page 를 정해서 보내면  `Pageable`로 받아진다.  
+	* `@PageableDefault` 사용시 , size, page를 보내지 않아도 default 값으로 `Pageable`를 받는다
+	
+	
+
+### Repository
+
+```java
+Page<Post> findAllByPostTypeAndTitleContainingOrderByLastModifiedDateTimeDesc( Pageable pageable);
+```
+* 매개변수로 `Pageable` 필수
+
+
+
 ## JPQL
+
 쿼리메소드에서 해결되지 않는 부분은 jpql을 직접 작성할 수 있다. 
 jpql은 JPA에서 쿼리문이다. 
 * 테이블 명은 객체 명으로 사용한다. 
@@ -84,7 +116,40 @@ jpql은 JPA에서 쿼리문이다.
 Integer findMaxOrderSeq(@Param("reqNo") int reqNo, @Param("evalTypeCode") String evalTypeCode);
 ```
 
+#### 쿼리를 통해 가공한 데이터 매핑 - NEW 명령어 
+
+조회 쿼리를 작성하며 가공된 데이터가 포함된 객체를 매핑하기 위해서는 해당 객체에 가공 데이터를 포함한 생성자를 만들고 NEW 명령어를 사용해서 매핑한다.
+
+```java
+@Query(value = "select new kr.co.apexsoft.jpaboot.festa.dto.FestaTeamDto(p.id,p.festaInfo.festaCatagoryCode,p.groupMember.group.name)from " +
+            "FestaPortfolio p ,Festa f" +
+            " where p.deleted=false and p.festaInfo.festaCode=f.festaCode and f.used=true order by p.groupMember.group.name")
+ List<FestaTeamDto> findAllByPortfolio();
+```
+
+```java
+@Getter
+public class FestaTeamDto {
+
+    private String groupName;
+    private Long id;
+    private String catagoryCode;
+
+    public FestaTeamDto(Long id, String catagoryCode, String groupName) {
+        this.id = id;
+        this.catagoryCode = catagoryCode;
+        this.groupName = groupName;
+
+    }
+}
+```
+
+> 생성자 필수
+
+
+
 ## native query
+
 JPQL에서 제공하지 않는 DB 기능 등이 필요하면 직접 쿼리를 작성할 수 있다. 
 * `nativeQuery = true` 
 
@@ -95,12 +160,9 @@ JPQL에서 제공하지 않는 DB 기능 등이 필요하면 직접 쿼리를 �
 int deleteReqEvalInfo(@Param("evalInfoNo") int evalInfoNo);
 ```
 
-### 쿼리를 통해 가공한 데이터 매핑 - NEW 명령어 
-조회 쿼리를 작성하며 가공된 데이터가 포함된 객체를 매핑하기 위해서는 해당 객체에 가공 데이터를 포함한 생성자를 만들고 NEW 명령어를 사용해서 매핑한다.
+* 리턴결과가  `List<Object[]>` 로 온다
 
-```java
-@Query(value = "select new kr.co.apexsoft.web.crowd.dto.ReportDto((select r.reqNo from Req r where r.reqNo=:reqNo),c.commMultiId.code,c.codeVal," +  
-  "(select count(e.reqEvalInfo.evalInfoNo) from Eval e where e.reqEvalInfo.req.reqNo=:reqNo and e.reqEvalInfo.req.reqStateCode=:reqStateCode and e.evalState=:evalState and e.reqEvalInfo.evalTypeCode= c.commMultiId.code))" +  
-  "from CommCode c where c.commMultiId.codeGrp='EVAL_TYPE' and not c.commMultiId.code=:NOEVALTYPE")  
-List<ReportDto> findEvalTypeList(@Param("reqNo") int reqNo, @Param("NOEVALTYPE") String NOEVALTYPE, @Param("evalState") String evalState, @Param("reqStateCode") String reqStateCode);
-```
+  
+
+
+

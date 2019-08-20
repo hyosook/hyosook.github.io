@@ -48,17 +48,22 @@
   * [issues](docs/git/issues.md)
 * [DDD](docs/DDD/index.md)
   * [DDD설계 개념과 구현](docs/DDD/DDD설계 개념과 구현.md)
-  * [스터티](docs/DDD/스터디/01.md)
-  * [1장정리](docs/DDD/스터디/질문 답변.md)
+  * [엔티티와 밸류](docs/DDD/Entity와 Value타입.md)
+  * [JPA N+1문제](docs/DDD/JPA N+1문제.md)
+  * [Entity](docs/DDD/Entity.md)
+  * [밸류](docs/DDD/Value Object.md)
+  * [연관관계](docs/DDD/연관관계정리.md)
   * [converter](docs/DDD/converter.md)
+  * [상속관계](docs/DDD/상속관계.md)
   * [transactional](docs/DDD/transactional.md)
-  * [jpa](docs/DDD/jpa.md)
-  * [jpa2](docs/DDD/jpa2.md)
-  * [querymehtod](docs/DDD/querymehtod.md)
-  * [transactional](docs/DDD/transactional.md)
-  * [기본키설정](docs/DDD/기본키설정.md)
-  * [연관관계](docs/DDD/연관관계.md)
   * [영속성 컨텍스트 트랜잭션](docs/DDD/영속성 컨텍스트 트랜잭션.md)
+  * [Repository](docs/DDD/Repository.md)
+  
+  * [스터티](docs/DDD/스터디/01.md)
+  
+  * [1장정리](docs/DDD/스터디/질문 답변.md)
+  
+    
 * [기타](docs/etc/index.md)
 * [gitbook](docs/etc/gitbook.md)
   

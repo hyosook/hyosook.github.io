@@ -4,12 +4,21 @@
 * 두개 이상의 변수가 개념적으로 하나인 경우 밸류 타입을 이용할 수 있다.
 * 엔터티의 데이터와 상관없을 경우, 밸류 기능을 가질 수도 있다. 
 
+
+
 ## 밸류 타입을 매핑하는 방법 
+
 1. 엔터티에 여러 컬럼으로 매핑
 2. 테이블에 매핑
 3. 한 개 컬럼에 매핑
+4. enum 매핑
 
-## 엔터티에 여러 컬럼으로 매핑 - Embeddable 
+
+
+## 1.엔터티에 여러 컬럼으로 매핑 - Embeddable 
+
+> 테이블이 생기지 않고, **칼럼만 추가**된다 
+
 #### 밸류타입
 ```java
 @Embeddable   
@@ -28,14 +37,15 @@ public class EmploymentPeriod {
 private EmploymentPeriod period;
 ```
 
-## 테이블에 매핑 
-`@Embeddable`로 구현한 후 `@CollectionTable`로 매핑하여 구현할수 있다. 
 
-하지만, 그렇게 생성된 밸류 테이블은 엔터티가 아니여서 PK가 없다. 
 
-PK가 없는 테이블이 가질수 있는 여러 문제점 때문에, 식별자를 은닉시켜 엔터티처럼 구성하지만, 구현하는 입장에서는 객체로 보이도록 구현한다. 
+## 2.테이블에 매핑 
 
-상속을 이용해서 **식별자 속성을 은닉**시킨다.
+* `@Embeddable`로 구현한 후 `@CollectionTable`로 매핑하여 구현할수 있다. 
+
+* 하지만, 그렇게 생성된 밸류 테이블은 엔터티가 아니여서 **PK가 없다.** 
+  * PK가 없는 테이블이 가질수 있는 여러 문제점 때문에, 식별자를 은닉시켜 엔터티처럼 구성하지만, 구현하는 입장에서는 객체로 보이도록 구현한다. 
+  * 상속을 이용해서 **식별자 속성을 은닉**시킨다.
 
 ```java
 @Entity  
@@ -87,7 +97,10 @@ public class Child extends IdentifiedValueObject {
 }
 ```
 
-## 한 개 컬럼에 매핑 - `@Converter`
+
+
+## 3.한 개 컬럼에 매핑 - `@Converter`
+
 밸류타입을 한개 컬럼에 저장해야 할 때 방법이다. 
 
 #### Example
@@ -137,3 +150,27 @@ public class EmailSetConverter implements AttributeConverter<EmailSet, String> {
 ```
 * emails 한 컬럼에 콤마로 구분된 데이터들이 들어간다. (test@d.com, test@t.com)
 * 콤마로 구분된 데이터들을 객체에서 컬렉션으로 변환된다.
+
+
+
+##  4. Enum  `@Enumerated`
+
+> 자바의 enum 타입을 매핑할 때 사용 
+
+```java
+
+    @Enumerated(EnumType.STRING)
+    @NonNull private FileType fileType;
+```
+
+- EnumType.STRING : enum `이름`을 db에 저장
+- EnumType.ORDINAL: enum `순서'`를 db에 저장
+
+```java
+ public enum FileType {
+        IMAGE, MOVIE, DOC, ETC
+    }
+```
+
+
+
