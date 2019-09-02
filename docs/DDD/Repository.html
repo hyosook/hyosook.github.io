@@ -1106,43 +1106,52 @@ jpql&#xC740; JPA&#xC5D0;&#xC11C; &#xCFFC;&#xB9AC;&#xBB38;&#xC774;&#xB2E4;. </p>
 Integer findMaxOrderSeq(@Param(&quot;reqNo&quot;) int reqNo, @Param(&quot;evalTypeCode&quot;) String evalTypeCode);
 </code></pre>
 <h4 id="&#xCFFC;&#xB9AC;&#xB97C;-&#xD1B5;&#xD574;-&#xAC00;&#xACF5;&#xD55C;-&#xB370;&#xC774;&#xD130;-&#xB9E4;&#xD551;---new-&#xBA85;&#xB839;&#xC5B4;">&#xCFFC;&#xB9AC;&#xB97C; &#xD1B5;&#xD574; &#xAC00;&#xACF5;&#xD55C; &#xB370;&#xC774;&#xD130; &#xB9E4;&#xD551; - NEW &#xBA85;&#xB839;&#xC5B4;</h4>
-<p>&#xC870;&#xD68C; &#xCFFC;&#xB9AC;&#xB97C; &#xC791;&#xC131;&#xD558;&#xBA70; &#xAC00;&#xACF5;&#xB41C; &#xB370;&#xC774;&#xD130;&#xAC00; &#xD3EC;&#xD568;&#xB41C; &#xAC1D;&#xCCB4;&#xB97C; &#xB9E4;&#xD551;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C;&#xB294; &#xD574;&#xB2F9; &#xAC1D;&#xCCB4;&#xC5D0; &#xAC00;&#xACF5; &#xB370;&#xC774;&#xD130;&#xB97C; &#xD3EC;&#xD568;&#xD55C; &#xC0DD;&#xC131;&#xC790;&#xB97C; &#xB9CC;&#xB4E4;&#xACE0; NEW &#xBA85;&#xB839;&#xC5B4;&#xB97C; &#xC0AC;&#xC6A9;&#xD574;&#xC11C; &#xB9E4;&#xD551;&#xD55C;&#xB2E4;.</p>
-<pre><code class="lang-java"><span class="hljs-meta">@Query</span>(value = <span class="hljs-string">&quot;select new kr.co.apexsoft.jpaboot.festa.dto.FestaTeamDto(p.id,p.festaInfo.festaCatagoryCode,p.groupMember.group.name)from &quot;</span> +
-            <span class="hljs-string">&quot;FestaPortfolio p ,Festa f&quot;</span> +
-            <span class="hljs-string">&quot; where p.deleted=false and p.festaInfo.festaCode=f.festaCode and f.used=true order by p.groupMember.group.name&quot;</span>)
- <span class="hljs-function">List&lt;FestaTeamDto&gt; <span class="hljs-title">findAllByPortfolio</span><span class="hljs-params">()</span></span>;
+<p>&#xC870;&#xD68C; &#xCFFC;&#xB9AC;&#xB97C; &#xC791;&#xC131;&#xD558;&#xBA70; &#xAC00;&#xACF5;&#xB41C; &#xB370;&#xC774;&#xD130;&#xAC00; &#xD3EC;&#xD568;&#xB41C; &#xAC1D;&#xCCB4;&#xB97C; &#xB9E4;&#xD551;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C;&#xB294; &#xD574;&#xB2F9; &#xAC1D;&#xCCB4;&#xC5D0; &#xAC00;&#xACF5; &#xB370;&#xC774;&#xD130;&#xB97C; &#xD3EC;&#xD568;&#xD55C; &#xC0DD;&#xC131;&#xC790;&#xB97C; &#xB9CC;&#xB4E4;&#xACE0; <strong>NEW &#xBA85;&#xB839;&#xC5B4;</strong>&#xB97C; &#xC0AC;&#xC6A9;&#xD574;&#xC11C; &#xB9E4;&#xD551;&#xD55C;&#xB2E4;.</p>
+<pre><code class="lang-java">@Query(value = &quot;select new kr.co.dto.UserDto(u.role.id,u.name)from &quot; +
+            &quot;User u,role r)
+ List&lt;UserDto&gt; userList();
 </code></pre>
 <pre><code class="lang-java"><span class="hljs-meta">@Getter</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FestaTeamDto</span> </span>{
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserDto</span> </span>{
 
-    <span class="hljs-keyword">private</span> String groupName;
-    <span class="hljs-keyword">private</span> Long id;
-    <span class="hljs-keyword">private</span> String catagoryCode;
+    <span class="hljs-keyword">private</span> String name;
+    <span class="hljs-keyword">private</span> Object id;
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">FestaTeamDto</span><span class="hljs-params">(Long id, String catagoryCode, String groupName)</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">FestaTeamDto</span><span class="hljs-params">(Long id, String name)</span> </span>{
         <span class="hljs-keyword">this</span>.id = id;
-        <span class="hljs-keyword">this</span>.catagoryCode = catagoryCode;
-        <span class="hljs-keyword">this</span>.groupName = groupName;
+        <span class="hljs-keyword">this</span>.name = name;
 
     }
 }
 </code></pre>
-<blockquote>
-<p>&#xC0DD;&#xC131;&#xC790; &#xD544;&#xC218;</p>
-</blockquote>
+<ul>
+<li><strong>&#xC0DD;&#xC131;&#xC790;  &#xC21C;&#xC11C; &#xC77C;&#xCE58; &#xD544;&#xC218; </strong></li>
+</ul>
 <h2 id="native-query">native query</h2>
 <p>JPQL&#xC5D0;&#xC11C; &#xC81C;&#xACF5;&#xD558;&#xC9C0; &#xC54A;&#xB294; DB &#xAE30;&#xB2A5; &#xB4F1;&#xC774; &#xD544;&#xC694;&#xD558;&#xBA74; &#xC9C1;&#xC811; &#xCFFC;&#xB9AC;&#xB97C; &#xC791;&#xC131;&#xD560; &#xC218; &#xC788;&#xB2E4;. </p>
-<ul>
-<li><code>nativeQuery = true</code> </li>
-</ul>
-<pre><code class="lang-java">@Query(value = &quot;delete from req_eval_info 
-                where eval_info_no=:evalInfoNo and ( pay_yn =&apos;N&apos;  
-                OR ( pay_yn =&apos;Y&apos; AND req_start_date&gt;now()))&quot;, nativeQuery = true)  
-int deleteReqEvalInfo(@Param(&quot;evalInfoNo&quot;) int evalInfoNo);
+<h4 id="repository">Repository</h4>
+<blockquote>
+<p>&#xAE30;&#xBCF8;&#xC740; &#xB9AC;&#xD134;&#xACB0;&#xACFC;&#xAC00;  <code>List&lt;Object[]&gt;</code> &#xB85C; &#xC628;&#xB2E4; </p>
+</blockquote>
+<pre><code class="lang-java">@Query(value = &quot;select u.name as name , r.id as id  #AS &#xBA85; &#xC77C;&#xCE58; &#xD544;&#xC218;
+       from user u join role r on u.userId =r.userId &quot;, 
+       nativeQuery = true)  
+List&lt;UserDto&gt; userList();
 </code></pre>
 <ul>
-<li>&#xB9AC;&#xD134;&#xACB0;&#xACFC;&#xAC00;  <code>List&lt;Object[]&gt;</code> &#xB85C; &#xC628;&#xB2E4;</li>
+<li>nativeQuery = true</li>
+<li>DTO <code>&#xBA85;</code> &#xC77C;&#xCE58; &#xD574;&#xC57C;&#xD55C;&#xB2E4; </li>
 </ul>
+<h4 id="dto">DTO</h4>
+<pre><code class="lang-JAVA"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">UserDto</span> </span>{
+
+    <span class="hljs-function">String <span class="hljs-title">getName</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-function">Object <span class="hljs-title">getId</span><span class="hljs-params">()</span></span>;
+
+}
+</code></pre>
 
                                 
                                 </section>
@@ -1186,7 +1195,7 @@ int deleteReqEvalInfo(@Param(&quot;evalInfoNo&quot;) int evalInfoNo);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Repository","level":"3.5.11","depth":2,"next":{"title":"스터티","level":"3.5.12","depth":2,"path":"docs/DDD/스터디/01.md","ref":"docs/DDD/스터디/01.md","articles":[]},"previous":{"title":"영속성 컨텍스트 트랜잭션","level":"3.5.10","depth":2,"path":"docs/DDD/영속성 컨텍스트 트랜잭션.md","ref":"docs/DDD/영속성 컨텍스트 트랜잭션.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/DDD/Repository.md","mtime":"2019-08-20T06:45:12.693Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-20T07:59:52.130Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Repository","level":"3.5.11","depth":2,"next":{"title":"스터티","level":"3.5.12","depth":2,"path":"docs/DDD/스터디/01.md","ref":"docs/DDD/스터디/01.md","articles":[]},"previous":{"title":"영속성 컨텍스트 트랜잭션","level":"3.5.10","depth":2,"path":"docs/DDD/영속성 컨텍스트 트랜잭션.md","ref":"docs/DDD/영속성 컨텍스트 트랜잭션.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/DDD/Repository.md","mtime":"2019-09-02T08:35:49.937Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-02T08:36:07.903Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

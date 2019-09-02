@@ -118,51 +118,65 @@ Integer findMaxOrderSeq(@Param("reqNo") int reqNo, @Param("evalTypeCode") String
 
 #### 쿼리를 통해 가공한 데이터 매핑 - NEW 명령어 
 
-조회 쿼리를 작성하며 가공된 데이터가 포함된 객체를 매핑하기 위해서는 해당 객체에 가공 데이터를 포함한 생성자를 만들고 NEW 명령어를 사용해서 매핑한다.
+조회 쿼리를 작성하며 가공된 데이터가 포함된 객체를 매핑하기 위해서는 해당 객체에 가공 데이터를 포함한 생성자를 만들고 **NEW 명령어**를 사용해서 매핑한다.
 
 ```java
-@Query(value = "select new kr.co.apexsoft.jpaboot.festa.dto.FestaTeamDto(p.id,p.festaInfo.festaCatagoryCode,p.groupMember.group.name)from " +
-            "FestaPortfolio p ,Festa f" +
-            " where p.deleted=false and p.festaInfo.festaCode=f.festaCode and f.used=true order by p.groupMember.group.name")
- List<FestaTeamDto> findAllByPortfolio();
+@Query(value = "select new kr.co.dto.UserDto(u.role.id,u.name)from " +
+            "User u,role r)
+ List<UserDto> userList();
 ```
 
 ```java
 @Getter
-public class FestaTeamDto {
+public class UserDto {
 
-    private String groupName;
-    private Long id;
-    private String catagoryCode;
+    private String name;
+    private Object id;
+   
 
-    public FestaTeamDto(Long id, String catagoryCode, String groupName) {
+    public FestaTeamDto(Long id, String name) {
         this.id = id;
-        this.catagoryCode = catagoryCode;
-        this.groupName = groupName;
+        this.name = name;
 
     }
 }
 ```
 
-> 생성자 필수
+* **생성자  순서 일치 필수 **
 
 
 
 ## native query
 
 JPQL에서 제공하지 않는 DB 기능 등이 필요하면 직접 쿼리를 작성할 수 있다. 
-* `nativeQuery = true` 
+
+#### Repository
+
+> 기본은 리턴결과가  `List<Object[]>` 로 온다 
 
 ```java
-@Query(value = "delete from req_eval_info 
-				where eval_info_no=:evalInfoNo and ( pay_yn ='N'  
-				OR ( pay_yn ='Y' AND req_start_date>now()))", nativeQuery = true)  
-int deleteReqEvalInfo(@Param("evalInfoNo") int evalInfoNo);
+@Query(value = "select u.name as name , r.id as id  #AS 명 일치 필수
+       from user u join role r on u.userId =r.userId ", 
+       nativeQuery = true)  
+List<UserDto> userList();
 ```
 
-* 리턴결과가  `List<Object[]>` 로 온다
+* nativeQuery = true
+* DTO `명` 일치 해야한다 
 
-  
+#### DTO
+
+```JAVA
+public interface UserDto {
+
+    String getName();
+
+    Object getId();
+
+}
+```
+
+
 
 
 

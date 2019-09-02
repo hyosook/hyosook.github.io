@@ -970,7 +970,51 @@
 </ul>
 </li>
 </ul>
-<h1 id="&#xB2E8;&#xBC29;&#xD5A5;-&#xC5F0;&#xAD00;&#xAD00;&#xACC4;--joincolum">&#xB2E8;&#xBC29;&#xD5A5; &#xC5F0;&#xAD00;&#xAD00;&#xACC4;  @JoinColum</h1>
+<h3 id="fetch">fetch</h3>
+<p>&#xC5F0;&#xAD00;&#xAD00;&#xACC4;&#xC5D0;&#xC11C; <strong>&#xB370;&#xC774;&#xD130; &#xC77D;&#xAE30; &#xC804;&#xB7B5;</strong>&#xC744; &#xC815;&#xC758;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@ManyToMany</span>(fetch = FetchType.LAZY)
+</code></pre>
+<ul>
+<li>FetchType.EAGER<ul>
+<li>&#xCC38;&#xC870; &#xC5D4;&#xD130;&#xD2F0; &#xC815;&#xBCF4;&#xB97C; &#xBBF8;&#xB9AC; &#xC77D;&#xC5B4;&#xC628;&#xB2E4;.</li>
+<li>&#xD56D;&#xC0C1; &#xD568;&#xAED8; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xB370;&#xC774;&#xD130;&#xC758; &#xACBD;&#xC6B0;&#xC5D0; &#xC0AC;&#xC6A9;&#xD55C;&#xB2E4;. &#xC0AC;&#xC6A9;&#xD558;&#xC9C0; &#xC54A;&#xB294;&#xB370;&#xB3C4; &#xD56D;&#xC0C1; &#xC77D;&#xC5B4;&#xC628;&#xB2E4;&#xBA74;, &#xC18D;&#xB3C4;&#xB098; &#xC131;&#xB2A5;&#xC5D0; &#xC601;&#xD5A5;&#xC744; &#xC904;&#xC218; &#xC788;&#xB2E4;.  </li>
+<li><code>@ManyToOne</code>, <code>@OneToOne</code> &#xC758; &#xB514;&#xD3F4;&#xD2B8;&#xAC12;</li>
+</ul>
+</li>
+<li>FetchType.LAZY <ul>
+<li>&#xAD00;&#xACC4;&#xB41C; &#xC5D4;&#xD130;&#xD2F0;&#xC758; &#xC815;&#xBCF4;&#xB97C; &#xC694;&#xCCAD;&#xD558;&#xB294; &#xC21C;&#xAC04;&#xC5D0; &#xC77D;&#xC5B4;&#xC628;&#xB2E4;.</li>
+<li>LAZY&#xB85C; &#xC815;&#xC758;&#xD558;&#xAE38; &#xAD8C;&#xACE0;&#xD55C;&#xB2E4;. </li>
+<li><code>@OneToMany</code>, <code>@ManyToMany</code> &#xC758; &#xB514;&#xD3F4;&#xD2B8;&#xAC12;</li>
+</ul>
+</li>
+</ul>
+<h3 id="&#xC601;&#xC18D;&#xC131;-&#xC804;&#xC774;-cascade">&#xC601;&#xC18D;&#xC131; &#xC804;&#xC774; CASCADE</h3>
+<blockquote>
+<p>&#xD2B9;&#xC815; &#xC5D4;&#xD2F0;&#xD2F0;&#xB97C; &#xC601;&#xC18D; &#xC0C1;&#xD0DC;&#xB85C; &#xB9CC;&#xB4E4;&#xB54C; &#xC5F0;&#xAD00;&#xB41C; &#xC5D4;&#xD2F0;&#xD2F0;&#xB3C4; &#xD568;&#xAED8; &#xC601;&#xC18D; &#xC0C1;&#xD0DC;&#xB85C; &#xB9CC;&#xB4E4;&#xACE0; &#xC2F6;&#xB2E4;&#xBA74; &#xC601;&#xC18D;&#xC131; &#xC804;&#xC774; &#xAE30;&#xB2A5;&#xC744; &#xC0AC;&#xC6A9;&#xD55C;&#xB2E4; </p>
+</blockquote>
+<pre><code>@ManyToMany(cascade = CascadeType.REMOVE)
+</code></pre><ul>
+<li><p>&#xC800;&#xC7A5;</p>
+<ul>
+<li>CascadeType.PERSIST</li>
+</ul>
+</li>
+<li><p>&#xC0AD;&#xC81C;</p>
+<ul>
+<li>CascadeType.REMOVE</li>
+</ul>
+</li>
+<li><p>&#xACE0;&#xC544; &#xAC1D;&#xCCB4;</p>
+<blockquote>
+<p>&#xACE0;&#xC544; &#xAC1D;&#xCCB4; &#xC81C;&#xAC70; : &#xBD80;&#xBAA8; &#xC5D4;&#xD2F0;&#xD2F0;&#xC640; &#xC5F0;&#xAD00;&#xAD00;&#xACC4;&#xAC00; &#xB04A;&#xC5B4;&#xC9C4; &#xC790;&#xC2DD; &#xC5D4;&#xD2F0;&#xD2F0;&#xB97C; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xC0AD;&#xC81C;</p>
+<p> &#xBD80;&#xBAA8; &#xC5D4;&#xD2F0;&#xD2F0;&#xC758; &#xCEEC;&#xB809;&#xC158;&#xC5D0;&#xC11C; &#xC790;&#xC2DD; &#xC5D4;&#xD2F0;&#xD2F0;&#xC758; &#xCC38;&#xC870;&#xB9CC; &#xC81C;&#xAC70;&#xD558;&#xBA74; &#xC790;&#xC2DD; &#xC5D4;&#xD2F0;&#xD2F0;&#xAC00; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xC0AD;&#xC81C; &#xB41C;&#xB2E4;.</p>
+</blockquote>
+<ul>
+<li>orphanRemoval = true</li>
+</ul>
+</li>
+</ul>
+<h2 id="&#xB2E8;&#xBC29;&#xD5A5;-&#xC5F0;&#xAD00;&#xAD00;&#xACC4;--joincolum">&#xB2E8;&#xBC29;&#xD5A5; &#xC5F0;&#xAD00;&#xAD00;&#xACC4;  @JoinColum</h2>
 <blockquote>
 <p> JPA &#xCC38;&#xC870;&#xB97C; &#xD1B5;&#xD55C; &#xC5F0;&#xAD00;&#xAD00;&#xACC4;&#xB294; &#xD56D;&#xC0C1; &#xB2E8;&#xBC29;&#xD5A5;&#xC774;&#xB2E4;.</p>
 <p>&#xB450; &#xC5D4;&#xD2F0;&#xD2F0;&#xAC00; &#xAD00;&#xACC4;&#xB97C; &#xB9FA;&#xC744; &#xB54C;, &#xD55C;&#xCABD;&#xC758; &#xC5D4;&#xD2F0;&#xD2F0;&#xB9CC; &#xCC38;&#xC870;&#xD558;&#xACE0; &#xC788;&#xB294; &#xAC83; </p>
@@ -1004,26 +1048,6 @@
  <span class="hljs-keyword">private</span> String id;  
  <span class="hljs-keyword">private</span> String name;
 </code></pre>
-<h4 id="fetch">Fetch</h4>
-<p>&#xC5F0;&#xAD00;&#xAD00;&#xACC4;&#xC5D0;&#xC11C; <strong>&#xB370;&#xC774;&#xD130; &#xC77D;&#xAE30; &#xC804;&#xB7B5;</strong>&#xC744; &#xC815;&#xC758;</p>
-<pre><code class="lang-java"><span class="hljs-meta">@ManyToMany</span>(fetch = FetchType.LAZY)
-</code></pre>
-<ul>
-<li><p>FetchType.EAGER</p>
-<ul>
-<li>&#xCC38;&#xC870; &#xC5D4;&#xD130;&#xD2F0; &#xC815;&#xBCF4;&#xB97C; &#xBBF8;&#xB9AC; &#xC77D;&#xC5B4;&#xC628;&#xB2E4;.</li>
-<li>&#xD56D;&#xC0C1; &#xD568;&#xAED8; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xB370;&#xC774;&#xD130;&#xC758; &#xACBD;&#xC6B0;&#xC5D0; &#xC0AC;&#xC6A9;&#xD55C;&#xB2E4;. &#xC0AC;&#xC6A9;&#xD558;&#xC9C0; &#xC54A;&#xB294;&#xB370;&#xB3C4; &#xD56D;&#xC0C1; &#xC77D;&#xC5B4;&#xC628;&#xB2E4;&#xBA74;, &#xC18D;&#xB3C4;&#xB098; &#xC131;&#xB2A5;&#xC5D0; &#xC601;&#xD5A5;&#xC744; &#xC904;&#xC218; &#xC788;&#xB2E4;.  </li>
-<li><code>@ManyToOne</code>, <code>@OneToOne</code> &#xC758; &#xB514;&#xD3F4;&#xD2B8;&#xAC12;</li>
-</ul>
-</li>
-<li><p>FetchType.LAZY </p>
-<ul>
-<li>&#xAD00;&#xACC4;&#xB41C; &#xC5D4;&#xD130;&#xD2F0;&#xC758; &#xC815;&#xBCF4;&#xB97C; &#xC694;&#xCCAD;&#xD558;&#xB294; &#xC21C;&#xAC04;&#xC5D0; &#xC77D;&#xC5B4;&#xC628;&#xB2E4;.</li>
-<li>LAZY&#xB85C; &#xC815;&#xC758;&#xD558;&#xAE38; &#xAD8C;&#xACE0;&#xD55C;&#xB2E4;. </li>
-<li><code>@OneToMany</code>, <code>@ManyToMany</code> &#xC758; &#xB514;&#xD3F4;&#xD2B8;&#xAC12;</li>
-</ul>
-</li>
-</ul>
 <h2 id="&#xC591;&#xBC29;&#xD5A5;-&#xC5F0;&#xAD00;&#xAD00;&#xACC4;">&#xC591;&#xBC29;&#xD5A5; &#xC5F0;&#xAD00;&#xAD00;&#xACC4;</h2>
 <blockquote>
 <p>&#xC815;&#xD655;&#xD788; &#xC774;&#xC57C;&#xAE30;&#xD558;&#xBA74; <code>&#xC11C;&#xB85C;&#xB2E4;&#xB978; &#xB2E8;&#xBC29;&#xD5A5; &#xAD00;&#xACC4; 2&#xAC1C;</code></p>
@@ -1046,17 +1070,35 @@
 <h2 id="&#xC5F0;&#xAD00;&#xAD00;&#xACC4;-&#xC124;&#xACC4;-&#xBC29;&#xBC95;">&#xC5F0;&#xAD00;&#xAD00;&#xACC4; &#xC124;&#xACC4; &#xBC29;&#xBC95;</h2>
 <h3 id="&#xC870;&#xC778;-&#xCEEC;&#xB7FC;-&#xC0AC;&#xC6A9;">&#xC870;&#xC778; &#xCEEC;&#xB7FC; &#xC0AC;&#xC6A9;</h3>
 <ul>
-<li>&#xB2E8;&#xBC29;&#xD5A5; &#xC5F0;&#xAD00;&#xAD00;&#xACC4; &#xC124;&#xBA85;&#xC5D0;&#xC11C; &#xAE30;&#xBCF8;&#xD615;&#xD0DC;&#xB85C; &#xC0AC;&#xC6A9;&#xD55C; &#xD68C;&#xC6D0;, &#xD300; &#xC608;&#xC81C;&#xC640; &#xAC19;&#xB2E4;. </li>
+<li><p>&#xB2E8;&#xBC29;&#xD5A5; &#xC5F0;&#xAD00;&#xAD00;&#xACC4; &#xC124;&#xBA85;&#xC5D0;&#xC11C; &#xAE30;&#xBCF8;&#xD615;&#xD0DC;&#xB85C; &#xC0AC;&#xC6A9;&#xD55C; &#xD68C;&#xC6D0;, &#xD300; &#xC608;&#xC81C;&#xC640; &#xAC19;&#xB2E4;. </p>
+<p>```java
+@Entity
+public class Post{  </p>
+<pre><code>@Id  
+private String id;  
+</code></pre><p>  @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+  @JoinColumn(name = &quot;festa_pofo_no&quot;, updatable = false, insertable = false)
+  private List<likeby> likeBy = new ArrayList&lt;&gt;();
+}</likeby></p>
+</li>
 </ul>
-<h3 id="&#xC870;&#xC778;-&#xD14C;&#xC774;&#xBE14;-&#xC0AC;&#xC6A9;">&#xC870;&#xC778; &#xD14C;&#xC774;&#xBE14; &#xC0AC;&#xC6A9;</h3>
-<p><strong>&#xAD00;&#xACC4;&#xD14C;&#xC774;&#xBE14;</strong> &#xC0DD;&#xC131;&#xD560; &#xB54C; &#xB9CE;&#xC774; &#xC0AC;&#xC6A9;&#xD55C;&#xB2E4;. </p>
-<pre><code class="lang-java"><span class="hljs-meta">@ManyToMany</span>(fetch = FetchType.LAZY)  
-<span class="hljs-meta">@JoinTable</span>(name = <span class="hljs-string">&quot;user_roles&quot;</span>,  
-  joinColumns = <span class="hljs-meta">@JoinColumn</span>(name = <span class="hljs-string">&quot;user_id&quot;</span>),  
-  inverseJoinColumns = <span class="hljs-meta">@JoinColumn</span>(name = <span class="hljs-string">&quot;role_id&quot;</span>))  
-<span class="hljs-keyword">private</span> Set&lt;Role&gt; roles = <span class="hljs-keyword">new</span> HashSet&lt;&gt;();
-</code></pre>
-<p>&#xD544;&#xC694;&#xC5D0; &#xB530;&#xB77C; &#xC77C;&#xB300;&#xB2E4;, &#xB2E4;&#xB300;&#xC77C;, &#xB2E4;&#xB300;&#xB2E4; &#xC870;&#xC778; &#xD14C;&#xC774;&#xBE14;&#xB85C; &#xAD6C;&#xD604;&#xD560; &#xC218; &#xC788;&#xB2E4;. </p>
+<pre><code>
+  * `post`&#xAC00; &#xC0AD;&#xC81C;&#xB418;&#xBA74;, `LikeBy`&#xB3C4; &#xC0AD;&#xC81C; &#xB41C;&#xB2E4;
+
+  * `Post` &#xC5D0;&#xC11C;&#xB294;, `LikeBy` &#xB97C; update ,insert &#xD560;&#xC218; &#xC5C6;&#xB2E4; 
+
+
+
+### &#xC870;&#xC778; &#xD14C;&#xC774;&#xBE14; &#xC0AC;&#xC6A9;
+**@ManyToMany &#xAD00;&#xACC4;&#xD14C;&#xC774;&#xBE14;** &#xC0DD;&#xC131;&#xD560; &#xB54C; &#xB9CE;&#xC774; &#xC0AC;&#xC6A9;&#xD55C;&#xB2E4;. 
+
+```java
+@ManyToMany(fetch = FetchType.LAZY)  
+@JoinTable(name = &quot;user_roles&quot;,  
+  joinColumns = @JoinColumn(name = &quot;user_id&quot;),  
+  inverseJoinColumns = @JoinColumn(name = &quot;role_id&quot;))  
+private Set&lt;Role&gt; roles = new HashSet&lt;&gt;();
+</code></pre><p>&#xD544;&#xC694;&#xC5D0; &#xB530;&#xB77C; &#xC77C;&#xB300;&#xB2E4;, &#xB2E4;&#xB300;&#xC77C;, &#xB2E4;&#xB300;&#xB2E4; &#xC870;&#xC778; &#xD14C;&#xC774;&#xBE14;&#xB85C; &#xAD6C;&#xD604;&#xD560; &#xC218; &#xC788;&#xB2E4;. </p>
 <ul>
 <li><code>@JoinTable</code> &#xB85C; &#xC815;&#xC758;&#xD55C;&#xB300;&#xB85C; &#xC870;&#xC778; &#xD14C;&#xC774;&#xBE14;&#xC744; &#xC0DD;&#xC131;&#xD558;&#xB294; DDL&#xC744; &#xBC1C;&#xC0DD;&#xD55C;&#xB2E4;. </li>
 <li>name : &#xD14C;&#xC774;&#xBE14;&#xBA85;</li>
@@ -1106,7 +1148,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"연관관계","level":"3.5.6","depth":2,"next":{"title":"converter","level":"3.5.7","depth":2,"path":"docs/DDD/converter.md","ref":"docs/DDD/converter.md","articles":[]},"previous":{"title":"밸류","level":"3.5.5","depth":2,"path":"docs/DDD/Value Object.md","ref":"docs/DDD/Value Object.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/DDD/연관관계정리.md","mtime":"2019-08-20T07:59:38.512Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-20T07:59:52.130Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"연관관계","level":"3.5.6","depth":2,"next":{"title":"converter","level":"3.5.7","depth":2,"path":"docs/DDD/converter.md","ref":"docs/DDD/converter.md","articles":[]},"previous":{"title":"밸류","level":"3.5.5","depth":2,"path":"docs/DDD/Value Object.md","ref":"docs/DDD/Value Object.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/DDD/연관관계정리.md","mtime":"2019-08-20T08:26:21.373Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-02T08:36:07.903Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
