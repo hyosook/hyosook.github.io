@@ -983,6 +983,80 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="jpa-auditing">Jpa Auditing</h1>
+<blockquote>
+<p>jpa &#xC0AC;&#xC6A9;&#xC2DC; &#xC911;&#xBCF5;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9; &#xB418;&#xB294;&#xBD80;&#xBD84; <code>id</code> <code>&#xC0DD;&#xC131;&#xC2DC;&#xAC04;</code> &#xB4F1;&#xC744;  <code>Auditing Entity</code>&#xB97C; &#xD1B5;&#xD574; &#xC911;&#xBCF5;&#xC744; &#xC81C;&#xAC70;&#xD558;&#xACE0; &#xC790;&#xB3D9;&#xD654; &#xC2DC;&#xD0A8;&#xB2E4;</p>
+</blockquote>
+<ul>
+<li><p>Auditing Entity</p>
+<pre><code class="lang-java">
+<span class="hljs-meta">@EntityListeners</span>(AuditingEntityListener.class)
+<span class="hljs-meta">@MappedSuperclass</span>
+<span class="hljs-meta">@Getter</span>
+<span class="hljs-meta">@JsonInclude</span>(JsonInclude.Include.NON_NULL)
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AbstractBaseEntity</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span> </span>{
+
+    <span class="hljs-meta">@CreatedDate</span>
+    <span class="hljs-meta">@Column</span>(name = <span class="hljs-string">&quot;CREATED_DATE&quot;</span>, updatable = <span class="hljs-keyword">false</span>)
+    <span class="hljs-keyword">protected</span> LocalDateTime createdDateTime;
+
+    <span class="hljs-meta">@JsonFormat</span>(pattern=<span class="hljs-string">&quot;yyyy-MM-dd HH:mm&quot;</span>)
+    <span class="hljs-meta">@LastModifiedDate</span>
+    <span class="hljs-meta">@Column</span>(name = <span class="hljs-string">&quot;LAST_MODIFIED_DATE&quot;</span>, updatable = <span class="hljs-keyword">true</span>)
+    <span class="hljs-keyword">protected</span> LocalDateTime lastModifiedDateTime;
+
+    <span class="hljs-meta">@JsonIgnore</span>
+    <span class="hljs-meta">@Column</span>(name = <span class="hljs-string">&quot;CREATED_BY&quot;</span>, updatable = <span class="hljs-keyword">false</span>)
+    <span class="hljs-meta">@CreatedBy</span>
+    <span class="hljs-keyword">protected</span> String createdBy;
+
+    <span class="hljs-meta">@JsonIgnore</span>
+    <span class="hljs-meta">@Column</span>(name = <span class="hljs-string">&quot;LAST_MODIFIED_BY&quot;</span>, updatable = <span class="hljs-keyword">true</span>)
+    <span class="hljs-meta">@LastModifiedBy</span>
+    <span class="hljs-keyword">protected</span> String lastModifiedBy;
+}
+</code></pre>
+</li>
+</ul>
+<ul>
+<li><code>EnableJpaAuditing</code></li>
+</ul>
+<ul>
+<li><p>createDate&#xC640; modifiedDate&#xC5D0; &#xB300;&#xD574;&#xC11C;&#xB9CC; &#xC790;&#xB3D9;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@EnableJpaAuditing</span>
+<span class="hljs-meta">@Configuration</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">JpaAuditingConfig</span> </span>{
+
+}
+</code></pre>
+</li>
+<li><p>createdBy&#xB098; lastModifiedBy&#xB3C4; &#xC790;&#xB3D9;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Configuration</span>
+<span class="hljs-meta">@EnableJpaAuditing</span>(auditorAwareRef=<span class="hljs-string">&quot;auditorProvider&quot;</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PersistenceConfig</span> </span>{
+
+    <span class="hljs-meta">@Bean</span>
+    <span class="hljs-function">AuditorAware&lt;String&gt; <span class="hljs-title">auditorProvider</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> AuditorAware&lt;String&gt;() {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> Optional&lt;String&gt; <span class="hljs-title">getCurrentAuditor</span><span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">return</span> Optional.ofNullable(SecurityContextHolder.getContext())
+                        .map(SecurityContext::getAuthentication)
+                        .filter(Authentication::isAuthenticated)
+                        .map(Authentication::getPrincipal)
+                        .map(principal -&gt; {
+                            <span class="hljs-keyword">if</span> (principal <span class="hljs-keyword">instanceof</span> String)
+                                <span class="hljs-keyword">return</span> (String) principal;
+                            <span class="hljs-keyword">if</span> (principal <span class="hljs-keyword">instanceof</span> UserPrincipal)
+                                <span class="hljs-keyword">return</span> ((UserPrincipal) principal).getUsername();
+                            <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;INVALID-USER&quot;</span>;
+                        });
+            }
+        };
+    }
+}
+</code></pre>
+</li>
+</ul>
 
                                 
                                 </section>
@@ -1026,7 +1100,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"JPA Auditor","level":"3.5.14","depth":2,"next":{"title":"기타","level":"4.1","depth":1,"path":"docs/etc/index.md","ref":"docs/etc/index.md","articles":[]},"previous":{"title":"1장정리","level":"3.5.13","depth":2,"path":"docs/DDD/스터디/질문 답변.md","ref":"docs/DDD/스터디/질문 답변.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/DDD/JpaAuditor.md","mtime":"2019-09-06T08:30:00.254Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-06T08:39:07.112Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"JPA Auditor","level":"3.5.14","depth":2,"next":{"title":"기타","level":"4.1","depth":1,"path":"docs/etc/index.md","ref":"docs/etc/index.md","articles":[]},"previous":{"title":"1장정리","level":"3.5.13","depth":2,"path":"docs/DDD/스터디/질문 답변.md","ref":"docs/DDD/스터디/질문 답변.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/DDD/JpaAuditor.md","mtime":"2019-09-06T08:39:17.262Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-06T08:40:26.507Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
