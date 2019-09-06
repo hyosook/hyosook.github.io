@@ -34,6 +34,8 @@
 
 
 * [SpringBoot](docs/SpringBoot/index.md)
+  * [어노테이션](docs/SpringBoot/어노테이션.md)
+  * [다국어설정](docs/SpringBoot/다국어 설정.md)
 * [Spring Security](docs/SpringBoot/Spring Security.md)
   * [web 서버](docs/SpringBoot/web 서버.md)
   * [ security configure](docs/SpringBoot/ security configure.md)
@@ -63,13 +65,9 @@
   
   * [1장정리](docs/DDD/스터디/질문 답변.md)
   
-    
 * [기타](docs/etc/index.md)
 * [gitbook](docs/etc/gitbook.md)
-  
 * [Asyncawait](docs/etc/Asyncawait.md)
-  
 * [pug](docs/etc/pug.md)
-  
 * [ES6](docs/etc/ES6 기본사용.md)
 
