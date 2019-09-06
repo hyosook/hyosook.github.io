@@ -60,11 +60,11 @@
   * [transactional](docs/DDD/transactional.md)
   * [영속성 컨텍스트 트랜잭션](docs/DDD/영속성 컨텍스트 트랜잭션.md)
   * [Repository](docs/DDD/Repository.md)
-  
   * [스터티](docs/DDD/스터디/01.md)
-  
   * [1장정리](docs/DDD/스터디/질문 답변.md)
+  * [JPA Auditor](docs/DDD/JpaAuditor.md)
   
+
 * [기타](docs/etc/index.md)
 * [gitbook](docs/etc/gitbook.md)
 * [Asyncawait](docs/etc/Asyncawait.md)
