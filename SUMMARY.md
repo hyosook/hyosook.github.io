@@ -38,7 +38,7 @@
   * [다국어설정](docs/SpringBoot/다국어 설정.md)
 * [Spring Security](docs/SpringBoot/Spring Security.md)
   * [web 서버](docs/SpringBoot/web 서버.md)
-  * [ security configure](docs/SpringBoot/ security configure.md)
+  * [ security configure](docs/SpringBoot/security configure.md)
   * [중복로그인 처리](docs/SpringBoot/중복로그인.md)
   * [전송 어노테이션](docs/SpringBoot/전송 어노테이션.md)
 * [Java](docs/Java/index.md)
@@ -46,8 +46,7 @@
   * [lombok](docs/Java/lombok.md)
   * [java8](docs/Java/java 8.md)
 * [git](docs/git/index.md)
-
-  * [issues](docs/git/issues.md)
+* [issues](docs/git/issues.md)
 * [DDD](docs/DDD/index.md)
   * [DDD설계 개념과 구현](docs/DDD/DDD설계 개념과 구현.md)
   * [엔티티와 밸류](docs/DDD/Entity와 Value타입.md)
@@ -64,8 +63,8 @@
   * [1장정리](docs/DDD/스터디/질문 답변.md)
   * [JPA Auditor](docs/DDD/JpaAuditor.md)
   
-
 * [기타](docs/etc/index.md)
+  * [Lombok 어노테이션](docs/etc/Lombok 어노테이션.md)
 * [gitbook](docs/etc/gitbook.md)
 * [Asyncawait](docs/etc/Asyncawait.md)
 * [pug](docs/etc/pug.md)
