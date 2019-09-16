@@ -1,9 +1,3 @@
----
-title: "ES6 사용"
-tags: ["ES6", "javascript"]
-subtitle: "ES6 문법을 알고 사용하자."
----
-
 # ES6
 
 ## 화살표 함수
@@ -118,7 +112,7 @@ console.log(obj.myVal); // Hello
   // app.js
   import component1 from './component1.js';
   Vue.component('component1', component1);
-
+  
   ```
 
 ## 
@@ -135,7 +129,7 @@ console.log(obj.myVal); // Hello
 
     ```javascript
     let fruits = ['apple','banana','peach','blue berry'];
-
+    
     fruits.forEach((fruit) =>
       console.log(fruit);
     });
@@ -151,7 +145,7 @@ console.log(obj.myVal); // Hello
 
       ```javascript
       let fruits = ['apple','banana','peach','blue berry'];
-
+      
       let juice = fruits.map(fruit => `${fruit} juice`);
       ```
 
@@ -162,7 +156,7 @@ console.log(obj.myVal); // Hello
         { id: 3, content: 'apexsoft' },
         { id: 6, content: '우리모두' },
         { id: 10, content: 'master가 되자' }];
-
+      
       let idx = comments.map( comment => {
           return comment.id;
       });
@@ -183,7 +177,7 @@ console.log(obj.myVal); // Hello
       { id: 6, type: 'post', content: '우리모두' },
       { id: 10, type: 'comment' ,content: 'master가' },
       { id: 6, type: 'post', content: '되나요?' }];
-
+    
     const filteredData = datas.filter( data => {
       return data.type === 'post';
     });
@@ -218,22 +212,21 @@ console.log(obj.myVal); // Hello
       {nickname:'hskim'},
       {nickname:'master'},
   ]
-
+  
   users.find(function(user){
       return user.nickname === 'master'
   }) // 맨처음 찾은 것만 리턴
-  ```
-
-
+  
+  
   users.every(function(user){
       return user.nickname === 'master'
   }) // false
-
+  
   users.some(function(user){
       return user.nickname === 'master'
   }) // true
-
-
+  
+  
   ```
 
 
@@ -245,31 +238,31 @@ console.log(obj.myVal); // Hello
     ```javascript
     const arr2 = new Array(2).fill(undefined);
     // [undefined, undefined]
-  ```
+    ```
 
-    ​```javascript
+    ```javascript
     const arr4 = new Array(2).fill('x');
     // ['x', 'x']
-    ​```
-    
+    ```
+
     * 첫 번째 파라미터에 설정할 값을 작성합니다.
     * 두 번째 파라미터는 선택으로 범위 시작 인덱스를 작성하며 디폴트 값은 0입니다. 
     * 세 번째 파라미터는 선택으로 범위 끝 인덱스를 작성하며 디폴트 값은 배열 length 값입니다
-    
-    ​```javascript
+
+    ```javascript
     let one = [1, 2, 3];
     console.log(one.fill(7)); // [7, 7, 7]
     
     let two = [1, 2, 3, 4, 5];
     console.log(two.fill(7, 1)); // [1, 7, 7, 7, 7]
-
-
-
+    
+    
+    
      let three = [1, 2, 3, 4, 5];
-
+    
      console.log(three.fill(7, 1, 3)); // [1, 7, 7, 4, 5]
-
-    ​```
+    
+    ```
 
 * reduce
 
@@ -335,7 +328,7 @@ console.log(obj.myVal); // Hello
        console.log(num2)    // 20 출력 
        console.log(num3)    // 30 출력 
   }
-
+  
   cnost arr =[10,20,30]
   num(...arr);
   ```
@@ -349,7 +342,7 @@ console.log(obj.myVal); // Hello
        console.log(num3)    // 30 출력
        console.log(num4)    // 40 출력 
   }
-
+  
   num(10,...[20,30],40);
   ```
 
@@ -364,13 +357,13 @@ console.log(obj.myVal); // Hello
       prop1: 'Hello',
       prop2: 'World'
     };
-
+    
     let newObj = {
       name: 'George',
       prop1: myObj.prop1,
       prop2: myObj.prop2
     };
-
+    
     console.log(newObj.prop1); // Hello
     ```
 
@@ -379,7 +372,7 @@ console.log(obj.myVal); // Hello
       name: 'George',
       ...myObj
     };
-
+    
     console.log(newObj.prop1); // Hello
     ```
 
@@ -415,7 +408,7 @@ console.log(obj.myVal); // Hello
 
     ```js
     import { mapState } from 'vuex';
-
+    
     var state = mapState(['prop1', 'prop2', 'prop3']);
     console.log(state.prop1) // { ... }
     ```
@@ -425,7 +418,7 @@ console.log(obj.myVal); // Hello
     ```js
     // app.js
     import { mapState } from 'vuex';
-
+    
     new Vue({
       computed: {
         someLocalComputedProp() { ... },
@@ -433,3 +426,73 @@ console.log(obj.myVal); // Hello
       }
     });
     ```
+
+## for
+
+### foreach
+
+```javascript
+let arr = ['arr1', 'arr2', 'arr3'];
+
+arr.forEach(function(item) {
+    console.log(item);
+});
+// 출력 결과: arr1, arr2, arr3
+```
+
+
+
+### for-in
+
+```javascript
+var obj = {
+    a: 1, 
+    b: 2, 
+    c: 3
+};
+
+for (var key in obj) {
+    console.log(key, obj[key]); // a 1, b 2, c 3
+}
+```
+
+
+
+* 객체의 속성 
+* 인텍스가 문자로 반환 
+* 루프 순서가 무작위 
+
+### for-of
+
+```javascript
+var iterable = [10, 20, 30];
+
+for (var value of iterable) {
+  console.log(value); // 10, 20, 30
+}
+```
+
+
+
+* 객체의 요소 (data)
+* break , continue , return 가능 
+
+
+
+## Object
+
+### **Object.keys()**
+
+> 개체 고유 속성의 이름을 배열로 반환
+
+```java
+const object1 = {
+  a: 'somestring',
+  b: 42,
+  c: false
+};
+
+console.log(Object.keys(object1)); //  Array ["a", "b", "c"]
+
+```
+

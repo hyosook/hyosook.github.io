@@ -62,11 +62,11 @@
   * [스터티](docs/DDD/스터디/01.md)
   * [1장정리](docs/DDD/스터디/질문 답변.md)
   * [JPA Auditor](docs/DDD/JpaAuditor.md)
-  
 * [기타](docs/etc/index.md)
   * [Lombok 어노테이션](docs/etc/Lombok 어노테이션.md)
 * [gitbook](docs/etc/gitbook.md)
 * [Asyncawait](docs/etc/Asyncawait.md)
 * [pug](docs/etc/pug.md)
 * [ES6](docs/etc/ES6 기본사용.md)
+* [ES6t](docs/etc/ES6.md)
 
