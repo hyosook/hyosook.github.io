@@ -1264,6 +1264,8 @@ console.log(two.fill(7, 1)); // [1, 7, 7, 7, 7]
 <blockquote>
 <p>object&#xC758; property&#xAC00; key&#xC640; value&#xAC00; &#xB3D9;&#xC77C;&#xD558;&#xB2E4;&#xBA74;, &#xD558;&#xB098;&#xB85C; &#xCD95;&#xC57D; &#xAC00;&#xB2A5;</p>
 </blockquote>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> obj ={x, y }
+</code></pre>
 <h2 id="rest-&#xB9E4;&#xAC1C;&#xBCC0;&#xC218;">Rest &#xB9E4;&#xAC1C;&#xBCC0;&#xC218;</h2>
 <blockquote>
 <p>Spread &#xC5F0;&#xC0B0;&#xC790;(<code>...</code>) &#xC744; &#xC0AC;&#xC6A9;&#xD574;&#xC11C; <code>&#xB9E4;&#xAC1C;&#xBCC0;&#xC218;&#xB97C; &#xC815;&#xC758;</code>&#xD558;&#xB294;&#xAC83; </p>
@@ -1290,6 +1292,12 @@ fruit(<span class="hljs-number">10</span>,<span class="hljs-number">20</span><sp
 </code></pre>
 </li>
 </ul>
+<h2 id="&#xBCC0;&#xC218;-&#xC120;&#xC5B8;">&#xBCC0;&#xC218; &#xC120;&#xC5B8;</h2>
+<blockquote>
+<p>&#xCD95;&#xC57D; &#xAE30;&#xBC95;</p>
+</blockquote>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> name, id, type=<span class="hljs-string">&apos;var&apos;</span>
+</code></pre>
 <h2 id="spread-&#xC5F0;&#xC0B0;&#xC790;">Spread &#xC5F0;&#xC0B0;&#xC790;</h2>
 <ul>
 <li><p>&#xD568;&#xC218;&#xC758; <code>&#xC778;&#xC790;</code>&#xB85C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xACBD;&#xC6B0;</p>
@@ -1443,6 +1451,28 @@ arr.forEach(<span class="hljs-function"><span class="hljs-keyword">function</spa
 
 console.log(Object.keys(object1)); <span class="hljs-comment">//  Array [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]</span>
 </code></pre>
+<h2 id="&#xBB35;&#xC2DC;&#xC801;-&#xBC18;&#xD658;">&#xBB35;&#xC2DC;&#xC801; &#xBC18;&#xD658;</h2>
+<ul>
+<li><p><strong>&#xD55C;&#xC904;</strong>&#xB85C;&#xB9CC; &#xC791;&#xC131;&#xD55C; &#xC791;&#xC131;&#xD55C; &#xC560;&#xB85C;&#xC6B0; &#xD568;&#xC218; &#xB294; &#xBCC4;&#xB3C4; <code>return</code>  &#xBA85;&#xC2DC; &#xC5C6;&#xC774;&#xB3C4; &#xC790;&#xB3D9; &#xBC18;&#xD658; &#xB428;</p>
+<pre><code class="lang-javascript">&#xD568;&#xC218;&#xBA85; = &#xC778;&#xC790; =&gt; ( &#xB9AC;&#xB358;&#xAC12; )
+</code></pre>
+<ul>
+<li>&#xC911;&#xAD04;&#xD638; <code>{ }</code> &#xC5C6;&#xC5B4;&#xC57C; &#xD55C;&#xB2E4;</li>
+</ul>
+</li>
+</ul>
+<h2 id="&#xD30C;&#xB77C;&#xBBF8;&#xD130;-&#xAE30;&#xBCF8;&#xAC12;-&#xC9C0;&#xC815;">&#xD30C;&#xB77C;&#xBBF8;&#xD130; &#xAE30;&#xBCF8;&#xAC12; &#xC9C0;&#xC815;</h2>
+<ul>
+<li><p>&#xD568;&#xC218; &#xC120;&#xC5B8;&#xBB38;&#xC790;&#xCCB4;&#xC5D0; &#xAE30;&#xBCF8;&#xAC12; &#xC9C0;&#xC815; &#xAC00;&#xB2A5;</p>
+<pre><code class="lang-javascript">&#xD568;&#xC218;&#xBA85; =  (name , id=<span class="hljs-number">1</span> , type=<span class="hljs-string">&apos;var&apos;</span>) =&gt; ( id+name+type)
+</code></pre>
+</li>
+</ul>
+<h2 id="&#xC5EC;&#xB7EC;&#xC904;-&#xBB38;&#xC790;&#xC5F4;">&#xC5EC;&#xB7EC;&#xC904; &#xBB38;&#xC790;&#xC5F4;</h2>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> &#xC57D;&#xAD00;&#xB3D9;&#xC758; = <span class="hljs-string">`&#xC57D;&#xAD00;&#xB3D9;&#xC758; &#xB0B4;&#xC694; 
+                &#xB0B4;&#xC694; &#xB0B4;&#xC694; &#xB0B4;&#xC694; 
+                &#xB0B4;&#xC6A9; &#xB0B4;&#xC6A9; &#xB0B4;&#xC6A9;`</span>
+</code></pre>
 
                                 
                                 </section>
@@ -1482,7 +1512,7 @@ console.log(Object.keys(object1)); <span class="hljs-comment">//  Array [&quot;a
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ES6t","level":"3.12","depth":1,"previous":{"title":"ES6","level":"3.11","depth":1,"path":"docs/etc/ES6 기본사용.md","ref":"docs/etc/ES6 기본사용.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/etc/ES6.md","mtime":"2019-09-16T10:07:31.331Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-16T10:08:02.475Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ES6t","level":"3.12","depth":1,"previous":{"title":"ES6","level":"3.11","depth":1,"path":"docs/etc/ES6 기본사용.md","ref":"docs/etc/ES6 기본사용.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/etc/ES6.md","mtime":"2019-09-17T03:01:28.289Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-17T03:01:36.290Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

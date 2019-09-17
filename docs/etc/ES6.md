@@ -37,6 +37,7 @@ function (인자) {
     ```
 
 
+
 ## 템플릿 리터럴
 
 > 작은 따옴표(') 나 큰따옴표(") 대신에 ,  백틱(`)  사용을 의미한다 
@@ -79,6 +80,7 @@ function (인자) {
     ```JS
     `Hello ${this.name} how are you?`
     ```
+
 
 
 ## 모듈
@@ -278,9 +280,17 @@ console.log(obj.myVal); // Hello
 
 
 
+
+
 ## Enhancde Object Literals
 
 > object의 property가 key와 value가 동일하다면, 하나로 축약 가능
+
+```javascript
+let obj ={x, y }
+```
+
+
 
 
 
@@ -313,6 +323,17 @@ console.log(obj.myVal); // Hello
   }
   fruit(10,20"사과","배","딸기","바나나")
   ```
+
+
+
+## 변수 선언
+
+> 축약 기법
+
+```javascript
+let name, id, type='var'
+```
+
 
 
 ## Spread 연산자
@@ -427,6 +448,8 @@ console.log(obj.myVal); // Hello
     });
     ```
 
+
+
 ## for
 
 ### foreach
@@ -479,6 +502,8 @@ for (var value of iterable) {
 
 
 
+
+
 ## Object
 
 ### **Object.keys()**
@@ -494,5 +519,41 @@ const object1 = {
 
 console.log(Object.keys(object1)); //  Array ["a", "b", "c"]
 
+```
+
+
+
+
+
+## 묵시적 반환
+
+* **한줄**로만 작성한 작성한 애로우 함수 는 별도 `return`  명시 없이도 자동 반환 됨
+
+  ```javascript
+  함수명 = 인자 => ( 리던값 )
+  ```
+
+  * 중괄호 `{ }` 없어야 한다
+
+
+
+## 파라미터 기본값 지정
+
+* 함수 선언문자체에 기본값 지정 가능
+
+  ```javascript
+  함수명 =  (name , id=1 , type='var') => ( id+name+type)
+  ```
+
+  
+
+
+
+##  여러줄 문자열
+
+```javascript
+let 약관동의 = `약관동의 내요 
+			    내요 내요 내요 
+				내용 내용 내용`
 ```
 
