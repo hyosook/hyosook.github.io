@@ -26,6 +26,8 @@
   * [IE11 지원하기](docs/vue-cli3/support ie.md)
   * [env 환경변수](docs/vue-cli3/env.md)
   * [킨더가든](docs/vue-cli3/kindergarten.md)
+  * [다국어 validation](docs/vue-cli3/다국어 validation.md)
+  * 
 * [aws](docs/aws/springboot elb.md)
   * [s3정적웹사이트 호스팅](docs/aws/s3 정적웹사이트 호스팅.md)
   * [로드밸런서](docs/aws/로드밸런서.md)
