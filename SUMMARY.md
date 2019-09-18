@@ -38,6 +38,7 @@
 * [SpringBoot](docs/SpringBoot/index.md)
   * [어노테이션](docs/SpringBoot/어노테이션.md)
   * [다국어설정](docs/SpringBoot/다국어 설정.md)
+  * [spring 로그인 사용자 정보 얻기](docs/SpringBoot/spring 로그인 사용자 정보 얻기.md)
 * [Spring Security](docs/SpringBoot/Spring Security.md)
   * [web 서버](docs/SpringBoot/web 서버.md)
   * [ security configure](docs/SpringBoot/security configure.md)
