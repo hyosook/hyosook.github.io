@@ -149,7 +149,12 @@ export default {
      <!-- slot없을때 기본값 -->
               
 </slot>
-
+ data() {
+    return {
+      item: "hello",
+      valueClone: false
+    };
+  },
 
 computed: {
     hasScopedAutocompleteItemSlot () {
@@ -160,6 +165,7 @@ computed: {
 
 > * 이름  :md-autocomplete-item
 > * 슬롯 속성 : item, term
+>   * 데이터를 넘길수 있다
 > * 기본값지정 :  slot 사이이에 넣으면 ,기본값 지정 된다 
 >
 > 
@@ -180,3 +186,44 @@ computed: {
 > * `#` 슬롯이름 = " { 슬롯속성 이름}"
 >
 >   
+
+
+
+#### 자식 컴포넌트의 이벤트를 부모에서 사용하게 
+
+```html
+
+<template>
+  <div>
+      <slot name="header" :close="close">   
+      </slot>
+    <div>
+
+</template>
+
+<script>
+export default {
+  name: "자식",
+  data() {
+    
+  },
+  methods: {
+    close() {
+      console.log('close메소드')
+    }
+  }
+}
+</script>
+```
+
+```html
+<div>
+  <자식>
+    <template  #header="slotProps">
+      <button @click="slotProps.close">닫기</button>
+    </template>
+   
+  </자식>
+</div>
+```
+
