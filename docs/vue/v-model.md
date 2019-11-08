@@ -227,3 +227,34 @@ export default {
 </div>
 ```
 
+
+
+```
+ <slot
+            name="attach-delete"
+            :delete="deleteOnfile"
+            :isShow="showOnFileName"
+            :seq="item.seq"
+          >
+            <img
+              src="@/assets/img/delete-btn.png"
+              v-show="showOnFileName(item.seq)"
+              @click.prevent="deleteOnfile(item.seq)"
+            />
+          </slot>
+```
+
+
+
+````
+<post-file :attachments.sync="attachments" ref="file">
+                <template #attach-delete="slotProps">
+                  <i
+                    class="material-icons"
+                    v-show="slotProps.isShow(slotProps.seq)"
+                    @click.prevent="slotProps.delete(slotProps.seq)"
+                  >delete_outline</i>
+                </template>
+              </post-file>
+````
+
