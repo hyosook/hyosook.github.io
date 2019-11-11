@@ -1122,6 +1122,33 @@ $ aws configure list
 </ul>
 </li>
 </ul>
+<h3 id="3-jenkins&#xB85C;-&#xBC30;&#xD3EC;&#xD558;&#xAE30;">3. Jenkins&#xB85C; &#xBC30;&#xD3EC;&#xD558;&#xAE30;</h3>
+<blockquote>
+<p>Jenkins&#xAC00; &#xC124;&#xCE58;&#xB41C; &#xC11C;&#xBC84;&#xC5D0; <code>yarn</code>  &#xACFC;  <code>awscli</code> &#xC124;&#xCE58; &#xB418;&#xC5B4;&#xC788;&#xB2E4;&#xACE0; &#xAC00;&#xC815;&#xD55C;&#xB2E4; </p>
+</blockquote>
+<h4 id="&#xC11C;&#xBC84;&#xC5D0;-&#xD574;&#xB2F9;-&#xAD8C;&#xD55C;-profile-&#xCD94;&#xAC00;">&#xC11C;&#xBC84;&#xC5D0; &#xD574;&#xB2F9; &#xAD8C;&#xD55C; profile &#xCD94;&#xAC00;</h4>
+<pre><code class="lang-powershell">cd ~/.aws
+vi credentials
+</code></pre>
+<pre><code class="lang-bash">[projectName_release]
+aws_access_key_id = 
+aws_secret_access_key =
+</code></pre>
+<h4 id="&#xC820;&#xD0A8;&#xC2A4;--&#xC0DD;&#xC131;">&#xC820;&#xD0A8;&#xC2A4;  &#xC0DD;&#xC131;</h4>
+<p><img src="https://imgur.com/v9nkmhN.png" alt=""></p>
+<p><img src="https://imgur.com/N8iVPJU.png" alt=""></p>
+<ul>
+<li>&#xBE4C;&#xB4DC; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xC791;&#xC131;</li>
+</ul>
+<pre><code class="lang-shell">pwd
+yarn -version
+yarn install
+yarn build
+
+
+export PATH=/home/apexsoft/.local/bin:$PATH
+aws s3 cp /home/apexsoft/.jenkins/jobs/&#xC820;&#xD0A8;&#xC2A4; job&#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xC774;&#xB984;/workspace/dist/ s3://projectBucketName --recursive --grant read=uri=http://acs.amazonaws.com/groups/global/AllUsers --profile projectName_release
+</code></pre>
 <h1 id="https---&#xB3C4;&#xBA54;&#xC778;-&#xC801;&#xC6A9;">https  + &#xB3C4;&#xBA54;&#xC778; &#xC801;&#xC6A9;</h1>
 <blockquote>
 <p>https&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xACBD;&#xC6B0; , <code>Cloud front</code>&#xB97C; &#xC0AC;&#xC6A9;&#xC744; &#xCD94;&#xAC00;&#xD55C;&#xB2E4; </p>
@@ -1239,7 +1266,7 @@ $ aws configure list
 <blockquote>
 <p>&#xBA54;&#xC778; &#xB3C4;&#xBA54;&#xC778; : <code>hsProject.net</code>  </p>
 <p>&#xC11C;&#xBE0C; &#xB3C4;&#xBA54;&#xC778; : <code>home.hsProject.net</code> &amp;  <code>sub.hsProject.net</code></p>
-<p>home.hsProject.net<code>&#xC73C;&#xB85C;</code>hsProject.net` &#xC124;&#xC815; &#xD558;&#xACE0; &#xC2F6;&#xC744; &#xACBD;&#xC6B0;</p>
+<p><code>home.hsProject.net</code>&#xC73C;&#xB85C;  <code>hsProject.net</code> &#xC124;&#xC815; &#xD558;&#xACE0; &#xC2F6;&#xC744; &#xACBD;&#xC6B0;</p>
 </blockquote>
 <h2 id="&#xBC29;&#xBC95;1">&#xBC29;&#xBC95;1</h2>
 <blockquote>
@@ -1310,7 +1337,7 @@ home.hsProject.net
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"s3정적웹사이트 호스팅","level":"2.4.1","depth":2,"next":{"title":"로드밸런서","level":"2.4.2","depth":2,"path":"docs/aws/로드밸런서.md","ref":"docs/aws/로드밸런서.md","articles":[]},"previous":{"title":"aws","level":"2.4","depth":1,"path":"docs/aws/springboot elb.md","ref":"docs/aws/springboot elb.md","articles":[{"title":"s3정적웹사이트 호스팅","level":"2.4.1","depth":2,"path":"docs/aws/s3 정적웹사이트 호스팅.md","ref":"docs/aws/s3 정적웹사이트 호스팅.md","articles":[]},{"title":"로드밸런서","level":"2.4.2","depth":2,"path":"docs/aws/로드밸런서.md","ref":"docs/aws/로드밸런서.md","articles":[]},{"title":"springboot elb","level":"2.4.3","depth":2,"path":"docs/aws/springboot elb.md","ref":"docs/aws/springboot elb.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/aws/s3 정적웹사이트 호스팅.md","mtime":"2019-11-07T05:25:25.789Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-08T07:34:27.657Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"s3정적웹사이트 호스팅","level":"2.4.1","depth":2,"next":{"title":"로드밸런서","level":"2.4.2","depth":2,"path":"docs/aws/로드밸런서.md","ref":"docs/aws/로드밸런서.md","articles":[]},"previous":{"title":"aws","level":"2.4","depth":1,"path":"docs/aws/springboot elb.md","ref":"docs/aws/springboot elb.md","articles":[{"title":"s3정적웹사이트 호스팅","level":"2.4.1","depth":2,"path":"docs/aws/s3 정적웹사이트 호스팅.md","ref":"docs/aws/s3 정적웹사이트 호스팅.md","articles":[]},{"title":"로드밸런서","level":"2.4.2","depth":2,"path":"docs/aws/로드밸런서.md","ref":"docs/aws/로드밸런서.md","articles":[]},{"title":"springboot elb","level":"2.4.3","depth":2,"path":"docs/aws/springboot elb.md","ref":"docs/aws/springboot elb.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/aws/s3 정적웹사이트 호스팅.md","mtime":"2019-11-11T05:57:56.506Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-11T05:58:18.425Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
