@@ -59,7 +59,7 @@
 
 * 스타일 객체에 직업 바인딩
 
-  ```javascript
+  ```html
   <div v-bind:style="styleObject"></div>
   
   data: {
@@ -70,5 +70,44 @@
   }
   ```
 
+  ```html
+   <i :style="_getTitleStyleObj">subdirectory_arrow_right</i>
+  
+    computed: {
+      _getTitleStyleObj () {
+        return {
+          display: (this.item.parentPostNo || this.parentNo) ? 'inline' : 'none',
+          'margin-left': `${(this.item.depth || this.depth) * this.margin}px`
+        }
+      }
+    }
+  ```
+  
   
 
+* 배열구문 
+
+  ```html
+  <div
+    :style="[styleObject, {width:inputWidth+'px'}]"
+   >
+      
+      
+    props: {
+      inputWidth: {
+        type: String,
+        default: '40px'
+      }
+    
+    },
+    data: () => ({
+      styleObject: {
+        'z-index': 100,
+        position: 'absolute',
+        cursor: 'pointer',
+        opacity: 0
+      }
+    })
+  ```
+
+  

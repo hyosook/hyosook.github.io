@@ -14,6 +14,7 @@
   * [vue-router](docs/vue/vue-router.md)
   * [vuex](docs/vue/vux.md)
   * [v-model & slot](docs/vue/v-model.md)
+  * [class style 바인딩](docs/vue-cli3/class 스타일바인딩.md)
 * [Vue Boilerplate's Framework](docs/Boilerplate/index.md)
   * [vue-cli3](docs/Boilerplate/vue-cli3.md)
     * [우분투 설치](docs/Boilerplate/cli3/01.md)
@@ -27,8 +28,10 @@
   * [env 환경변수](docs/vue-cli3/env.md)
   * [킨더가든](docs/vue-cli3/kindergarten.md)
   * [다국어 validation](docs/vue-cli3/다국어 validation.md)
-  * 
+  
+    
 * [aws](docs/aws/springboot elb.md)
+  
   * [s3정적웹사이트 호스팅](docs/aws/s3 정적웹사이트 호스팅.md)
   * [로드밸런서](docs/aws/로드밸런서.md)
   * [springboot elb](docs/aws/springboot elb.md)
