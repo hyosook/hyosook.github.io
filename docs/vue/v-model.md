@@ -1,4 +1,6 @@
-# v-model
+# 컴포넌트 사용 
+
+## v-model
 
 > `value`  속성과 `input` 이벤트를 함꼐 사용하는것 
 >
@@ -23,7 +25,108 @@
 
 
 
+## 컴포넌트의 `v-model`
+
+https://jsbin.com/rirumifuwo/1/edit?html,js,output
+
+https://jsbin.com/yurageviyu/1/edit?html,js,output
+
 ## 부모컴포넌트에서 사용자가 정의한 input 컴포넌트를 사용하는 경우
+
+```html
+Vue.component('base-checkbox', {
+  model: {
+    prop: 'value',
+    event: 'input'
+  },
+  props: {
+    value: Boolean
+  },
+  template: `
+    <label>
+      <input @input="$emit('input', $event.target.value)">{{ value }}
+    </label>
+  `
+})
+
+new Vue({
+  el: '#app',
+  data: {
+    lovingVue: false
+  }
+});
+
+
+
+<div id="app">
+  <base-checkbox v-model="lovingVue"></base-checkbox>
+  {{lovingVue}}
+
+</div>
+```
+
+```html
+  model: {
+    prop: 'value',
+    event: 'input'
+  },
+>>> input일때는 이거 생략 가능함 
+```
+
+
+
+```html
+Vue.component('base-checkbox', {
+  model: {
+    prop: 'value',
+    event: 'child-input'
+  },
+  props: {
+    value: Boolean
+  },
+  template: `
+    <label>
+      <input @input="$emit('child-input', $event.target.value)">{{ value }}
+    </label>
+  `
+})
+
+new Vue({
+  el: '#app',
+  data: {
+    lovingVue: false
+  }
+});
+
+<div id="app">
+  <base-checkbox v-model="lovingVue"></base-checkbox>
+  {{lovingVue}}
+
+</div>
+```
+
+```html
+Vue.component('base-checkbox', {
+
+  props: {
+    value: Boolean
+  },
+  template: `
+    <label>
+      <input v-model="value" @input="$emit('input', $event.target.value)">{{ value }}
+    </label>
+  `
+})
+
+new Vue({
+  el: '#app',
+  data: {
+    lovingVue: false
+  }
+});
+```
+
+
 
 * `custom-input`
 
@@ -36,11 +139,17 @@
   </template>
   
   <template>
-        <input  :value="searchText" @input="$emit('input', $event.target.value)">
+        <input  :value="searchText" @input="onInput">
   </template>
   
   <script>
   export default {
+  
+    model: {
+      prop: 'value',
+      event: 'input'
+    },
+        
     name: 'custom-input',
           props: {
               value: {
@@ -126,7 +235,81 @@ export default {
 
 ```
 
+* 자식 
 
+````html
+ <label>
+     
+      <input
+      type="checkbox"
+      v-bind:checked="checked"
+      v-on:change="$emit('custom-change', $event.target.checked)"
+      >{{ checked }}
+ 
+</label>
+
+  model: {
+    prop: 'checked',
+    event: 'custom-change'
+  },
+  props: {
+    checked: Boolean
+  },
+````
+
+* 부모
+
+```html
+ <base-checkbox v-model="lovingVue"></base-checkbox>
+
+ data: {
+    lovingVue: false
+  }
+```
+
+
+
+
+
+
+
+```html
+Vue.component('my-checkbox', {
+  model: {
+    prop: 'checked',
+    event: 'change'
+  },
+  props: {
+    // 다른 목적을 위해 `value` prop를 사용할 수 있습니다.
+    checked: Boolean,
+    value: String
+  },
+  // ...
+})
+```
+
+```html
+<my-checkbox v-model="foo" value="some value"></my-checkbox>
+
+<my-checkbox
+  :checked="foo"
+  @change="val => { foo = val }"
+  value="some value">
+</my-checkbox>
+```
+
+
+
+### sync
+
+```html
+<comp :foo.sync="bar"></comp>
+<comp :foo="bar" @update:foo="val => bar = val"></comp>
+```
+
+```html
+this.$emit('update:foo', newValue)
+```
 
 
 
