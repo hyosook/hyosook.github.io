@@ -3,7 +3,10 @@
 
 애그리거트를 저장, 조회, 삭제 하는 것이 리포지터리의 기본 기능이다.
 
+
+
 ## 기본 형태 
+
 스프링 데이터 JPA를 상속받아서 interface 형태로 만든다.
 
 ```java 
@@ -20,7 +23,18 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 }
 ```
 
+#### JpaRepository (공통인터페이스 )
+
+> 이 interface 를 상속받은 interface 만 생성하면 해당 엔터티에 대한 CRUD를 사용할수있다 
+>
+> 엔티티 클래스와, 식별자 타입을 넣는다 
+>
+> org.springframework.data.jpa.repository` 를 상속한 interface 클래스는 `@Repository` 생략해도  spring로딩시 자동으로 Repository로 등록한다 
+
+
+
 ## query method
+
 스프링 데이터 JPA가 제공하는 기능
 
 ### Repository 제공 메소드
@@ -99,6 +113,18 @@ Page<Post> findAllByPostTypeAndTitleContainingOrderByLastModifiedDateTimeDesc( P
 ```
 * 매개변수로 `Pageable` 필수
 
+```SQL
+ @Query(value = "SELECT P.POST_TYPE_CODE as postTypeCode ,P.GROUP_NO as groupNo, P.SEQ as seq,P.DEPTH as depth,P.TITLE as title ,P.POST_NO as id " +
+            "FROM POST P ",
+            countQuery = "SELECT COUNT(P.POST_NO) FROM POST P ",
+            nativeQuery = true)
+    Page<PostListDto> findListByPost(Pageable pageable);
+
+```
+
+- `Pageable pageable `
+- **nativeQuery** 의 경우 `countQuery` 필수 
+
 
 
 ## JPQL
@@ -157,7 +183,7 @@ JPQL에서 제공하지 않는 DB 기능 등이 필요하면 직접 쿼리를 �
 ```java
 @Query(value = "select u.name as name , r.id as id  #AS 명 일치 필수
        from user u join role r on u.userId =r.userId ", 
-       nativeQuery = true)  
+          nativeQuery = true)
 List<UserDto> userList();
 ```
 
@@ -177,6 +203,20 @@ public interface UserDto {
 ```
 
 
+
+#### 페이징 사용
+
+* `Pageable pageable `
+* **nativeQuery** 의 경우 `countQuery` 필수 
+
+```sql
+    @Query(value = "SELECT P.POST_TYPE_CODE as postTypeCode ,P.GROUP_NO as groupNo, P.SEQ as seq,P.DEPTH as depth,P.TITLE as title ,P.POST_NO as id " +
+            "FROM POST P ",
+            countQuery = "SELECT COUNT(P.POST_NO) FROM POST P ",
+            nativeQuery = true)
+    Page<PostListDto> findListByPost(Pageable pageable);
+
+```
 
 
 

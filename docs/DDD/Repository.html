@@ -1064,6 +1064,12 @@
   <span class="hljs-function">Post <span class="hljs-title">findTopByPostTypeOrderByLastModifiedDateTimeDesc</span><span class="hljs-params">(Post.PostType postType)</span></span>;  
 }
 </code></pre>
+<h4 id="jparepository-&#xACF5;&#xD1B5;&#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;-">JpaRepository (&#xACF5;&#xD1B5;&#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4; )</h4>
+<blockquote>
+<p>&#xC774; interface &#xB97C; &#xC0C1;&#xC18D;&#xBC1B;&#xC740; interface &#xB9CC; &#xC0DD;&#xC131;&#xD558;&#xBA74; &#xD574;&#xB2F9; &#xC5D4;&#xD130;&#xD2F0;&#xC5D0; &#xB300;&#xD55C; CRUD&#xB97C; &#xC0AC;&#xC6A9;&#xD560;&#xC218;&#xC788;&#xB2E4; </p>
+<p>&#xC5D4;&#xD2F0;&#xD2F0; &#xD074;&#xB798;&#xC2A4;&#xC640;, &#xC2DD;&#xBCC4;&#xC790; &#xD0C0;&#xC785;&#xC744; &#xB123;&#xB294;&#xB2E4; </p>
+<p>org.springframework.data.jpa.repository<code>&#xB97C; &#xC0C1;&#xC18D;&#xD55C; interface &#xD074;&#xB798;&#xC2A4;&#xB294;</code>@Repository` &#xC0DD;&#xB7B5;&#xD574;&#xB3C4;  spring&#xB85C;&#xB529;&#xC2DC; &#xC790;&#xB3D9;&#xC73C;&#xB85C; Repository&#xB85C; &#xB4F1;&#xB85D;&#xD55C;&#xB2E4; </p>
+</blockquote>
 <h2 id="query-method">query method</h2>
 <p>&#xC2A4;&#xD504;&#xB9C1; &#xB370;&#xC774;&#xD130; JPA&#xAC00; &#xC81C;&#xACF5;&#xD558;&#xB294; &#xAE30;&#xB2A5;</p>
 <h3 id="repository-&#xC81C;&#xACF5;-&#xBA54;&#xC18C;&#xB4DC;">Repository &#xC81C;&#xACF5; &#xBA54;&#xC18C;&#xB4DC;</h3>
@@ -1202,6 +1208,16 @@ SQL&#xC758; where &#xC808;&#xC744; &#xBA54;&#xC11C;&#xB4DC;&#xC774;&#xB984;&#xC7
 <ul>
 <li>&#xB9E4;&#xAC1C;&#xBCC0;&#xC218;&#xB85C; <code>Pageable</code> &#xD544;&#xC218;</li>
 </ul>
+<pre><code class="lang-SQL"> @Query(value = &quot;<span class="hljs-keyword">SELECT</span> P.POST_TYPE_CODE <span class="hljs-keyword">as</span> postTypeCode ,P.GROUP_NO <span class="hljs-keyword">as</span> groupNo, P.SEQ <span class="hljs-keyword">as</span> seq,P.<span class="hljs-keyword">DEPTH</span> <span class="hljs-keyword">as</span> <span class="hljs-keyword">depth</span>,P.TITLE <span class="hljs-keyword">as</span> title ,P.POST_NO <span class="hljs-keyword">as</span> <span class="hljs-keyword">id</span> <span class="hljs-string">&quot; +
+            &quot;</span><span class="hljs-keyword">FROM</span> POST P <span class="hljs-string">&quot;,
+            countQuery = &quot;</span><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">COUNT</span>(P.POST_NO) <span class="hljs-keyword">FROM</span> POST P <span class="hljs-string">&quot;,
+            nativeQuery = true)
+    Page&lt;PostListDto&gt; findListByPost(Pageable pageable);
+</span></code></pre>
+<ul>
+<li><code>Pageable pageable</code></li>
+<li><strong>nativeQuery</strong> &#xC758; &#xACBD;&#xC6B0; <code>countQuery</code> &#xD544;&#xC218; </li>
+</ul>
 <h2 id="jpql">JPQL</h2>
 <p>&#xCFFC;&#xB9AC;&#xBA54;&#xC18C;&#xB4DC;&#xC5D0;&#xC11C; &#xD574;&#xACB0;&#xB418;&#xC9C0; &#xC54A;&#xB294; &#xBD80;&#xBD84;&#xC740; jpql&#xC744; &#xC9C1;&#xC811; &#xC791;&#xC131;&#xD560; &#xC218; &#xC788;&#xB2E4;. 
 jpql&#xC740; JPA&#xC5D0;&#xC11C; &#xCFFC;&#xB9AC;&#xBB38;&#xC774;&#xB2E4;. </p>
@@ -1246,7 +1262,7 @@ Integer findMaxOrderSeq(@Param(&quot;reqNo&quot;) int reqNo, @Param(&quot;evalTy
 </blockquote>
 <pre><code class="lang-java">@Query(value = &quot;select u.name as name , r.id as id  #AS &#xBA85; &#xC77C;&#xCE58; &#xD544;&#xC218;
        from user u join role r on u.userId =r.userId &quot;, 
-       nativeQuery = true)  
+          nativeQuery = true)
 List&lt;UserDto&gt; userList();
 </code></pre>
 <ul>
@@ -1262,6 +1278,17 @@ List&lt;UserDto&gt; userList();
 
 }
 </code></pre>
+<h4 id="&#xD398;&#xC774;&#xC9D5;-&#xC0AC;&#xC6A9;">&#xD398;&#xC774;&#xC9D5; &#xC0AC;&#xC6A9;</h4>
+<ul>
+<li><code>Pageable pageable</code></li>
+<li><strong>nativeQuery</strong> &#xC758; &#xACBD;&#xC6B0; <code>countQuery</code> &#xD544;&#xC218; </li>
+</ul>
+<pre><code class="lang-sql">    @Query(value = &quot;<span class="hljs-keyword">SELECT</span> P.POST_TYPE_CODE <span class="hljs-keyword">as</span> postTypeCode ,P.GROUP_NO <span class="hljs-keyword">as</span> groupNo, P.SEQ <span class="hljs-keyword">as</span> seq,P.<span class="hljs-keyword">DEPTH</span> <span class="hljs-keyword">as</span> <span class="hljs-keyword">depth</span>,P.TITLE <span class="hljs-keyword">as</span> title ,P.POST_NO <span class="hljs-keyword">as</span> <span class="hljs-keyword">id</span> <span class="hljs-string">&quot; +
+            &quot;</span><span class="hljs-keyword">FROM</span> POST P <span class="hljs-string">&quot;,
+            countQuery = &quot;</span><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">COUNT</span>(P.POST_NO) <span class="hljs-keyword">FROM</span> POST P <span class="hljs-string">&quot;,
+            nativeQuery = true)
+    Page&lt;PostListDto&gt; findListByPost(Pageable pageable);
+</span></code></pre>
 
                                 
                                 </section>
@@ -1305,7 +1332,7 @@ List&lt;UserDto&gt; userList();
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Repository","level":"4.6.11","depth":2,"next":{"title":"스터티","level":"4.6.12","depth":2,"path":"docs/DDD/스터디/01.md","ref":"docs/DDD/스터디/01.md","articles":[]},"previous":{"title":"영속성 컨텍스트 트랜잭션","level":"4.6.10","depth":2,"path":"docs/DDD/영속성 컨텍스트 트랜잭션.md","ref":"docs/DDD/영속성 컨텍스트 트랜잭션.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/DDD/Repository.md","mtime":"2019-11-13T05:32:01.603Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-20T03:28:54.952Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Repository","level":"4.6.11","depth":2,"next":{"title":"스터티","level":"4.6.12","depth":2,"path":"docs/DDD/스터디/01.md","ref":"docs/DDD/스터디/01.md","articles":[]},"previous":{"title":"영속성 컨텍스트 트랜잭션","level":"4.6.10","depth":2,"path":"docs/DDD/영속성 컨텍스트 트랜잭션.md","ref":"docs/DDD/영속성 컨텍스트 트랜잭션.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/DDD/Repository.md","mtime":"2019-11-26T05:46:46.589Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-26T05:46:55.810Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
