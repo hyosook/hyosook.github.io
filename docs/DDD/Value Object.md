@@ -1,4 +1,5 @@
-# Value Object
+Value Object
+
 * 값을 담는 그릇
 * 엔터티와 다르게 식별자를 가지고 있지 않다. 
 * 두개 이상의 변수가 개념적으로 하나인 경우 밸류 타입을 이용할 수 있다.
@@ -49,9 +50,9 @@ private EmploymentPeriod period;
 
 ```java
 @Entity  
-@Table(name = "Child")  
+@Table(name = "Image")  
 @NoArgsConstructor(access = AccessLevel.PROTECTED)  
-public class Child extends IdentifiedValueObject {
+public class Image extends IdentifiedValueObject {
   // 밸류타입 구현
   ...  
 }
@@ -70,30 +71,31 @@ public class Child extends IdentifiedValueObject {
 @Entity  
 @Getter 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)    
-public class Parent extends AbstractBaseEntity {  
+public class Post extends AbstractBaseEntity {  
 	@Id  
 	@GeneratedValue(strategy = GenerationType.IDENTITY)  
-	@Column(name = "parent_no")  
+	@Column(name = "post_no")  
 	private Long id;
 
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-	@JoinColumn(name = "parent_no")
-	private Set<Child> childs = new HashSet<>();
+	@JoinColumn(name = "post_no")
+	private Set<Image> Images = new HashSet<>();
 }
 ```
-* parent 안에 child의 getter를 private하게 만들거나, 만들지 않는다. 
-  * parent에서 child의 존재를 알지 못하거나 접근하지 못하도록 한다.
+* Image는 밸류이므로 , 독자적인 라이프사이클을 사지지 않고, Post에 완전히 의존한다 
+* Post안에 Image의 getter를 private하게 만들거나, 만들지 않는다. 
+  * Pos에서 Image의 존재를 알지 못하거나 접근하지 못하도록 한다.
 
 ```java
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)   
-public class Child extends IdentifiedValueObject {
+public class Image extends IdentifiedValueObject {
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "parent_no", insertable = false, updatable = false)
-	private Parent parent;
+	@JoinColumn(name = "post_no", insertable = false, updatable = false)
+	private Post post;
 
 	@Getter
-	private String childname;
+	private String Imagename;
 }
 ```
 

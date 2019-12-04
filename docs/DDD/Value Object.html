@@ -1047,7 +1047,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="value-object">Value Object</h1>
+                                <p>Value Object</p>
 <ul>
 <li>&#xAC12;&#xC744; &#xB2F4;&#xB294; &#xADF8;&#xB987;</li>
 <li>&#xC5D4;&#xD130;&#xD2F0;&#xC640; &#xB2E4;&#xB974;&#xAC8C; &#xC2DD;&#xBCC4;&#xC790;&#xB97C; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xC9C0; &#xC54A;&#xB2E4;. </li>
@@ -1092,9 +1092,9 @@
 </li>
 </ul>
 <pre><code class="lang-java"><span class="hljs-meta">@Entity</span>  
-<span class="hljs-meta">@Table</span>(name = <span class="hljs-string">&quot;Child&quot;</span>)  
+<span class="hljs-meta">@Table</span>(name = <span class="hljs-string">&quot;Image&quot;</span>)  
 <span class="hljs-meta">@NoArgsConstructor</span>(access = AccessLevel.PROTECTED)  
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Child</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">IdentifiedValueObject</span> </span>{
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Image</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">IdentifiedValueObject</span> </span>{
   <span class="hljs-comment">// &#xBC38;&#xB958;&#xD0C0;&#xC785; &#xAD6C;&#xD604;</span>
   ...  
 }
@@ -1112,32 +1112,33 @@
 <pre><code class="lang-java"><span class="hljs-meta">@Entity</span>  
 <span class="hljs-meta">@Getter</span> 
 <span class="hljs-meta">@NoArgsConstructor</span>(access = AccessLevel.PROTECTED)    
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Parent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractBaseEntity</span> </span>{  
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Post</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractBaseEntity</span> </span>{  
     <span class="hljs-meta">@Id</span>  
     <span class="hljs-meta">@GeneratedValue</span>(strategy = GenerationType.IDENTITY)  
-    <span class="hljs-meta">@Column</span>(name = <span class="hljs-string">&quot;parent_no&quot;</span>)  
+    <span class="hljs-meta">@Column</span>(name = <span class="hljs-string">&quot;post_no&quot;</span>)  
     <span class="hljs-keyword">private</span> Long id;
 
     <span class="hljs-meta">@OneToMany</span>(cascade = CascadeType.ALL, orphanRemoval = <span class="hljs-keyword">true</span>, fetch = FetchType.LAZY)
-    <span class="hljs-meta">@JoinColumn</span>(name = <span class="hljs-string">&quot;parent_no&quot;</span>)
-    <span class="hljs-keyword">private</span> Set&lt;Child&gt; childs = <span class="hljs-keyword">new</span> HashSet&lt;&gt;();
+    <span class="hljs-meta">@JoinColumn</span>(name = <span class="hljs-string">&quot;post_no&quot;</span>)
+    <span class="hljs-keyword">private</span> Set&lt;Image&gt; Images = <span class="hljs-keyword">new</span> HashSet&lt;&gt;();
 }
 </code></pre>
 <ul>
-<li>parent &#xC548;&#xC5D0; child&#xC758; getter&#xB97C; private&#xD558;&#xAC8C; &#xB9CC;&#xB4E4;&#xAC70;&#xB098;, &#xB9CC;&#xB4E4;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;. <ul>
-<li>parent&#xC5D0;&#xC11C; child&#xC758; &#xC874;&#xC7AC;&#xB97C; &#xC54C;&#xC9C0; &#xBABB;&#xD558;&#xAC70;&#xB098; &#xC811;&#xADFC;&#xD558;&#xC9C0; &#xBABB;&#xD558;&#xB3C4;&#xB85D; &#xD55C;&#xB2E4;.</li>
+<li>Image&#xB294; &#xBC38;&#xB958;&#xC774;&#xBBC0;&#xB85C; , &#xB3C5;&#xC790;&#xC801;&#xC778; &#xB77C;&#xC774;&#xD504;&#xC0AC;&#xC774;&#xD074;&#xC744; &#xC0AC;&#xC9C0;&#xC9C0; &#xC54A;&#xACE0;, Post&#xC5D0; &#xC644;&#xC804;&#xD788; &#xC758;&#xC874;&#xD55C;&#xB2E4; </li>
+<li>Post&#xC548;&#xC5D0; Image&#xC758; getter&#xB97C; private&#xD558;&#xAC8C; &#xB9CC;&#xB4E4;&#xAC70;&#xB098;, &#xB9CC;&#xB4E4;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;. <ul>
+<li>Pos&#xC5D0;&#xC11C; Image&#xC758; &#xC874;&#xC7AC;&#xB97C; &#xC54C;&#xC9C0; &#xBABB;&#xD558;&#xAC70;&#xB098; &#xC811;&#xADFC;&#xD558;&#xC9C0; &#xBABB;&#xD558;&#xB3C4;&#xB85D; &#xD55C;&#xB2E4;.</li>
 </ul>
 </li>
 </ul>
 <pre><code class="lang-java"><span class="hljs-meta">@Entity</span>
 <span class="hljs-meta">@NoArgsConstructor</span>(access = AccessLevel.PROTECTED)   
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Child</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">IdentifiedValueObject</span> </span>{
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Image</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">IdentifiedValueObject</span> </span>{
     <span class="hljs-meta">@ManyToOne</span>(fetch = FetchType.LAZY)
-    <span class="hljs-meta">@JoinColumn</span>(name = <span class="hljs-string">&quot;parent_no&quot;</span>, insertable = <span class="hljs-keyword">false</span>, updatable = <span class="hljs-keyword">false</span>)
-    <span class="hljs-keyword">private</span> Parent parent;
+    <span class="hljs-meta">@JoinColumn</span>(name = <span class="hljs-string">&quot;post_no&quot;</span>, insertable = <span class="hljs-keyword">false</span>, updatable = <span class="hljs-keyword">false</span>)
+    <span class="hljs-keyword">private</span> Post post;
 
     <span class="hljs-meta">@Getter</span>
-    <span class="hljs-keyword">private</span> String childname;
+    <span class="hljs-keyword">private</span> String Imagename;
 }
 </code></pre>
 <h2 id="3&#xD55C;-&#xAC1C;-&#xCEEC;&#xB7FC;&#xC5D0;-&#xB9E4;&#xD551;---converter">3.&#xD55C; &#xAC1C; &#xCEEC;&#xB7FC;&#xC5D0; &#xB9E4;&#xD551; - <code>@Converter</code></h2>
@@ -1247,7 +1248,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"밸류","level":"4.6.5","depth":2,"next":{"title":"연관관계","level":"4.6.6","depth":2,"path":"docs/DDD/연관관계정리.md","ref":"docs/DDD/연관관계정리.md","articles":[]},"previous":{"title":"Entity","level":"4.6.4","depth":2,"path":"docs/DDD/Entity.md","ref":"docs/DDD/Entity.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/DDD/Value Object.md","mtime":"2019-11-20T03:29:10.982Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-26T05:46:55.810Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"밸류","level":"4.6.5","depth":2,"next":{"title":"연관관계","level":"4.6.6","depth":2,"path":"docs/DDD/연관관계정리.md","ref":"docs/DDD/연관관계정리.md","articles":[]},"previous":{"title":"Entity","level":"4.6.4","depth":2,"path":"docs/DDD/Entity.md","ref":"docs/DDD/Entity.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/DDD/Value Object.md","mtime":"2019-12-04T02:45:49.692Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-04T02:46:05.329Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
