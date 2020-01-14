@@ -27,6 +27,12 @@
 
 ## 컴포넌트의 `v-model`
 
+https://jsbin.com/fuhopemeva/1/edit?html,js,output
+
+https://jsbin.com/banagagaxe/2/edit?html,js,output
+
+https://jsbin.com/geyuzuvuge/1/edit?html,js,output
+
 https://jsbin.com/rirumifuwo/1/edit?html,js,output
 
 https://jsbin.com/yurageviyu/1/edit?html,js,output
@@ -309,6 +315,10 @@ Vue.component('my-checkbox', {
 
 ```html
 this.$emit('update:foo', newValue)
+```
+
+```html
+ @update:mdActive="active => $emit('update:mdRippleActive', active)">
 ```
 
 
