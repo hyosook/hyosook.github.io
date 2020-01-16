@@ -451,3 +451,32 @@ export default {
               </post-file>
 ````
 
+
+
+
+
+```html
+<repeater-block @remove="remove(index)" :isShowRemove="pFields.length > 1">
+       
+      </repeater-block>
+```
+
+```html
+<template>
+  <div draggable="true" class="repeater-block" >
+    <div class="toolbar" v-show="isShowRemove">
+      <button v-on:click.stop="$emit('remove')" >
+       삭제
+      </button>
+    </div>
+   
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'repeater-block',
+  props: ['is-show-remove']
+}
+```
+
