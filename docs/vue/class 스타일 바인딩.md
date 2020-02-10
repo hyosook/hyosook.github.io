@@ -3,7 +3,7 @@
 * 객체 구문
 
   ```html
-  <div :class="{ active: isActive }"></div>
+  <div class="static" :class="{ active: isActive }"></div>
   ```
 
   * `active` 클래스의 존재는 , ` isActive`  true일경우 
