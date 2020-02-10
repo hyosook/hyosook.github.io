@@ -1091,37 +1091,37 @@
     &lt;input type=&quot;file&quot; @change=&quot;fileUpload($event)&quot;&gt;
 
  &lt;/label&gt;
-</code></pre><p> &lt;/template&gt;    </p>
-<pre><code>
-&#x200B;
-
-* vue js
-
-```javascript vue.js
- data: {
-        value: File
-    },
-
-     fileUpload(e) {
-         const config = { headers: { &apos;Content-Type&apos;: &apos;multipart/form-data&apos; } };
-            this.value=e.target.files[0];
-            var data = new FormData();
-            data.append(&apos;uploadFile&apos;,  this.value);
-            data.append(&apos;projectCode&apos;, projectCode);
-            alert(projectCode);
-
-            axios.put( &apos;/api/v1/files/&apos; + projectCode,data,config)
-                .then(res =&gt; {
-                    /*this.projectResults = res.data;*/
-                })
-                .catch(err =&gt; {
-                    console.log(err);
-                });
-
-        }
-</code></pre></li>
-<li><p>&#x200B;</p>
+</code></pre><p> &lt;/template&gt;<br>```</p>
 </li>
+</ul>
+<ul>
+<li><p>vue js</p>
+<p>```javascript vue.js
+data: {</p>
+<pre><code>  value: File
+</code></pre><p>  },</p>
+<p>   fileUpload(e) {</p>
+<pre><code>   const config = { headers: { &apos;Content-Type&apos;: &apos;multipart/form-data&apos; } };
+      this.value=e.target.files[0];
+      var data = new FormData();
+      data.append(&apos;uploadFile&apos;,  this.value);
+      data.append(&apos;projectCode&apos;, projectCode);
+      alert(projectCode);
+
+      axios.put( &apos;/api/v1/files/&apos; + projectCode,data,config)
+          .then(res =&gt; {
+              /*this.projectResults = res.data;*/
+          })
+          .catch(err =&gt; {
+              console.log(err);
+          });
+
+  }
+</code></pre><p>```</p>
+</li>
+</ul>
+<ul>
+<li></li>
 </ul>
 <table>
 <thead>
@@ -1161,6 +1161,44 @@
 </tr>
 </tbody>
 </table>
+<ul>
+<li>file &#xAC1D;&#xCCB4; &#xC0AD;&#xC81C;</li>
+</ul>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+        <span class="hljs-attr">:id</span>=<span class="hljs-string">id</span>
+        <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;file&quot;</span> @<span class="hljs-attr">change</span>=<span class="hljs-string">&quot;fileChangeHandler&quot;</span>
+        <span class="hljs-attr">:accept</span>=<span class="hljs-string">&quot;accet&quot;</span>
+        <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;attachment&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;js-file-input__field&quot;</span>&gt;</span>
+
+clearFileHandler () {
+      const el = this.$el.querySelector(&apos;.js-file-input__field&apos;)
+      const wrapper = document.createElement(&apos;form&apos;)
+      this.wrapInputAndReset(el, wrapper)
+    },
+    wrapInputAndReset (el, wrapper) {
+      // wrap input with form tag
+      el.parentNode.insertBefore(wrapper, el)
+      wrapper.appendChild(el)
+
+      // reset input with form.reset()
+      wrapper.reset()
+
+      // place childNodes in document fragment
+      const docFrag = document.createDocumentFragment()
+      while (wrapper.firstChild) {
+        const child = wrapper.removeChild(wrapper.firstChild)
+        docFrag.appendChild(child)
+      }
+
+      // replace wrapper with document fragment
+      wrapper.parentNode.replaceChild(docFrag, wrapper)
+
+
+    },
+</code></pre>
+<pre><code class="lang-html">
+
+</code></pre>
 
                                 
                                 </section>
@@ -1204,7 +1242,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"v-model file","tags":["file","vue.js"],"level":"2.1.4","depth":2,"next":{"title":"vue base","level":"2.1.5","depth":2,"path":"docs/vue/vue base.md","ref":"docs/vue/vue base.md","articles":[]},"previous":{"title":"v-clock","level":"2.1.3","depth":2,"path":"docs/vue/v-clock.md","ref":"docs/vue/v-clock.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/vue/v-model file.md","mtime":"2020-02-10T04:54:51.902Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-10T04:58:15.215Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"v-model file","tags":["file","vue.js"],"level":"2.1.4","depth":2,"next":{"title":"vue base","level":"2.1.5","depth":2,"path":"docs/vue/vue base.md","ref":"docs/vue/vue base.md","articles":[]},"previous":{"title":"v-clock","level":"2.1.3","depth":2,"path":"docs/vue/v-clock.md","ref":"docs/vue/v-clock.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/vue/v-model file.md","mtime":"2020-02-10T05:17:02.685Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-10T05:17:10.285Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

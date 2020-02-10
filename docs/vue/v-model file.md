@@ -51,7 +51,7 @@ tags : ["file","vue.js"]
    </template>	
   ```
 
-  ​
+  
 
   * vue js
 
@@ -79,7 +79,7 @@ tags : ["file","vue.js"]
           }
   ```
 
-* ​
+* 
 
 
 | @Controller        | 해당 클래스가 Controller임을 나타내기 위한 어노테이션       |
@@ -92,3 +92,47 @@ tags : ["file","vue.js"]
 | @CommandMap        | Controller메소드의 파라미터를 Map형태로 받을 때 웹요청 파라미터와 맵핑하기 위한 어노테이션(egov 3.0부터 추가) |
 | @ControllerAdvice  | Controller를 보조하는 어노테이션으로 Controller에서 쓰이는 공통기능들을 모듈화하여 전역으로 쓰기 위한 어노테이션(egov 3.0, Spring 3.2.X부터 추가 |
 
+
+
+* file 객체 삭제
+
+```html
+<input
+        :id=id
+        type="file" @change="fileChangeHandler"
+        :accept="accet"
+        name="attachment" class="js-file-input__field">
+
+clearFileHandler () {
+      const el = this.$el.querySelector('.js-file-input__field')
+      const wrapper = document.createElement('form')
+      this.wrapInputAndReset(el, wrapper)
+    },
+    wrapInputAndReset (el, wrapper) {
+      // wrap input with form tag
+      el.parentNode.insertBefore(wrapper, el)
+      wrapper.appendChild(el)
+
+      // reset input with form.reset()
+      wrapper.reset()
+
+      // place childNodes in document fragment
+      const docFrag = document.createDocumentFragment()
+      while (wrapper.firstChild) {
+        const child = wrapper.removeChild(wrapper.firstChild)
+        docFrag.appendChild(child)
+      }
+
+      // replace wrapper with document fragment
+      wrapper.parentNode.replaceChild(docFrag, wrapper)
+
+     
+    },
+```
+
+
+
+```html
+
+
+```
