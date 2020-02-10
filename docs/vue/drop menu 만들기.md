@@ -274,13 +274,13 @@ export default {
 
 ```javascript
 props :{
- showMenu: { tyep: Boolean, default: false },
+ show: { tyep: Boolean, default: false },
 },
 
   data () {
     return {
 	
-	active: this.showMenu,}
+	active: this.show,}
 	
 	
 	
@@ -291,14 +291,14 @@ props :{
   },
   
     watch: {
-    showMenu: {
+    show: {
       immediate: true,
       handler (isActive) {
         this.active = isActive
       }
     },
     isActive (isActive) {
-      this.$emit('update:showMenu', isActive)
+      this.$emit('update:show', isActive)
     }
   },
 	

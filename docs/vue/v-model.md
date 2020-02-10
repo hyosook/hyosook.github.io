@@ -365,7 +365,7 @@ computed: {
 
 
 
-* 사용
+* 사용 multiple slot에는 각 template이 필요
 
 ```javascript
  <template #md-autocomplete-item="{ item, term }">
@@ -378,7 +378,26 @@ computed: {
 
 > * `#` 슬롯이름 = " { 슬롯속성 이름}"
 >
->   
+
+* 이름이 없는 단일 
+
+```javascript
+<input-file
+      :uploaded-file.sync="uploadedFile"
+      v-slot="{ show, clickUpload }"
+      class="preset-upload"
+    >
+      <button :disabled="!show" @click.prevent="clickUpload(docObj)">업로드</button>
+    </input-file>
+```
+
+```javascript
+<div class="upload-btn">
+    <slot v-bind="{ show, clickUpload }"></slot>
+  </div>
+```
+
+
 
 
 
