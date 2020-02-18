@@ -525,6 +525,35 @@ console.log(Object.keys(object1)); //  Array ["a", "b", "c"]
 
 
 
+
+
+
+
+````javascript
+const object = {a:2, b:4, c:6, d:8};
+
+
+
+for (const [key, value] of Object.entries(object)) {
+    console.log(`${key}: ${value}`);
+}
+
+
+Object.entries(object).forEach(([key, value], index) => {
+  console.log(`${index}: ${key} = ${value}`);
+});
+
+
+
+
+
+Object.values(object).forEach((value, index)=>  {
+    console.log(`${index}: ${value}`);
+})
+````
+
+
+
 ## 묵시적 반환
 
 * **한줄**로만 작성한 작성한 애로우 함수 는 별도 `return`  명시 없이도 자동 반환 됨
