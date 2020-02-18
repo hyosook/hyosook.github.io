@@ -463,3 +463,22 @@ export default store
   store.commit('SET_ERROR', err, { root: true }) //  부모 실행
 ```
 
+
+
+
+
+
+
+
+
+### getters 를 watch로 감시하기
+
+```javascript
+  mounted () {
+    this.$store.watch((state, getters) => getters['appl/applStatus'](this.$route.params.applNo), (newval, oldval) => {
+      console.log('applStatus change')
+      this.active = false
+    })
+  }
+```
+
