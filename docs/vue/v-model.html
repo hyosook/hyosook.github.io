@@ -1406,13 +1406,41 @@ computed: {
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 </code></pre>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">&#xC790;&#xC2DD;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">template</span>  #<span class="hljs-attr">header</span>=<span class="hljs-string">&quot;slotProps&quot;</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;slotProps.close&quot;</span>&gt;</span>&#xB2EB;&#xAE30;<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">&#xC790;&#xC2DD;</span>&gt;</span> 
+    <span class="hljs-tag">&lt;<span class="hljs-name">template</span>  #<span class="hljs-attr">header</span>=<span class="hljs-string">&quot;{close}&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">.close&quot;</span>&gt;</span>&#xB2EB;&#xAE30;<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 
   <span class="hljs-tag">&lt;/<span class="hljs-name">&#xC790;&#xC2DD;</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<ul>
+<li><ul>
+<li>&#xC774;&#xB984;&#xC774; &#xC5C6;&#xB294; &#xB2E8;&#xC77C; </li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-HTML"> <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;upload-btn&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">v-bind</span>=<span class="hljs-string">&quot;{ show, clickUpload }&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-HTML"> <span class="hljs-tag">&lt;<span class="hljs-name">input-file</span>
+          <span class="hljs-attr">:uploaded-file.sync</span>=<span class="hljs-string">&quot;uploadedFile&quot;</span>
+          <span class="hljs-attr">v-slot</span>=<span class="hljs-string">&quot;{ show, clickUpload }&quot;</span>
+          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;preset-upload&quot;</span>
+        &gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">:disabled</span>=<span class="hljs-string">&quot;!show&quot;</span> @<span class="hljs-attr">click.prevent</span>=<span class="hljs-string">&quot;clickUpload(docObj)&quot;</span>&gt;</span>&#xC5C5;&#xB85C;&#xB4DC;<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">input-file</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-HTML"> <span class="hljs-tag">&lt;<span class="hljs-name">input-file</span>  
+             <span class="hljs-attr">:uploaded-file.sync</span>=<span class="hljs-string">&quot;uploadedFile&quot;</span>
+          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;preset-upload&quot;</span>
+        &gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:default</span>=<span class="hljs-string">&quot;slotProps&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">:disabled</span>=<span class="hljs-string">&quot;!slotProps.show&quot;</span> @<span class="hljs-attr">click.prevent</span>=<span class="hljs-string">&quot;slotProps.clickUpload(docObj)&quot;</span>&gt;</span>&#xC5C5;&#xB85C;&#xB4DC;<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">input-file</span>&gt;</span>
 </code></pre>
 <pre><code> &lt;slot
             name=&quot;attach-delete&quot;
@@ -1499,7 +1527,7 @@ computed: {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"v-model & slot","level":"2.1.8","depth":2,"next":{"title":"class style 바인딩","level":"2.1.9","depth":2,"path":"docs/vue-cli3/class 스타일바인딩.md","ref":"docs/vue-cli3/class 스타일바인딩.md","articles":[]},"previous":{"title":"vuex","level":"2.1.7","depth":2,"path":"docs/vue/vux.md","ref":"docs/vue/vux.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/vue/v-model.md","mtime":"2020-03-07T05:41:48.809Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-14T06:52:12.323Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"v-model & slot","level":"2.1.8","depth":2,"next":{"title":"class style 바인딩","level":"2.1.9","depth":2,"path":"docs/vue-cli3/class 스타일바인딩.md","ref":"docs/vue-cli3/class 스타일바인딩.md","articles":[]},"previous":{"title":"vuex","level":"2.1.7","depth":2,"path":"docs/vue/vux.md","ref":"docs/vue/vux.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/vue/v-model.md","mtime":"2020-03-18T07:58:28.861Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-22T10:54:35.339Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

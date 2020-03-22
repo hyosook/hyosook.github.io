@@ -430,14 +430,59 @@ export default {
 
 ```html
 <div>
-  <자식>
-    <template  #header="slotProps">
-      <button @click="slotProps.close">닫기</button>
+  <자식> 
+    <template  #header="{close}">
+      <button @click=.close">닫기</button>
     </template>
    
   </자식>
 </div>
 ```
+
+
+
+* - 이름이 없는 단일 
+
+```HTML
+ <div class="upload-btn">
+        <slot v-bind="{ show, clickUpload }"></slot>
+      </div>
+
+```
+
+
+
+```HTML
+ <input-file
+          :uploaded-file.sync="uploadedFile"
+          v-slot="{ show, clickUpload }"
+          class="preset-upload"
+        >
+          <button :disabled="!show" @click.prevent="clickUpload(docObj)">업로드</button>
+        </input-file>
+
+
+```
+
+```HTML
+ <input-file  
+             :uploaded-file.sync="uploadedFile"
+          class="preset-upload"
+        >
+  <template v-slot:default="slotProps">
+    <button :disabled="!slotProps.show" @click.prevent="slotProps.clickUpload(docObj)">업로드</button>
+      
+  </template>
+  </input-file>
+```
+
+
+
+
+
+
+
+
 
 
 
