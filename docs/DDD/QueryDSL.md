@@ -150,22 +150,24 @@ List<MemberDTO> resultList =
 ## 페이징
 
 ```JAVA
-public Page<ApplicationSerachProjection> findApplAllListBySearchProjection(
-                                            Long applNo,
-                                            String email,
-                                            String phoneNumber,
-                                            String userId,
-                                            String korName,String engName,Pageable pageable) {
-        List<ApplicationSerachProjection> result=
-     from(appl)
-                
-               .limit(pageable.getPageSize()).offset(pageable.getOffset())
-            
-                .select(Projections.constructor(ApplicationSerachProjection.class, appl.id,recruitPart.korName,cors.korName,major.korName,
-                        appl.applicantInfo.korName,appl.applicantInfo.engName,appl.applicant.userId,appl.applicantInfo.phoneNum,appl.applicantInfo.email,
-                        appl.status,appl.applId))
-                .fetch();
-    
-        return new PageImpl<>(result,pageable,result.size());
+ QueryResults<ApplicationSerachProjection> result =
+                from(appl)
+                    appl.part.majorCode.eq(major.id)
+                    )
+                   
+                    .limit(pageable.getPageSize()).offset(pageable.getOffset())
+                    .select(Projections.constructor(ApplicationSerachProjection.class,
+                            appl.id,
+                            recruitPart.korName,
+                            cors.korName,
+                            major.korName,
+                            appl.applicantInfo.korName,
+                            appl.applicantInfo.engName,
+                            appl.applicant.userId,
+                            appl.applicantInfo.phoneNum,
+                            appl.applicantInfo.email,
+                            appl.status,appl.applId))
+                    .fetchResults();
+        return new PageImpl<>(result.getResults(), pageable, result.getTotal());
 ```
 
