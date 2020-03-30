@@ -55,6 +55,6 @@
 
 ## job 만들기
 
-![1585205871918](C:\Users\apexsoft\AppData\Roaming\Typora\typora-user-images\1585205871918.png)
+![1585313035128](C:\Users\apexsoft\AppData\Roaming\Typora\typora-user-images\1585313035128.png)
 
 ![1585205886697](C:\Users\apexsoft\AppData\Roaming\Typora\typora-user-images\1585205886697.png)
