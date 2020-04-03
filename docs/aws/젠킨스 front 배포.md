@@ -55,6 +55,18 @@
 
 ## job 만들기
 
+```bash
+pwd
+npm -version
+npm install -g yarn
+yarn -v
+cp -rf .env.awstest .env.production
+yarn install
+yarn build
+```
+
+
+
 ![1585313035128](C:\Users\apexsoft\AppData\Roaming\Typora\typora-user-images\1585313035128.png)
 
 ![1585205886697](C:\Users\apexsoft\AppData\Roaming\Typora\typora-user-images\1585205886697.png)
