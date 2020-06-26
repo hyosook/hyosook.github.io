@@ -169,6 +169,25 @@ datas.stream().mapToInt(Integer::intValue).toArray()
 
 
 
+### group by
+
+* 그룹 기준 key  map형태 
+
+````java
+List<ApplPartLanguage> list = applPartLanguageRepository.findApplPartLanguageByApplPart(part);
+
+
+Map<Language.LangType, Map<Language.LangInfoType, List<ApplPartLanguageDto >>> results =list.stream().collect(
+                        Collectors.groupingBy(ApplPartLanguage::getType
+                                , Collectors.groupingBy(ApplPartLanguage::getInfoType,
+                                        Collectors.mapping(ApplPartLanguageDto::from, Collectors.toList())
+                                )
+                        )
+                );
+````
+
+* getType >  getInfoType >
+
 ## map
 
 * 추출
@@ -223,3 +242,4 @@ List<ProtoAnsDto> protoAnswers = eval.getAnsList().stream().map(
 - 특정 객체의 인스턴스 메소드 참조 : `contaningObject::instanceMethodName`
 - 특정 유형의 임의의 객체에 대한 인스턴스 메소드 참조 : `ContaningType::methodName`
 - 생성자 참조 : ClassName::new
+- 

@@ -60,6 +60,8 @@ extend({ foo: 'bar' }, true, 1); // Error
 
 # 타입스크립트 x  쀼
 
+https://gongzza.github.io/javascript/vuejs/getting-started-vuejs-with-typescript-2/
+
 > TypeScript를 vue에 적용하는 방법은 두가지가 있다 
 
 > * `Vue.extend`[^1] 를 이용해 객체로 만드는 방법
@@ -205,6 +207,38 @@ export default class myComponent extends Vue {
 }
 </script>
 ```
+
+````javascript
+declare module 'vue/types/options' {
+  interface ComponentOptions<V extends Vue> {
+    perimeters?: Perimeter    ## ? ‘필수가 아닌 속성으로 정의’ /초기화하지 않아도 에러없음
+  }
+}
+
+
+
+declare module 'vue/types/vue' {
+  interface Vue {
+    [purpose:string]: any;
+  }
+}
+
+
+import sysAdminPerimeter from '@/kindergarten/perimeters/sys-admin-perimeter';
+  import '@/perimeters';
+
+  @Component({
+    components: {
+      VSelect: vSelect
+    },
+    mixins: [ fileDownload ],
+    perimeters: [sysAdminPerimeter] ## 없는경우도 있으니까 
+  })
+````
+
+
+
+
 
 #### `@watch`
 
