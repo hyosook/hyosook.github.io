@@ -188,6 +188,67 @@ Map<Language.LangType, Map<Language.LangInfoType, List<ApplPartLanguageDto >>> r
 
 * getType >  getInfoType >
 
+```java
+## LangCodeNameOut 으로 map keya만들기
+Map<LangCodeNameOut,Map<LangCodeNameOut, List<ApplPartLanguageResponse>>> results = list.stream()
+                .collect(
+                        groupingBy(lang -> new LangCodeNameOut(lang.getType().name(), lang.getType().getKorName(), lang.getType().getEngName()),
+                        groupingBy(lang -> new LangCodeNameOut(lang.getInfoType().name(), lang.getInfoType().getKorName(), lang.getInfoType().getEngName()),
+                        Collectors.mapping(ApplPartLanguageResponse::from, Collectors.toList()))));
+
+
+
+
+##
+
+package kr.co.apexsoft.gradnet2.user_api.applpart.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+import java.util.Objects;
+
+@Getter
+@AllArgsConstructor
+public class LangCodeNameOut {
+    private String code;
+    private String codeKrValue; //프론트  컴포넌트필요 이름 통일
+    private String codeEnValue;
+
+    public LangCodeNameOut(String code) {
+        this.code = code;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (!(o instanceof LangCodeNameOut))
+            return false;
+        LangCodeNameOut langCodeNameOut = (LangCodeNameOut) o;
+        return Objects.equals(code, langCodeNameOut.code);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code);
+    }
+
+    @Override
+    public String toString() {
+        return code + ":{" +
+                "code='" + code + '\'' +
+                ", codeKrValue='" + codeKrValue + '\'' +
+                ", codeEnValue='" + codeEnValue + '\'' +
+                '}';
+    }
+}
+
+```
+
+
+
 ## map
 
 * 추출
