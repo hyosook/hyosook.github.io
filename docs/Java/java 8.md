@@ -300,7 +300,33 @@ List<ProtoAnsDto> protoAnswers = eval.getAnsList().stream().map(
 ### 메소드 참조 ::(더블 콜론)
 
 - static 메소드 참조 : `ContaningClass::staticMethodName`
+
+  ```java
+  .stream().map(LanguageResponse::from).collect(Collectors.toList())
+  ```
+
 - 특정 객체의 인스턴스 메소드 참조 : `contaningObject::instanceMethodName`
+
+  ```java
+  .stream().map(LanguageResponse::from).collect(Collectors.toList())
+  ```
+
+  
+
 - 특정 유형의 임의의 객체에 대한 인스턴스 메소드 참조 : `ContaningType::methodName`
+
+  ```java
+  .stream().map(RecruitSchoolOut::getSchoolCode).toArray(String[]::new);
+  ```
+
+  
+
 - 생성자 참조 : ClassName::new
-- 
+
+- 메소드 참조
+
+  ```java
+  list.stream().map(this::makeLanguageResponse).collect(Collectors.toList());
+  ```
+
+  
