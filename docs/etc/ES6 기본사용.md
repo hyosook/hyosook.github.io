@@ -205,6 +205,7 @@ console.log(obj.myVal); // Hello
 * some
 
   * 해당 조건을 하나라도  만족하면 참 
+  * some()은 조건이 true가 되는 순간 순회를 멈추기 때문에 우리가 원하는 동작을 충족시킬 수 있다. 억지로 break문을 사용하는 것보다는 훨씬 소스도 깔끔해 졌고 함수의 용도에도 맞아보인다.
 
 * ```javascript
   const users=[
