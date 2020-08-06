@@ -44,6 +44,8 @@ public interface DuplicateApplService extends Supportable{
 
 * DuplicateApplLocator
 
+  > 스프링 프레임워크의 @Autowired 애너테이션을 사용하는 변수의 타입이 Map 이거나, List 이면 제네릭 타입에 해당되는 모든 빈을 할당해 줍니다.
+
 ````java
 @Service
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))

@@ -1136,8 +1136,28 @@
 </ul>
 <h1 id="autowired">@Autowired</h1>
 <ul>
-<li>&#xBE48; &#xAC1D;&#xCCB4;&#xB97C; &#xC8FC;&#xC785;</li>
-<li>Autowired&#xB294; &#xD0C0;&#xC785;&#xC73C;&#xB85C;, Resource&#xB294; &#xC774;&#xB984;&#xC73C;&#xB85C; &#xC5F0;&#xACB0;&#xD574;&#xC900;&#xB2E4;.</li>
+<li><p>&#xBE48; &#xAC1D;&#xCCB4;&#xB97C; &#xC8FC;&#xC785;</p>
+</li>
+<li><p>Autowired&#xB294; &#xD0C0;&#xC785;&#xC73C;&#xB85C;, Resource&#xB294; &#xC774;&#xB984;&#xC73C;&#xB85C; &#xC5F0;&#xACB0;&#xD574;&#xC900;&#xB2E4;.</p>
+</li>
+<li><p>@Autowired &#xC560;&#xB108;&#xD14C;&#xC774;&#xC158;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xBCC0;&#xC218;&#xC758; &#xD0C0;&#xC785;&#xC774; Map &#xC774;&#xAC70;&#xB098;, List &#xC774;&#xBA74; &#xC81C;&#xB124;&#xB9AD; &#xD0C0;&#xC785;&#xC5D0; &#xD574;&#xB2F9;&#xB418;&#xB294; &#xBAA8;&#xB4E0; &#xBE48;&#xC744; &#xD560;&#xB2F9;</p>
+<ul>
+<li><p>EX)</p>
+<pre><code class="lang-JAVA">@Service
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+public class DuplicateApplLocator {
+@NonNull
+private List&lt;DuplicateService&gt; duplicateServices;
+
+# UserIdCheckService &#xC640;  RegistrationCheckService &#xC8FC;&#xC785;&#xB418;&#xC5B4;&#xC788;&#xB2E4;
+</code></pre>
+<pre><code class="lang-JAVA"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserIdCheckService</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">DuplicateService</span> 
+
+<span class="hljs-title">public</span> <span class="hljs-title">class</span> <span class="hljs-title">RegistrationCheckService</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">DuplicateService</span>
+</span></code></pre>
+</li>
+</ul>
+</li>
 </ul>
 <h1 id="resource">@Resource</h1>
 <ul>
@@ -1161,6 +1181,29 @@
 </ul>
 </li>
 </ul>
+<h1 id="requiredargsconstructor">@RequiredArgsConstructor</h1>
+<ul>
+<li>@Autowired&#xB098; @Resource @Inject &#xC5B4;&#xB178;&#xD14C;&#xC774;&#xC158; &#xC5C6;&#xC774; DI &#xC8FC;&#xC785;&#xC774; &#xAC00;&#xB2A5;</li>
+<li><code>@NonNull</code>&#xC774;&#xB098; <code>final</code>&#xC774; &#xBD99;&#xC740; &#xD544;&#xB4DC;&#xC5D0; &#xB300;&#xD574;&#xC11C; &#xC0DD;&#xC131;&#xC790;&#xB97C; &#xC0DD;&#xC131;<ul>
+<li><code>private final XXXService xxxService;</code> </li>
+<li>final&#xB85C; &#xC120;&#xC5B8;&#xD574;&#xC8FC;&#xBA74; &#xD574;&#xB2F9; &#xD544;&#xB4DC;&#xB97C; &#xD30C;&#xB77C;&#xBBF8;&#xD130;&#xB85C; &#xAC00;&#xC9C0;&#xB294; &#xC0DD;&#xC131;&#xC790;&#xAC00; &#xC0DD;&#xC131;</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-JAVA"> <span class="hljs-comment">/** Autowired&#xB97C; &#xC0AC;&#xC6A9;&#xD55C; &#xC758;&#xC874;&#xC131; &#xC8FC;&#xC785; */</span>
+  <span class="hljs-meta">@Controller</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AutowiredUsedController</span> </span>{
+    <span class="hljs-meta">@Autowired</span>
+    <span class="hljs-keyword">private</span> XXXService xxxService;
+  }
+
+  <span class="hljs-comment">/** <span class="hljs-doctag">@RequiredArgsConstructor</span>&#xB97C; &#xC0AC;&#xC6A9;&#xD55C; &#xC758;&#xC874;&#xC131; &#xC8FC;&#xC785; */</span>
+  <span class="hljs-meta">@Controller</span>
+  <span class="hljs-meta">@RequiredArgsConstructor</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RacUseController</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> XXXService xxxService;
+  }
+</code></pre>
 
                                 
                                 </section>
@@ -1204,7 +1247,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"어노테이션","level":"3.1.1","depth":2,"next":{"title":"다국어설정","level":"3.1.2","depth":2,"path":"docs/SpringBoot/다국어 설정.md","ref":"docs/SpringBoot/다국어 설정.md","articles":[]},"previous":{"title":"SpringBoot","level":"3.1","depth":1,"path":"docs/SpringBoot/index.md","ref":"docs/SpringBoot/index.md","articles":[{"title":"어노테이션","level":"3.1.1","depth":2,"path":"docs/SpringBoot/어노테이션.md","ref":"docs/SpringBoot/어노테이션.md","articles":[]},{"title":"다국어설정","level":"3.1.2","depth":2,"path":"docs/SpringBoot/다국어 설정.md","ref":"docs/SpringBoot/다국어 설정.md","articles":[]},{"title":"spring 로그인 사용자 정보 얻기","level":"3.1.3","depth":2,"path":"docs/SpringBoot/spring 로그인 사용자 정보 얻기.md","ref":"docs/SpringBoot/spring 로그인 사용자 정보 얻기.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/SpringBoot/어노테이션.md","mtime":"2020-08-03T09:34:17.250Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-06T01:59:11.516Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"어노테이션","level":"3.1.1","depth":2,"next":{"title":"다국어설정","level":"3.1.2","depth":2,"path":"docs/SpringBoot/다국어 설정.md","ref":"docs/SpringBoot/다국어 설정.md","articles":[]},"previous":{"title":"SpringBoot","level":"3.1","depth":1,"path":"docs/SpringBoot/index.md","ref":"docs/SpringBoot/index.md","articles":[{"title":"어노테이션","level":"3.1.1","depth":2,"path":"docs/SpringBoot/어노테이션.md","ref":"docs/SpringBoot/어노테이션.md","articles":[]},{"title":"다국어설정","level":"3.1.2","depth":2,"path":"docs/SpringBoot/다국어 설정.md","ref":"docs/SpringBoot/다국어 설정.md","articles":[]},{"title":"spring 로그인 사용자 정보 얻기","level":"3.1.3","depth":2,"path":"docs/SpringBoot/spring 로그인 사용자 정보 얻기.md","ref":"docs/SpringBoot/spring 로그인 사용자 정보 얻기.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/SpringBoot/어노테이션.md","mtime":"2020-08-06T02:45:19.034Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-06T02:45:29.529Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
