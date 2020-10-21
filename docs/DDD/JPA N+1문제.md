@@ -3,7 +3,7 @@
 
 ### 예시
 Order가 OderItem을 가지고 있다. 
- Order 테이블엔 10개의 Order 레코드가 들어있다. 
+ Order 테이블엔 10개의 Order 레코드가 들어있다.  
 
 Order를 조회 시, select 문 1개가 날아갈 것 으로 예상된다.
 그러나, Order select문 1개와 OrderItem select문 10개가 발생한다. 

@@ -1055,7 +1055,7 @@
                                 
                                 <h2 id="asyncawait">Async/await</h2>
 <ul>
-<li>asnyc/await &#xB294; &#xBE44;&#xB3D9;&#xAE30; &#xCF54;&#xB4DC;&#xB97C; &#xC791;&#xC131;&#xD558;&#xB294; &#xC0C8;&#xB85C;&#xC6B4; &#xBC29;&#xBC95;&#xC774;&#xB2E4;.</li>
+<li>asnyc/await &#xB294; &#xBE44;&#xB3D9;&#xAE30; &#xCF54;&#xB4DC;&#xB97C; &#xC791;&#xC131;&#xD558;&#xB294; &#xBC29;&#xBC95;</li>
 </ul>
 <h3 id="&#xC0AC;&#xC6A9;">&#xC0AC;&#xC6A9;</h3>
 <ol>
@@ -1092,8 +1092,56 @@ asyncHello(<span class="hljs-string">&apos;hs&apos;</span>).then((result)=&gt;{
 })
 </code></pre>
 <ul>
-<li><code>async</code> &#xD0A4;&#xC6CC;&#xB4DC;&#xAC00; &#xBD99;&#xC5B4;&#xC788;&#xB294; &#xD568;&#xC218;&#xB97C; &#xD638;&#xCD9C;&#xD558;&#xBA74; &#xBA85;&#xC2DC;&#xC801;&#xC73C;&#xB85C; Promise &#xAC1D;&#xCCB4;&#xB97C; &#xC0DD;&#xC131;&#xD558;&#xC5EC; &#xB9AC;&#xD134;&#xD558;&#xC9C0; &#xC54A;&#xC544;&#xB3C4; Promise &#xAC1D;&#xCCB4;&#xAC00; &#xB9AC;&#xD134;&#xB429;&#xB2C8;&#xB2E4;.</li>
+<li><p><code>async</code> &#xD0A4;&#xC6CC;&#xB4DC;&#xAC00; &#xBD99;&#xC5B4;&#xC788;&#xB294; &#xD568;&#xC218;&#xB97C; &#xD638;&#xCD9C;&#xD558;&#xBA74; &#xBA85;&#xC2DC;&#xC801;&#xC73C;&#xB85C; Promise &#xAC1D;&#xCCB4;&#xB97C; &#xC0DD;&#xC131;&#xD558;&#xC5EC; &#xB9AC;&#xD134;&#xD558;&#xC9C0; &#xC54A;&#xC544;&#xB3C4; Promise &#xAC1D;&#xCCB4;&#xAC00; &#xB9AC;&#xD134;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<ul>
+<li><code>asyncHello</code> &#xC0AC;&#xC6A9;&#xC2DC;  <code>.then</code>&#xC73C;&#xB85C;  </li>
 </ul>
+</li>
+<li><p>&#xD638;&#xCD9C;&#xBD80;&#xAC00; &#xB2E4;&#xB978; <code>async</code> &#xAC00; &#xBD99;&#xC5B4;&#xC788;&#xB294; &#xD568;&#xC218; &#xB0B4;&#xBD80;&#xC5D0; &#xC788;&#xB2E4;&#xBA74;, <code>await</code> &#xD0A4;&#xC6CC;&#xB4DC; &#xC0AC;&#xC6A9;&#xD558;&#xC5EC; </p>
+<p>promise&#xAC00; &#xC81C;&#xACF5;&#xD560; &#xAC12;&#xC5D0; &#xBC14;&#xB85C; &#xC811;&#xADFC; &#xAC00;&#xB2A5; </p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">callHello</span>(<span class="hljs-params">name</span>) </span>{
+ <span class="hljs-keyword">const</span> name = <span class="hljs-keyword">await</span> asyncHello(<span class="hljs-string">&apos;hs&apos;</span>)
+ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;name:&quot;</span>, name)
+}
+
+callHello(<span class="hljs-number">1</span>)
+</code></pre>
+</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetchAuthorName</span>(<span class="hljs-params">postId</span>) </span>{
+  <span class="hljs-keyword">const</span> postResponse = <span class="hljs-keyword">await</span> fetch(
+    <span class="hljs-string">`https://jsonplaceholder.typicode.com/posts/<span class="hljs-subst">${postId}</span>`</span>
+  )
+  <span class="hljs-keyword">const</span> post = <span class="hljs-keyword">await</span> postResponse.json()
+  <span class="hljs-keyword">const</span> userId = post.userId
+  <span class="hljs-keyword">const</span> userResponse = <span class="hljs-keyword">await</span> fetch(
+    <span class="hljs-string">`https://jsonplaceholder.typicode.com/users/<span class="hljs-subst">${userId}</span>`</span>
+  )
+  <span class="hljs-keyword">const</span> user = <span class="hljs-keyword">await</span> userResponse.json()
+  <span class="hljs-keyword">return</span> user.name
+}
+
+fetchAuthorName(<span class="hljs-number">1</span>).then((name) =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;name:&quot;</span>, name))
+</code></pre>
+<pre><code class="lang-javascript"><span class="hljs-keyword">async</span>  getToken () {
+    <span class="hljs-keyword">const</span> token = <span class="hljs-keyword">await</span> axios({
+      url: <span class="hljs-string">`<span class="hljs-subst">${this.IM_DOMAIN}</span>users/getToken`</span>,
+      method: <span class="hljs-string">&apos;post&apos;</span>,
+      headers: { <span class="hljs-string">&apos;Content-Type&apos;</span>: <span class="hljs-string">&apos;application/json&apos;</span> }
+
+    })
+    <span class="hljs-keyword">return</span> token.data.respons
+  },
+  <span class="hljs-keyword">async</span> getPaymentData (impUid) {
+    <span class="hljs-keyword">let</span> accessToken = <span class="hljs-keyword">await</span> <span class="hljs-keyword">this</span>.getToken()
+    <span class="hljs-keyword">const</span> paymentData = <span class="hljs-keyword">await</span> axios({
+      url: <span class="hljs-string">`<span class="hljs-subst">${this.IM_DOMAIN}</span>payments/<span class="hljs-subst">${impUid}</span>`</span>,
+      method: <span class="hljs-string">&apos;get&apos;</span>,
+      headers: { <span class="hljs-string">&apos;Authorization&apos;</span>: accessToken }
+    })
+    <span class="hljs-keyword">return</span> paymentData.data
+  }
+</code></pre>
 <h2 id="&#xC5D0;&#xB7EC;&#xD578;&#xB4E4;&#xB9C1;">&#xC5D0;&#xB7EC;&#xD578;&#xB4E4;&#xB9C1;</h2>
 <p>async/await&#xB294; &#xB3D9;&#xAE30;&#xC640; &#xBE44;&#xB3D9;&#xAE30; &#xC5D0;&#xB7EC; &#xBAA8;&#xB450;&#xB97C; <code>try/catch</code>&#xB97C; &#xD1B5;&#xD574;&#xC11C; &#xCC98;&#xB9AC;&#xD560; &#xC218; &#xC788;&#xAC8C; &#xD55C;&#xB2E4;.</p>
 
@@ -1139,7 +1187,7 @@ asyncHello(<span class="hljs-string">&apos;hs&apos;</span>).then((result)=&gt;{
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Asyncawait","level":"3.9","depth":1,"next":{"title":"pug","level":"3.10","depth":1,"path":"docs/etc/pug.md","ref":"docs/etc/pug.md","articles":[]},"previous":{"title":"gitbook","level":"3.8","depth":1,"path":"docs/etc/gitbook.md","ref":"docs/etc/gitbook.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/etc/Asyncawait.md","mtime":"2020-08-06T02:45:40.003Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-06T09:54:03.571Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Asyncawait","level":"3.9","depth":1,"next":{"title":"pug","level":"3.10","depth":1,"path":"docs/etc/pug.md","ref":"docs/etc/pug.md","articles":[]},"previous":{"title":"gitbook","level":"3.8","depth":1,"path":"docs/etc/gitbook.md","ref":"docs/etc/gitbook.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/etc/Asyncawait.md","mtime":"2020-10-21T05:56:27.326Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-10-21T05:56:40.547Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
