@@ -98,3 +98,176 @@ https://jeong-pro.tistory.com/86
 
 
 spring의 bean들은 beanfactory에 의해서 관리되고 있습니다. 그리고 기본적으로 이러한 bean의 생명주기는 scope는 singleton을 따르고 있습니다. 즉, 우리가 getBean을 아무리 많이 하더라도 결국 1개의 인스턴스라는 이야기 입니다.
+
+
+
+
+
+
+
+
+
+# @Configuration
+
+- 클래스가 하나 이상의 `@Bean` 메소드를 제공하고 스프링 컨테이가 Bean정의를 생성하고 런타임시 그 Bean들이 요청들을 처리할 것을 선언하게 된다. 
+
+- Configuration을 클래스에 적용하고 @Bean을 해당 클래스의 메소드에 적용하면 @Autowired로 빈을 부를 수 있다.
+
+  ```java
+  @Configuration
+  public class AwsConfig {
+          @Bean
+      public AmazonS3 amazonS3Client() {}
+  
+  @Autowired
+  private AmazonS3 amazonS3;
+  ```
+
+# @Bean  
+
+- 개발자가 컨트롤이 불가능한 **외부 라이브러리들을 Bean으로 등록하고 싶은 경우**에 사용된다.
+
+- @Configuration 으로 선언된 클래스 내에 있는 메소드 정의 
+
+  ```java
+    @Bean
+       public ModelMapper modelMapper() {
+           ModelMapper modelMapper = new ModelMapper();
+           modelMapper.getConfiguration()
+                   .setFieldAccessLevel(org.modelmapper.config.Configuration.AccessLevel.PRIVATE)
+                   .setFieldMatchingEnabled(true);
+           return modelMapper;
+       }
+  
+      @Bean
+      public CustomModelMapper customModelMapper(ModelMapper modelMapper) {
+          return new CustomModelMapper(modelMapper);
+      }
+  ```
+
+  ```java
+  public class CustomModelMapper {
+       private final ModelMapper modelMapper;
+  
+       public CustomModelMapper(ModelMapper modelMapper) {
+           this.modelMapper = modelMapper;
+       }
+  
+       public static <D> D convert(Object source, Class<D> classLiteral) {
+           return modelMapper.map(source, classLiteral);
+       }
+  
+       public static <D, E> List<D> convert(Collection<E> sourceList, Class<D> classLiteral) {
+           return sourceList.stream()
+                   .map(source -> modelMapper.map(source, classLiteral))
+                   .collect(Collectors.toList());
+       }
+  
+       public static <D, E> Page<D> convert(Page<E> sourceList, Class<D> classLiteral, Pageable pageable) {
+           List<D> list = sourceList.getContent().stream()
+                   .map(source -> modelMapper.map(source, classLiteral))
+                   .collect(Collectors.toList());
+           return new PageImpl<>(list, pageable, sourceList.getTotalElements());
+       }
+   }
+  ```
+
+  
+
+# @Component
+
+- 개발자가 **직접 작성**한 class를 **Bean으로 등록**하기 위한 어노테이션
+
+  ```java
+  @Component
+  @Slf4j
+  public class CustomAccessDeniedHandler implements AccessDeniedHandler {
+      @Override
+      public void handle(HttpServletRequest request,
+                         HttpServletResponse response,
+                         AccessDeniedException e) throws IOException, ServletException {
+          log.error("Access Denied Error: {}", e.getMessage());
+          response.sendError(
+                  HttpServletResponse.SC_FORBIDDEN,
+                  MessageUtils.getMessage("UNAUTHORIZED_ACCESS")
+          );
+      }
+  }
+  ```
+
+  
+
+# @Autowired
+
+- 빈 객체를 주입
+
+- Autowired는 타입으로, Resource는 이름으로 연결해준다.
+
+- @Autowired 애너테이션을 사용하는 변수의 타입이 Map 이거나, List 이면 제네릭 타입에 해당되는 모든 빈을 할당
+
+  - EX)
+
+    ```JAVA
+    @Service
+    @RequiredArgsConstructor(onConstructor = @__(@Autowired))
+    public class DuplicateApplLocator {
+    @NonNull
+    private List<DuplicateService> duplicateServices;
+    
+    # UserIdCheckService 와  RegistrationCheckService 주입되어있다
+    ```
+
+    ```JAVA
+    public class UserIdCheckService implements DuplicateService 
+    
+    public class RegistrationCheckService implements DuplicateService 
+    
+    ```
+
+    
+
+# @Resource
+
+- @Autowired와 마찬가지로 빈 객체를 주입
+- Resource는 이름으로 연결해준다.
+
+
+
+## util 클래스 / 컴포넌트 / Bean
+
+- **util 클래스** 
+  - 보통 상태를 가지지 않고 
+  - static 메서드만 가지며 
+  - 생성자도 가지지 않는 게 보통
+- 컴포넌트 
+  - 개발자가 **직접 작성**한 class를 **Bean으로 등록**하기 위한 어노테이션
+- Bean
+  - 개발자가 컨트롤이 불가능한 **외부 라이브러리들을 Bean으로 등록하고 싶은 경우**에 사용된다.
+
+
+
+# @RequiredArgsConstructor
+
+- @Autowired나 @Resource @Inject 어노테이션 없이 DI 주입이 가능
+- `@NonNull`이나 `final`이 붙은 필드에 대해서 생성자를 생성
+  - `private final XXXService xxxService;` 
+  - final로 선언해주면 해당 필드를 파라미터로 가지는 생성자가 생성
+
+```JAVA
+ /** Autowired를 사용한 의존성 주입 */
+  @Controller
+  public class AutowiredUsedController {
+    @Autowired
+    private XXXService xxxService;
+  }
+
+  /** @RequiredArgsConstructor를 사용한 의존성 주입 */
+  @Controller
+  @RequiredArgsConstructor
+  public class RacUseController {
+    private final XXXService xxxService;
+  }
+```
+
+
+
