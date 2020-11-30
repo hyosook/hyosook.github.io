@@ -295,6 +295,15 @@ List<ProtoAnsDto> protoAnswers = eval.getAnsList().stream().map(
 
 
 
+* filert 성공하면 ->map 진행 순으로 반복됨
+
+```java
+ List<PayResponse> test2 = iamportList.stream()
+                .filter(iamport -> !completeList.contains(iamport.getImp_uid()))
+                .map(iamport -> modelMapper.convertToCamelCase(iamport, PayResponse.class))
+                .collect(Collectors.toList());
+```
+
 
 
 ### 메소드 참조 ::(더블 콜론)
