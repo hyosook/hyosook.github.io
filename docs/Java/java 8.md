@@ -306,6 +306,16 @@ List<ProtoAnsDto> protoAnswers = eval.getAnsList().stream().map(
 
 
 
+* filter 결과 있으면 map 없으면 ,null
+
+  ```java
+    school.values().filter(code -> code.hasCode(schoolCode)).findFirst()
+    .map(school ->         school.getList().map(EnumValue::new).collect(Collectors.toList()))
+        .orElse(null);
+  ```
+
+  
+
 ### 메소드 참조 ::(더블 콜론)
 
 - static 메소드 참조 : `ContaningClass::staticMethodName`
