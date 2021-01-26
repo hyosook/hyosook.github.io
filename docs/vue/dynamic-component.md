@@ -60,6 +60,22 @@
 
 
 
+### 동적 컴포넌트 이름 
+
+```html
+  computed: {
+componentName() {
+      return () =>
+        import(
+          `@/components/appl-form-basis-${this.getSchoolNameByCode(
+            this.schoolCode
+          )}`
+        )
+    },
+```
+
+
+
 
 
 ## 이슈 

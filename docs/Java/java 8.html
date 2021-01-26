@@ -1278,6 +1278,22 @@ public class LangCodeNameOut {
 </code></pre>
 <pre><code class="lang-java"> anslist.add(valueList.stream().collect(Collectors.joining(<span class="hljs-string">&quot; , &quot;</span>)));
 </code></pre>
+<ul>
+<li>filert &#xC131;&#xACF5;&#xD558;&#xBA74; -&gt;map &#xC9C4;&#xD589; &#xC21C;&#xC73C;&#xB85C; &#xBC18;&#xBCF5;&#xB428;</li>
+</ul>
+<pre><code class="lang-java"> List&lt;PayResponse&gt; test2 = iamportList.stream()
+                .filter(iamport -&gt; !completeList.contains(iamport.getImp_uid()))
+                .map(iamport -&gt; modelMapper.convertToCamelCase(iamport, PayResponse.class))
+                .collect(Collectors.toList());
+</code></pre>
+<ul>
+<li><p>filter &#xACB0;&#xACFC; &#xC788;&#xC73C;&#xBA74; map &#xC5C6;&#xC73C;&#xBA74; ,null</p>
+<pre><code class="lang-java">  school.values().filter(code -&gt; code.hasCode(schoolCode)).findFirst()
+  .map(school -&gt;         school.getList().map(EnumValue::<span class="hljs-keyword">new</span>).collect(Collectors.toList()))
+      .orElse(<span class="hljs-keyword">null</span>);
+</code></pre>
+</li>
+</ul>
 <h3 id="&#xBA54;&#xC18C;&#xB4DC;-&#xCC38;&#xC870;-&#xB354;&#xBE14;-&#xCF5C;&#xB860;">&#xBA54;&#xC18C;&#xB4DC; &#xCC38;&#xC870; ::(&#xB354;&#xBE14; &#xCF5C;&#xB860;)</h3>
 <ul>
 <li><p>static &#xBA54;&#xC18C;&#xB4DC; &#xCC38;&#xC870; : <code>ContaningClass::staticMethodName</code></p>
@@ -1346,7 +1362,7 @@ public class LangCodeNameOut {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"java8","level":"3.3.2","depth":2,"next":{"title":"재귀","level":"3.3.3","depth":2,"path":"docs/Java/재귀.md","ref":"docs/Java/재귀.md","articles":[]},"previous":{"title":"lombok","level":"3.3.1","depth":2,"path":"docs/Java/lombok.md","ref":"docs/Java/lombok.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/Java/java 8.md","mtime":"2020-10-29T01:31:31.416Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-09T07:03:18.493Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"java8","level":"3.3.2","depth":2,"next":{"title":"재귀","level":"3.3.3","depth":2,"path":"docs/Java/재귀.md","ref":"docs/Java/재귀.md","articles":[]},"previous":{"title":"lombok","level":"3.3.1","depth":2,"path":"docs/Java/lombok.md","ref":"docs/Java/lombok.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/Java/java 8.md","mtime":"2020-12-29T06:04:46.149Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-12T01:09:04.933Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
