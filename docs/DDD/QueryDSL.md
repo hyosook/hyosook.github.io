@@ -171,3 +171,117 @@ List<MemberDTO> resultList =
         return new PageImpl<>(result.getResults(), pageable, result.getTotal());
 ```
 
+
+
+
+
+
+
+
+
+```java
+@Entity
+@Table(name="APPL_REC")
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+public class Recommend extends AbstractBaseEntity {
+
+    @Id
+    @Column(name = "APPL_REC_NO")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "APPL_NO")
+    private Appl appl;
+
+}
+```
+
+
+
+
+
+## 잘못된 사용
+
+* Querydsl
+
+```java
+from(recommend)
+                    .innerJoin(appl).on(appl.id.eq(recommend.appl.id))
+                    .where(recommend.id.eq(recNo)
+                    )
+                    .select(Projections.constructor(RecommendProfProjectionKDI.class,
+                            recommend.appl.id,recommend.appl.applicantInfo.engName,recommend.email
+                           )
+                    )
+                    .fetchOne()
+```
+
+* sql
+
+```sql
+select
+        recommend0_.APPL_NO as col_0_0_,
+        appl2_.ENG_NAME as col_1_0_,
+        recommend0_.PROF_EMAIL as col_2_0_ 
+    from
+        APPL_REC recommend0_ cross 
+    join
+        APPL appl2_ 
+    inner join
+        APPL appl1_ 
+            on 1=1 
+    left outer join
+        APPL_GEN appl1_1_ 
+            on appl1_.APPL_NO=appl1_1_.APPL_NO 
+    left outer join
+        APPL_FORN appl1_2_ 
+            on appl1_.APPL_NO=appl1_2_.APPL_NO 
+    left outer join
+        APPL_PART_DETAIL appl1_3_ 
+            on appl1_.APPL_NO=appl1_3_.APPL_NO 
+    where
+        recommend0_.APPL_NO=appl2_.APPL_NO 
+        and (
+            appl1_.APPL_NO=recommend0_.APPL_NO
+        ) 
+        and recommend0_.APPL_REC_NO=1
+```
+
+
+
+## 옳은 방법
+
+* Querydsl
+
+```java
+ from(recommend)
+                    .where(recommend.id.eq(recNo)
+                    )
+                    .select(Projections.constructor(RecommendProfProjectionKDI.class,
+                            recommend.appl.id,recommend.appl.applicantInfo.engName,recommend.email
+                           )
+                    )
+                    .fetchOne()
+```
+
+* sql
+
+```bash
+select
+    recommend0_.APPL_NO as col_0_0_,
+    appl1_.ENG_NAME as col_1_0_,
+    recommend0_.PROF_EMAIL as col_2_0_ 
+from
+    APPL_REC recommend0_ cross 
+join
+    APPL appl1_ 
+where
+    recommend0_.APPL_NO=appl1_.APPL_NO 
+    and recommend0_.APPL_REC_NO=1
+```
+
+
+​		
