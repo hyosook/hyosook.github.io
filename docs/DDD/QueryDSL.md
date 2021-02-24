@@ -203,6 +203,41 @@ public class Recommend extends AbstractBaseEntity {
 
 
 
+## Dialect
+
+### yml 설정
+
+```bash
+spring:
+  jpa:
+    show-sql: false
+    open-in-view: false
+    hibernate:
+      database-platform: kr.co.apexsoft.granet2.admin_api._config.MysqlCustomDialect
+  datasource:
+```
+
+### CustomDialect
+
+```java
+public class MysqlCustomDialec extends MySQL57Dialect {
+    public MysqlCustomDialect() {
+        super();
+        registerFunction("PART_CODEVAL", new StandardSQLFunction("PART_CODEVAL", StandardBasicTypes.STRING));
+
+}
+```
+
+### functino 호출
+
+```java
+Expressions.stringTemplate("PART_CODEVAL('KR',{0},{1})", appl.part.schoolCode, appl.part.courseCode)
+```
+
+
+
+
+
 ## 잘못된 사용
 
 * Querydsl
