@@ -76,6 +76,7 @@ componentName() {
 
 
 
+<<<<<<< HEAD
 ### 이름 없는경우 , 미리 랜더
 
 ```js
@@ -106,6 +107,8 @@ componentName() {
 
 
 
+=======
+>>>>>>> 7d7b0fad1f397168890aae8779ada4ccf0d11f20
 
 
 ## 이슈 
