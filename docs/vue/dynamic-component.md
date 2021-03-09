@@ -76,6 +76,36 @@ componentName() {
 
 
 
+### 이름 없는경우 , 미리 랜더
+
+```js
+ <template #school>
+      <component v-bind:is='shoolcomponent' v-model="basisInfo"></component>
+    </template>
+
+
+  computed: {
+    shoolcomponent () {
+      return this.$options.components[this.componetName] ? this.componetName : null
+    },
+    componetName () {
+      return this.getSchoolNameByCode(this.schoolCode)
+    }
+  },
+  methods: {
+    setComponent () {
+      let files = require.context('@/components/appl-form-basis-school', false, /\.vue$/)
+      files.keys().forEach((key) => {
+        if (this.componetName === key.replace(/(\.\/|\.vue)/g, '')) {
+          this.$options.components[this.componetName] = files(key).default
+        }
+      })
+    }
+  }
+```
+
+
+
 
 
 ## 이슈 
