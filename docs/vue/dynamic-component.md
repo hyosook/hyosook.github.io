@@ -104,6 +104,37 @@ componentName() {
 
 
 
+### 폴더아래 찾기 / 없는경우 디폴트 설정가능
+
+```js
+
+  methods: {
+nc getCareerFormPath () {
+      const files = await require.context('@/components/appl-form-career-school', false, /\.vue$/)
+      return this.getComponent(files)
+        .then(_res => {
+          if (_res) return `appl-form-career-school/${this.componetName}`
+          else return 'appl-form-career-school/career-frame'
+        })
+    },
+    getComponent (files) {
+      return new Promise((resolve, reject) => {
+        let component = null
+        files.keys().forEach((key) => {
+          if (this.componetName === key.replace(/(\.\/|\.vue)/g, '')) {
+            component = files(key).default
+          }
+        })
+        resolve(component)
+      })
+    }
+  }
+}
+
+```
+
+
+
 ## 이슈 
 
 > input file 관련해서 컴포넌트를 만듬 
