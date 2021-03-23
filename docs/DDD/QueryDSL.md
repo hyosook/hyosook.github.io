@@ -330,6 +330,21 @@ private BooleanExpression isServiceable() {
 
 
 
+````JAVA
+return 
+          .where(
+                user.name.eq(name),
+                isServiceable()
+      )
+      .fetch();
+
+private BooleanExpression isServiceable() {
+   return user.status.eq("ACTIVE").and(user.lock.ne('N'));
+}
+````
+
+
+
 ```java
  private BooleanExpression containsUserName(String applicantName) {
         return StringUtils.isEmpty(applicantName) ? null :

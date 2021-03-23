@@ -3,6 +3,48 @@
 - asnyc/await 는 비동기 코드를 작성하는 방법
 
 
+
+## sync 
+
+### Sync flow control
+
+* Sync Flow  : 메모리에 적재된 명령이 순차적으로 실행됨 
+
+* Sync Flow Control : Goto를 통해 명령의 위치를이동함 
+
+* Sub Flow : 함수 등을 통해 별도의 명령셋을 여러번 실행 
+
+  여러 flow 안에서 재활용 가능 
+
+
+
+### Sync 
+
+서브루틴이 즉시 값을 반환함 
+
+### Async
+
+서브루틴이 `다른 수단`으로 값을 반환함
+
+함수가 
+
+* 다른수단 ??
+  * Promise
+  * callback function
+  * inerations
+
+### 단점 
+
+호출결과가 즉시 반환되지 않으므로 현재의 sync flow가 종료됨
+
+Continuation
+
+> 상태를 기억하고 이어주는 장치 
+
+
+
+
+
 ### 사용
 
 1. 함수의 앞에 `async` 라는 단어가 오게된다.
