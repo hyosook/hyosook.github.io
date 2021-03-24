@@ -512,13 +512,15 @@ List<MemberDTO> resultList =
 ### yml 설정
 
 ```bash
-spring:
-  jpa:
-    show-sql: false
-    open-in-view: false
-    hibernate:
-      database-platform: kr.co.apexsoft.granet2.admin_api._config.MysqlCustomDialect
-  datasource:
+jpa: 
+  database: mysql  
+  generate-ddl: false  
+  open-in-view: false  
+  hibernate: 
+    ddl-auto: none 
+  properties: 
+    hibernate: 
+  database-platform: com.example.querydsl.configuration.MysqlCustomDialect # 이 부분에 생성
 ```
 
 ### CustomDialect
@@ -535,7 +537,7 @@ public class MysqlCustomDialec extends MySQL57Dialect {
 ### functino 호출
 
 ```java
-Expressions.stringTemplate("PART_CODEVAL('KR',{0},{1})", appl.part.schoolCode, appl.part.courseCode)
+Expressions.stringTemplate("호출명('KR',{0},{1})", appl.part.schoolCode, appl.part.courseCode)
 ```
 
 

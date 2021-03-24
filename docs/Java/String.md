@@ -8,9 +8,26 @@
 
 
 
+``` java
+ for (char c : s.toCharArray()) {}
+```
+
+
+
 ## charAt()
 
 > 인자의 위치에 있는 char 값을 반환하는 클래스의 메소드 
+
+
+
+```java
+for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+           
+        }
+```
+
+
 
 
 
