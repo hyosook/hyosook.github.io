@@ -42,6 +42,11 @@ public String substring(int beginIndex)
 public String substring(int beginIndex, int endIndex)
 ```
 
+```java
+//맨앞글자만 대문자로
+s -> s.substring(0, 1).toUpperCase().concat(s.substring(1)
+```
+
 
 
 ## split()
