@@ -167,6 +167,8 @@ QTest qTest = QTest.test;
 
 * return limit(1).featchOne()
 
+  존재하는 지 확인할때, 성능상 BEST
+
 ### fetchResults ()
 
 * 결과 `QueryResults ` 
@@ -502,6 +504,24 @@ List<MemberDTO> resultList =
 
 
 
+
+## 존재하는지 확인 fetchFirst
+
+> Querydsl에서 기본적으로 지원하는 `exists` 는 `count`를 내부적으로 사용함 
+>
+> exists가 count보다 성능이 좋은 이유가 결국 **전체를 조회하지 않고 첫번째 결과만 확인**하기 때문
+
+
+
+```java
+public Boolean exist(Long id) {
+    return  
+            select(appl.applNo)
+                 .fetchFirst() != null; // 1개가 있는지 없는지 판단 (없으면 null이라 null체크)
+}
+```
+
+> `fetchFirst()` 는 내부적으로 `limit(1).fetchOne()` 
 
 
 

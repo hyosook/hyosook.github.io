@@ -4,19 +4,64 @@ title : JPA
 
 
 
-# JPA
+# JPA(Java Persistence API)
 
-JAVA의 ORM 표준인 JPA를 사용한다.
+> 자바 ORM 기술에 대한 표준 명세로, `JAVA`에서 제공하는 API이다
+>
+> ORM이기 때문에 자바 클래스와 **DB테이블**을 매핑한다
 
-ORM은 RDB와 도메인 주도 설계 사이를 해소해준다. 쿼리중심의 화면, 개발에서 벗어날 수 있다.
+### SQL Mapper
 
-해당 문서는 도메인 모델 정의가 완료된 후, JPA로 구현하는 방법을 중심으로 설명한다. 
+- `SQL` ←mapping→ Object 필드
+- SQL 문으로 직접 디비를 조작한다.
+- Mybatis, jdbcTemplate
 
-**각각 소주제에 대해서 더 자세한 점은 책, [에이펙스 기술블로그] (https://apexsoft.github.io/) 를 참고하거나, 구글링을 한다.**
+### ORM(Object-Relation Mapping/객체-관계 매핑)
+
+- `DB 데이터`
+
+  ←mapping→ Object 필드
+
+- 객체를 통해 간접적으로 디비 데이터를 다룬다.
+
+- 객체와 디비의 데이터를 자동으로 매핑해준다.
+
+  - SQL 쿼리가 아니라 **메서드로 데이터를 조작할 수 있다**.
+  - 객체간 관계를 바탕으로 **sql을 자동으로 생성**한다
+
+- JPA, Hibernate
+
+![](https://media.vlpt.us/images/adam2/post/7e6928cd-2537-45b4-a9f9-afd7c8a5e908/Untitled%202.png)
+
+
 
 ### 기능 
 1. 엔터티와 DB 테이블 매핑하는 설계 부분 (DDL 자동 생성)
 2. 매핑한 엔터티를 사용하는 부분 (SQL 자동 생성)
+
+### 지연 로딩(Lazy Loading)
+
+객체가 실제로 사용될 때 로딩하는 전략
+
+![img](https://media.vlpt.us/images/adam2/post/c34d236e-6375-40c3-86a9-211dcda2c0e3/Untitled%209.png)
+memberDAO.find(memberId)에서는 Member 객체에 대한 SELECT 쿼리만 날린다.
+
+Team team = member.getTeam()로 Team 객체를 가져온 후에 team.getName()처럼 실제로 team 객체를 건드릴 때!
+
+즉, 값이 실제로 필요한 시점에 JPA가 Team에 대한 SELECT 쿼리를 날린다.
+
+Member와 Team 객체 각각 따로 조회하기 때문에 네트워크를 2번 타게 된다.
+
+Member를 사용하는 경우에 대부분 Team도 같이 필요하다면 즉시 로딩을 사용한다.
+
+**즉시 로딩**
+
+JOIN SQL로 한 번에 연관된 객체까지 미리 조회하는 전략
+
+![img](https://media.vlpt.us/images/adam2/post/a4818fa8-c7cc-49c4-9329-df5a6a200e7f/Untitled%2010.png)
+Join을 통해 항상 연관된 모든 객체를 같이 가져온다.
+
+애플리케이션 개발할 때는 모두 지연 로딩으로 설정한 후에, 성능 최적화가 필요할 때에 옵션을 변경하는 것을 추천한다.
 
 ### 영속성 컨텍스트 (Persistence context)
 JPA에서는 영속성 컨텍스트가 존재한다. 
