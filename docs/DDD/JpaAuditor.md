@@ -4,38 +4,36 @@
 
 
 
-* Auditing Entity
+* AbstractBaseEntity
 
   ```java
   
   @EntityListeners(AuditingEntityListener.class)
   @MappedSuperclass
+  @Access(AccessType.FIELD)
   @Getter
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   public abstract class AbstractBaseEntity implements Serializable {
   
       @CreatedDate
       @Column(name = "CREATED_DATE", updatable = false)
       protected LocalDateTime createdDateTime;
   
-      @JsonFormat(pattern="yyyy-MM-dd HH:mm")
       @LastModifiedDate
       @Column(name = "LAST_MODIFIED_DATE", updatable = true)
       protected LocalDateTime lastModifiedDateTime;
   
-      @JsonIgnore
       @Column(name = "CREATED_BY", updatable = false)
       @CreatedBy
       protected String createdBy;
   
-      @JsonIgnore
       @Column(name = "LAST_MODIFIED_BY", updatable = true)
       @LastModifiedBy
       protected String lastModifiedBy;
   }
   
+  
   ```
-
+  
   
 
 * `EnableJpaAuditing`
@@ -55,6 +53,9 @@
   * createdBy나 lastModifiedBy도 자동
 
     ```java
+    /**
+     * JPA 사용할 때 시큐리티 통해서 Auditor 설정됨
+     */
     @Configuration
     @EnableJpaAuditing(auditorAwareRef="auditorProvider")
     public class PersistenceConfig {
@@ -77,8 +78,8 @@
                             });
                 }
             };
-        }
+    }
     }
     ```
-
+    
     
