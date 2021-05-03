@@ -78,7 +78,9 @@ private Long id;
 
 parent에서 child의 존재를 알지 못하거나 접근하지 못하도록 한다
 
-#### 3.  Child에서 parent  데이터 변경할수없게한다
+### 3.  Child에서 parent  데이터 변경할수없게한다
+
+> 읽기 전용 매핑 `(@JoinColumn(insertable=false, updatable=false))`를 이용해서 mappedBy 처럼  사용하게한다.
 
 ```java
 @ManyToOne(fetch = FetchType.LAZY)
