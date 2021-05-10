@@ -1,7 +1,5 @@
 # Entity
 
-
-
 반드시 레코드를 구분하는 식별자를 가지고 있다. 도메인 기능을 가지고 있다.
 
 ## 기본 형태
@@ -24,6 +22,18 @@ public class Appl extends AbstractBaseEntity {
 
 }
 ```
+
+### @Entity
+
+테이블과 매핑할 클래스는 필수로 붙혀야 함
+
+클래스에 @Entity 를 붙여주면 JPA가 Entity로서 관리 한다는 것을 의미한다.
+
+### @Table
+
+엔티티와 매핑할 테이블을 지정
+
+생략하면 매핑한 엔티티 이름을 테이블 이름으로 사용.
 
 ### 생성자
 
@@ -137,20 +147,37 @@ public class Appl extends AbstractBaseEntity {
 
 ### 칼럼
 
+| 객체 필드를 테이블 컬럼에 매핑
+
 ```java
-@Column(name = "APPL_STS_CODE")
-    @Enumerated(EnumType.STRING)
-    private Status status;
+@Column(name = "cart_id")
+private Long id;
+
+
+private String name;
+>>>  매핑 정보가 없는 필드 >> 자동으로 매핑;
 ```
 
 `@Column` 속성
 
 - name : 컬럼명 지정. 정의하지 않으면 변수명이 컬럼명이 된다.
+
 - columnDefinition : 데이터베이스 컬럼 정보 설정 (예 : 크기)
 
-```
-@ColumnDefault
-```
+- nullable : null 값 허용 여부 false일 경우, not null 제약조건이 됨. 기본값이 true
+
+- update 여부 설정
+
+  ```java
+      @CreatedDate
+      @Column(name = "created_at", updatable = false)
+      @JsonIgnore
+      private LocalDateTime createdDateTime;
+  ```
+
+  
+
+`@ColumnDefault`
 
 - 컬럼의 기본값 설정 방법
 - `@Coulmn`의 columnDefinition 속성으로 기본값을 정의하는 것 외 다른 방법

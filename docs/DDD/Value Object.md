@@ -40,12 +40,15 @@
 
 ### 2.테이블에 매핑
 
-**식별자 속성을 은닉 하여 구현
+> 식별자 속성을 은닉 하여 구현
 
-- `@CollectionTable` 로 매핑하여 구현 가능 하지만,** 그렇게 생성된 밸류 테이블은 엔터티가 아니여서 PK가 없다 (apex 사용하지 않음)
+- `@CollectionTable` 로 매핑하여 구현 가능 하지만,그렇게 생성된 밸류 테이블은 엔터티가 아니여서 PK가 없다 
+
 - PK가 없는 테이블이 가질수 있는 여러 문제점 때문에, 식별자를 은닉시켜 엔터티처럼 구성하지만, 구현하는 입장에서는 객체로 보이도록 구현한다
 
-####`IdentifiedValueObject`
+  
+
+### `IdentifiedValueObject`
 
 > 식별자를 은닉시켜 엔터티처럼 구성하지만, 구현하는 입장에서는 객체로 보이도록 구현한다
 
@@ -64,6 +67,8 @@ private Long id;
 }
 ```
 
+
+
 #### 적용주의 
 
 #### 1. 밸류타입과 엔티티는 다대일 양방향 연관관계 설정
@@ -71,8 +76,16 @@ private Long id;
 일대다 단방향 연관관계로 구현하는게 구현체가 간단하지만, **성능, 관리 문제**로 **다대일 양방향 연관관계**를 맺는게 마땅하다.
 
 - 성능 문제 : 수정이 이루어질 때 예측보다 쿼리가 2배 날라간다.
+
 - 관리 문제 : 테이블과 매핑된 테이블이 아닌 다른 엔티티에서 외래키를 관리한다
+
 - 구현적으로 보았을때 엔티티와 엔티티 관계임으로 연관관계를 맺어준다.
+
+-  단 , 주인 설정을(mappedBy ) 하면 주인쪽에서만 crud가 가능하므로  해당 방법을 사용하는경우는 , 주인설정을 따로 하지 않는다. ( 단 다른 개념적 엔티티 -엔티티  관계에서는 설정 필수)  
+
+- 3번의 child에서 읽기전용 매핑처리 필수
+
+  
 
 #### 2. parent 안에 child의 getter를 private하게 만들거나, 만들지 않는다.
 
@@ -88,13 +101,21 @@ parent에서 child의 존재를 알지 못하거나 접근하지 못하도록 �
 private Post post ;
 ```
 
-#### 4. parent 삭제시, child도 삭제
+#### 4. parent를 통해서 Child 생명주기 관리하도록 한다
 
 ```java
 @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 @JoinColumn(name = "POST_NO")
 private Set<Attachment> attachments;
 ```
+
+- **`CascadeType.ALL , orphanRemoval = true`**
+
+  두 옵션을 모두 활성화 하면 부모 엔티티를 통해서 자식의 생명 주기를 관리할 수 있음 
+  parent객체에 대한 메소드 호출만으로 자식의 생명주기 관리가 가능
+   Aggregate Root 개념을 구현할 때 유용
+
+
 
 ### EX )
 
