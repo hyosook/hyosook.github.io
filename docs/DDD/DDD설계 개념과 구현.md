@@ -81,7 +81,16 @@ tags: ["DDD", "JPA"]
 
   \- 예를 들어 쇼핑몰 사이트에서 주문 Entity내에 배송주소 정보를 우편번호 주소1, 주소2, 상세주소 이런식으로 각 컬럼으로 정의하는 것이 아니라, 주소라는 Value Object를 별도로 작성하고 주문 Entity는 주소 Value Object를 포함하는 방식으로 관계 일관성 및 단순화를 유지한다.
 
+* AGGREGATE 1개당 REPOSITORY 1개
+  - AGGREGATE ROOT를 통해서 밖에서 AGGEGATE 안의 객체로 접근함
 
+
+
+### AGGREGATE 식별시 의식할 점
+
+- CUD + 단순R(findById)에 집중
+  - 모든 R을 다 포용하려고 한다면 깊은 객체 그래프가 나옴
+- (JPA를 쓴다면) Cascade를 써도 되는 범위인가?
 
 ## Repository
 
