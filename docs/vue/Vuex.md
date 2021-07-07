@@ -497,6 +497,11 @@ export default store
 
 
 
+```
+  initialize ({ commit, rootState }) {
+    const userId = rootState['user'].userId
+```
+
 
 
 
